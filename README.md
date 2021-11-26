@@ -5,4 +5,4 @@ If you'd like to look at my github profile [click here.](https://github.com/dani
 
 You can review the [source code](https://github.com/danielmccannsayles/personal-website) for my Personal Website from my github as well. 
 
-WArning: It's not finished!
+Warning: It's not finished!
