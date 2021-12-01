@@ -1,8 +1,0 @@
-# danielmccannsayles.github.io
-My website is currently under construction: It should be finished by the end of November 30th.
-
-If you'd like to look at my github profile [click here.](https://github.com/danielmccannsayles)
-
-You can review the [source code](https://github.com/danielmccannsayles/personal-website) for my Personal Website from my github as well. 
-
-Warning: It's not finished!
