@@ -1,0 +1,51 @@
+/* Base styles */
+pre {
+  padding: 1em;
+  border-radius: 5px;
+  overflow: auto;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Function Definitions */
+span.source-python.meta-function-python {
+  color: #9cdcfe; /* Light blue */
+  font-weight: bold;
+}
+
+span.source-python.entity-name-function-python {
+  color: #dcdcaa; /* Yellowish */
+  font-weight: bold;
+}
+
+/* Keywords (like def, return) */
+span.source-python.keyword-control-flow-python {
+  color: #c586c0; /* Purple */
+  font-weight: bold;
+}
+
+/* Strings */
+span.source-python.string-quoted-double-single-line-python {
+  color: #ce9178; /* Orange */
+}
+
+/* Placeholders (like {name}) */
+span.source-python.constant-other-placeholder-python {
+  color: #4ec9b0; /* Teal */
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Punctuation (parentheses, colons) */
+span.source-python.punctuation-definition-parameters-begin-python,
+span.source-python.punctuation-section-function-begin-python,
+span.source-python.punctuation-definition-string-begin-python,
+span.source-python.punctuation-definition-string-end-python {
+  color: #d4d4d4; /* Keep punctuation subtle */
+}
+
+/* Indentation (optional) */
+span.source-python {
+  white-space: pre-wrap;
+}

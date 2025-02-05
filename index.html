@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniel</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="code-styles.css" />
+  </head>
+  <body>
+    <button onclick="toggleVisibility('main')">Toggle Content</button>
+
+    <div id="main">
+      <button onclick="toggleVisibility('content')">Toggle Content</button>
+
+      <div id="content">
+        <p>This is some content inside the div.</p>
+        <p>It will be hidden or shown when the button is pressed.</p>
+      </div>
+
+      <button onclick="toggleVisibility('content2')">Toggle Content 2</button>
+
+      <div id="content2">
+        <p>This is some content inside the div 2.</p>
+        <button onclick="toggleVisibility('content3')">Toggle Content 3</button>
+
+        <div id="content3">
+          <p>This is some content inside the div 3</p>
+        </div>
+        <p>It will be hidden or shown when the button is pressed.</p>
+      </div>
+    </div>
+
+    <div>
+      <pre><code><span class="source-python"></span><br><span class="source-python meta-function-python storage-type-function-python">def</span><span class="source-python meta-function-python"> </span><span class="source-python meta-function-python entity-name-function-python">greet</span><span class="source-python meta-function-python punctuation-definition-parameters-begin-python">(</span><span class="source-python meta-function-python meta-function-parameters-python variable-parameter-function-python">name</span><span class="source-python meta-function-python">)</span><span class="source-python meta-function-python punctuation-section-function-begin-python">:</span><br><span class="source-python">    </span><span class="source-python keyword-control-flow-python">return</span><span class="source-python"> </span><span class="source-python meta-identifier-python">f</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-begin-python">"</span><span class="source-python string-quoted-double-single-line-python">Hello, </span><span class="source-python string-quoted-double-single-line-python constant-other-placeholder-python">{name}</span><span class="source-python string-quoted-double-single-line-python">!</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-end-python">"</span><br><span class="source-python"></span><br></code></pre>
+    </div>
+
+    <script>
+      function toggleVisibility(id) {
+        var content = document.getElementById(id);
+        content.style.display =
+          content.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>
