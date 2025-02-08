@@ -8,39 +8,161 @@
     <link rel="stylesheet" href="code-styles.css" />
   </head>
   <body>
-    <button onclick="toggleVisibility('main')">Toggle Content</button>
-
-    <div id="main">
-      <button onclick="toggleVisibility('content')">Toggle Content</button>
-
-      <div id="content">
-        <p>This is some content inside the div.</p>
-        <p>It will be hidden or shown when the button is pressed.</p>
+    <div class="nb-container">
+      <div class="text-container">
+        <div class="hover-text-bar"></div>
+        <div class="text-cell">Title</div>
       </div>
 
-      <button onclick="toggleVisibility('content2')">Toggle Content 2</button>
+      <div class="text-container">
+        <div class="hover-text-bar"></div>
+        <div class="text-cell">Subtitle</div>
+      </div>
 
-      <div id="content2">
-        <p>This is some content inside the div 2.</p>
-        <button onclick="toggleVisibility('content3')">Toggle Content 3</button>
-
-        <div id="content3">
-          <p>This is some content inside the div 3</p>
+      <div class="text-container">
+        <div class="hover-text-bar"></div>
+        <div class="text-cell">
+          Lorem ipsum odor amet, consectetuer adipiscing elit. Nec tempor dis
+          natoque convallis convallis duis. Montes leo tincidunt natoque orci
+          laoreet amet tortor aptent. Maximus sem lacus potenti, venenatis
+          facilisi neque aenean convallis. Curae rhoncus nisl venenatis amet
+          lobortis ex. Justo ut vivamus fames nulla cras vestibulum dapibus.
+          Proin a massa porta vestibulum quisque dignissim. Mi magna interdum
+          non elit tellus netus molestie dapibus libero. Magnis egestas faucibus
+          varius condimentum vivamus ac mus. Ridiculus odio ullamcorper
+          vestibulum consectetur nascetur metus. Ligula ex vel justo proin
+          hendrerit; ac ullamcorper lacus? Elit ligula nibh semper condimentum
+          dapibus consectetur id. Ex ad cursus sapien morbi porta ligula
+          convallis. Volutpat primis quis magna velit, lectus euismod. Ridiculus
+          dis turpis dictumst tellus bibendum iaculis consequat? Sagittis nisi
+          et sed ex curae nam. Dolor dolor adipiscing euismod volutpat sodales
+          amet felis proin. Iaculis augue ante torquent fermentum integer
+          suspendisse nunc tristique venenatis. Gravida suscipit primis rutrum
+          ex pulvinar finibus phasellus sed. Porta suspendisse pretium
+          adipiscing conubia a torquent feugiat. Vitae pellentesque netus
+          facilisi ridiculus ultrices per interdum arcu. Luctus venenatis sem
+          tellus fames lobortis scelerisque elementum. Diam primis efficitur
+          senectus aliquet inceptos metus. Donec turpis non torquent donec
+          tellus urna justo phasellus magnis. Elementum sociosqu efficitur
+          porttitor facilisis hac primis vehicula sagittis. Molestie faucibus
+          interdum nisl auctor quam facilisis. Mi mauris natoque proin, quisque
+          sociosqu elit dictumst. Luctus nascetur non dictumst cras fusce semper
+          venenatis. Posuere orci parturient maximus curabitur rhoncus aliquet
+          praesent ornare. Finibus praesent ut quis aptent imperdiet eleifend
+          morbi fames. Laoreet natoque volutpat augue vitae parturient vel per
+          feugiat. Velit potenti mi dui aenean habitant ornare; sit sit ex.
+          Quisque diam elementum ex velit nulla. Cras potenti ex turpis, nostra
+          torquent litora netus. Ultrices ultricies mollis primis rhoncus
+          bibendum inceptos odio. Id pretium rhoncus sed semper ex.
         </div>
-        <p>It will be hidden or shown when the button is pressed.</p>
+      </div>
+
+      <div class="collapsible title-1">
+        <button class="toggle-button" onclick="toggleButton(this, 'hackathon')">
+          ^
+        </button>
+        <div>Hackathon</div>
+      </div>
+
+      <div id="hackathon">
+        <div style="height: 50px">CONTENT ...</div>
+
+        <div class="collapsible title-1">
+          <button
+            class="toggle-button"
+            onclick="toggleButton(this, 'code-section')"
+          >
+            ^
+          </button>
+          <div>Code</div>
+        </div>
+
+        <div id="code-section">
+          <pre><code><span class="source-python"></span><br><span class="source-python meta-function-python storage-type-function-python">def</span><span class="source-python meta-function-python"> </span><span class="source-python meta-function-python entity-name-function-python">greet</span><span class="source-python meta-function-python punctuation-definition-parameters-begin-python">(</span><span class="source-python meta-function-python meta-function-parameters-python variable-parameter-function-python">name</span><span class="source-python meta-function-python">)</span><span class="source-python meta-function-python punctuation-section-function-begin-python">:</span><br><span class="source-python">    </span><span class="source-python keyword-control-flow-python">return</span><span class="source-python"> </span><span class="source-python meta-identifier-python">f</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-begin-python">"</span><span class="source-python string-quoted-double-single-line-python">Hello, </span><span class="source-python string-quoted-double-single-line-python constant-other-placeholder-python">{name}</span><span class="source-python string-quoted-double-single-line-python">!</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-end-python">"</span><br><span class="source-python"></span><br></code></pre>
+        </div>
       </div>
     </div>
+    <!-- Title 1 -->
+    <!-- Title/ Daniel McCann-Sayles -->
 
-    <div>
-      <pre><code><span class="source-python"></span><br><span class="source-python meta-function-python storage-type-function-python">def</span><span class="source-python meta-function-python"> </span><span class="source-python meta-function-python entity-name-function-python">greet</span><span class="source-python meta-function-python punctuation-definition-parameters-begin-python">(</span><span class="source-python meta-function-python meta-function-parameters-python variable-parameter-function-python">name</span><span class="source-python meta-function-python">)</span><span class="source-python meta-function-python punctuation-section-function-begin-python">:</span><br><span class="source-python">    </span><span class="source-python keyword-control-flow-python">return</span><span class="source-python"> </span><span class="source-python meta-identifier-python">f</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-begin-python">"</span><span class="source-python string-quoted-double-single-line-python">Hello, </span><span class="source-python string-quoted-double-single-line-python constant-other-placeholder-python">{name}</span><span class="source-python string-quoted-double-single-line-python">!</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-end-python">"</span><br><span class="source-python"></span><br></code></pre>
-    </div>
+    <!-- Summary -->
+
+    <!-- Work Experience -->
+
+    <!-- Projects -->
+
+    <!-- title 2 -->
+    <!--    kid fight -->
+
+    <!-- title 3 -->
+    <!--       intro -->
+
+    <!--       code -->
 
     <script>
-      function toggleVisibility(id) {
-        var content = document.getElementById(id);
+      /** Pass 'this' to edit css on button, and id of div you want to control */
+      function toggleButton(button, id) {
+        button.textContent = button.textContent === "^" ? "v" : "^";
+        let content = document.getElementById(id);
         content.style.display =
           content.style.display === "none" ? "block" : "none";
       }
+
+      //TODO: move this into last selected bar js file
+
+      /** Keep reference to lastSelectedBar*/
+      let lastSelectedBar = null;
+
+      //TODO: code to replicate the effect where on leaving the page the selected bar turns gray but still selected
+      // // user left
+      // window.addEventListener("blur", () => {
+      //   if (lastSelectedBar)
+      //     lastSelectedBar.classList.remove("text-bar-selected");
+      //   lastSelectedBar = null
+      // });
+
+      // //user returned
+      // window.addEventListener("focus", () => {
+      //   if (lastSelectedBar) lastSelectedBar.classList.add("text-bar-selected");
+      // });
+
+      /** Add onclick to textbar*/
+      const elements = document.querySelectorAll(".hover-text-bar");
+      elements.forEach((element) => {
+        element.addEventListener("click", (event) => {
+          const textBar = event.target;
+          if (!textBar) return;
+          const textCell = textBar.nextElementSibling;
+          if (!textCell) return;
+
+          // Select the bar (make it blue)
+          if (lastSelectedBar !== textBar) {
+            if (lastSelectedBar)
+              lastSelectedBar.classList.remove("text-bar-selected");
+
+            textBar.classList.add("text-bar-selected");
+            lastSelectedBar = textBar;
+          }
+
+          // Check if text is long enough to truncate
+          const maxLength = 25;
+          if (textCell.dataset.fullText < maxLength) return;
+
+          // Assign fulltext once
+          if (!textCell.dataset.fullText)
+            textCell.dataset.fullText = textCell.textContent;
+
+          // Toggle - add three to max length to account for the ellipses..
+          if (textCell.textContent.length > maxLength + 3) {
+            textCell.textContent =
+              textCell.dataset.fullText.slice(0, maxLength) + "...";
+            textCell.style.whiteSpace = "nowrap";
+          } else {
+            textCell.textContent = textCell.dataset.fullText;
+            textCell.style.whiteSpace = "normal";
+          }
+        });
+      });
     </script>
   </body>
 </html>

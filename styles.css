@@ -1,10 +1,88 @@
 body {
-  background-color: #1f1f1f;
+  margin: 0;
+  margin-left: 10px;
+  background-color: #181818;
   color: #cccccc;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
     sans-serif;
 }
 
+/* Notebook - maxes out at 900px */
+.nb-container {
+  background-color: #1f1f1f;
+  max-width: 900px;
+  margin: auto;
+  box-sizing: border-box;
+  border: 2px #2b2b2b;
+}
+
+/* Text cell & container */
+.text-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.text-cell {
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+/* Text Bar */
+.hover-text-bar {
+  position: absolute;
+  left: 4px;
+  width: 3px;
+  height: 100%;
+  background: #37373d;
+  border-radius: 2px;
+  opacity: 0;
+  /* transition: opacity 0.2s ease; */
+  pointer-events: none; /* Prevent interference when not hovered */
+}
+
+.text-container:hover .hover-text-bar {
+  opacity: 1;
+  pointer-events: auto; /* Allow clicks when visible */
+  cursor: pointer;
+}
+
+.hover-text-bar:hover {
+  width: 4px;
+  left: 3px;
+}
+
+/* Text bar clicked  */
+.text-bar-selected {
+  opacity: 1;
+  background: #3077d2;
+}
+
 .code-cell {
   font-family: Menlo, Consolas, "Courier New", monospace;
 }
+
+/* button */
+.collapsible {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* TODO: make this use an actual icon lol */
+.toggle-button {
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 5px;
+  margin-right: 5px;
+  outline: none;
+  color: #cccccc;
+}
+
+/* Title styles */
+.title-1 {
+  font-size: 20px;
+}
+
+/* Testing */
