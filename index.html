@@ -6,54 +6,66 @@
     <title>Daniel</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="code-styles.css" />
+    <!-- CODICON Icons  -->
+    <link
+      rel="stylesheet"
+      href="https://microsoft.github.io/vscode-codicons/dist/codicon.css"
+    />
   </head>
   <body>
     <div class="nb-container">
       <div class="text-container">
         <div class="hover-text-bar"></div>
-        <div class="text-cell">Title</div>
+        <i
+          class="title-arrow-toggle codicon codicon-chevron-down"
+          onclick="toggleArrow(this, 'test-section')"
+        ></i>
+        <div class="text-cell title-1">Title</div>
       </div>
 
-      <div class="text-container">
-        <div class="hover-text-bar"></div>
-        <div class="text-cell">Subtitle</div>
-      </div>
+      <div id="test-section">
+        <div class="text-container">
+          <div class="hover-text-bar"></div>
+          <div class="text-cell">Subtitle</div>
+        </div>
 
-      <div class="text-container">
-        <div class="hover-text-bar"></div>
-        <div class="text-cell">
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Nec tempor dis
-          natoque convallis convallis duis. Montes leo tincidunt natoque orci
-          laoreet amet tortor aptent. Maximus sem lacus potenti, venenatis
-          facilisi neque aenean convallis. Curae rhoncus nisl venenatis amet
-          lobortis ex. Justo ut vivamus fames nulla cras vestibulum dapibus.
-          Proin a massa porta vestibulum quisque dignissim. Mi magna interdum
-          non elit tellus netus molestie dapibus libero. Magnis egestas faucibus
-          varius condimentum vivamus ac mus. Ridiculus odio ullamcorper
-          vestibulum consectetur nascetur metus. Ligula ex vel justo proin
-          hendrerit; ac ullamcorper lacus? Elit ligula nibh semper condimentum
-          dapibus consectetur id. Ex ad cursus sapien morbi porta ligula
-          convallis. Volutpat primis quis magna velit, lectus euismod. Ridiculus
-          dis turpis dictumst tellus bibendum iaculis consequat? Sagittis nisi
-          et sed ex curae nam. Dolor dolor adipiscing euismod volutpat sodales
-          amet felis proin. Iaculis augue ante torquent fermentum integer
-          suspendisse nunc tristique venenatis. Gravida suscipit primis rutrum
-          ex pulvinar finibus phasellus sed. Porta suspendisse pretium
-          adipiscing conubia a torquent feugiat. Vitae pellentesque netus
-          facilisi ridiculus ultrices per interdum arcu. Luctus venenatis sem
-          tellus fames lobortis scelerisque elementum. Diam primis efficitur
-          senectus aliquet inceptos metus. Donec turpis non torquent donec
-          tellus urna justo phasellus magnis. Elementum sociosqu efficitur
-          porttitor facilisis hac primis vehicula sagittis. Molestie faucibus
-          interdum nisl auctor quam facilisis. Mi mauris natoque proin, quisque
-          sociosqu elit dictumst. Luctus nascetur non dictumst cras fusce semper
-          venenatis. Posuere orci parturient maximus curabitur rhoncus aliquet
-          praesent ornare. Finibus praesent ut quis aptent imperdiet eleifend
-          morbi fames. Laoreet natoque volutpat augue vitae parturient vel per
-          feugiat. Velit potenti mi dui aenean habitant ornare; sit sit ex.
-          Quisque diam elementum ex velit nulla. Cras potenti ex turpis, nostra
-          torquent litora netus. Ultrices ultricies mollis primis rhoncus
-          bibendum inceptos odio. Id pretium rhoncus sed semper ex.
+        <div class="text-container">
+          <div class="hover-text-bar"></div>
+          <div class="text-cell">
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Nec tempor dis
+            natoque convallis convallis duis. Montes leo tincidunt natoque orci
+            laoreet amet tortor aptent. Maximus sem lacus potenti, venenatis
+            facilisi neque aenean convallis. Curae rhoncus nisl venenatis amet
+            lobortis ex. Justo ut vivamus fames nulla cras vestibulum dapibus.
+            Proin a massa porta vestibulum quisque dignissim. Mi magna interdum
+            non elit tellus netus molestie dapibus libero. Magnis egestas
+            faucibus varius condimentum vivamus ac mus. Ridiculus odio
+            ullamcorper vestibulum consectetur nascetur metus. Ligula ex vel
+            justo proin hendrerit; ac ullamcorper lacus? Elit ligula nibh semper
+            condimentum dapibus consectetur id. Ex ad cursus sapien morbi porta
+            ligula convallis. Volutpat primis quis magna velit, lectus euismod.
+            Ridiculus dis turpis dictumst tellus bibendum iaculis consequat?
+            Sagittis nisi et sed ex curae nam. Dolor dolor adipiscing euismod
+            volutpat sodales amet felis proin. Iaculis augue ante torquent
+            fermentum integer suspendisse nunc tristique venenatis. Gravida
+            suscipit primis rutrum ex pulvinar finibus phasellus sed. Porta
+            suspendisse pretium adipiscing conubia a torquent feugiat. Vitae
+            pellentesque netus facilisi ridiculus ultrices per interdum arcu.
+            Luctus venenatis sem tellus fames lobortis scelerisque elementum.
+            Diam primis efficitur senectus aliquet inceptos metus. Donec turpis
+            non torquent donec tellus urna justo phasellus magnis. Elementum
+            sociosqu efficitur porttitor facilisis hac primis vehicula sagittis.
+            Molestie faucibus interdum nisl auctor quam facilisis. Mi mauris
+            natoque proin, quisque sociosqu elit dictumst. Luctus nascetur non
+            dictumst cras fusce semper venenatis. Posuere orci parturient
+            maximus curabitur rhoncus aliquet praesent ornare. Finibus praesent
+            ut quis aptent imperdiet eleifend morbi fames. Laoreet natoque
+            volutpat augue vitae parturient vel per feugiat. Velit potenti mi
+            dui aenean habitant ornare; sit sit ex. Quisque diam elementum ex
+            velit nulla. Cras potenti ex turpis, nostra torquent litora netus.
+            Ultrices ultricies mollis primis rhoncus bibendum inceptos odio. Id
+            pretium rhoncus sed semper ex.
+          </div>
         </div>
       </div>
 
@@ -108,6 +120,28 @@
           content.style.display === "none" ? "block" : "none";
       }
 
+      function toggleArrow(arrow, id) {
+        if (arrow.classList.contains("codicon-chevron-right")) {
+          arrow.classList.replace(
+            "codicon-chevron-right",
+            "codicon-chevron-down"
+          );
+        } else {
+          arrow.classList.replace(
+            "codicon-chevron-down",
+            "codicon-chevron-right"
+          );
+        }
+
+        // hide/show content
+        let content = document.getElementById(id);
+        content.style.display =
+          content.style.display === "none" ? "block" : "none";
+
+        //TODO: add a 'x cells hidden' - add an element that shows this.
+        // Make its id the content one + placeholder. Switch its display, and update the number
+      }
+
       //TODO: move this into last selected bar js file
 
       /** Keep reference to lastSelectedBar*/
@@ -130,18 +164,16 @@
       const elements = document.querySelectorAll(".hover-text-bar");
       elements.forEach((element) => {
         element.addEventListener("click", (event) => {
-          const textBar = event.target;
-          if (!textBar) return;
-          const textCell = textBar.nextElementSibling;
+          const textCell = element.nextElementSibling;
           if (!textCell) return;
 
           // Select the bar (make it blue)
-          if (lastSelectedBar !== textBar) {
+          if (lastSelectedBar !== element) {
             if (lastSelectedBar)
               lastSelectedBar.classList.remove("text-bar-selected");
 
-            textBar.classList.add("text-bar-selected");
-            lastSelectedBar = textBar;
+            element.classList.add("text-bar-selected");
+            lastSelectedBar = element;
           }
 
           // Check if text is long enough to truncate
@@ -156,10 +188,8 @@
           if (textCell.textContent.length > maxLength + 3) {
             textCell.textContent =
               textCell.dataset.fullText.slice(0, maxLength) + "...";
-            textCell.style.whiteSpace = "nowrap";
           } else {
             textCell.textContent = textCell.dataset.fullText;
-            textCell.style.whiteSpace = "normal";
           }
         });
       });

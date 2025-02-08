@@ -36,13 +36,12 @@ body {
   background: #37373d;
   border-radius: 2px;
   opacity: 0;
-  /* transition: opacity 0.2s ease; */
-  pointer-events: none; /* Prevent interference when not hovered */
+  pointer-events: none;
 }
 
 .text-container:hover .hover-text-bar {
   opacity: 1;
-  pointer-events: auto; /* Allow clicks when visible */
+  pointer-events: auto;
   cursor: pointer;
 }
 
@@ -51,17 +50,29 @@ body {
   left: 3px;
 }
 
-/* Text bar clicked  */
 .text-bar-selected {
   opacity: 1;
   background: #3077d2;
 }
 
+/* Code */
 .code-cell {
   font-family: Menlo, Consolas, "Courier New", monospace;
 }
 
-/* button */
+/* Title styles */
+.title-1 {
+  font-size: 20px;
+}
+
+/* Toggle Button */
+.title-arrow-toggle {
+  position: absolute;
+  bottom: 2px;
+  left: 17px;
+  cursor: pointer;
+}
+
 .collapsible {
   display: flex;
   align-items: flex-start;
@@ -78,11 +89,6 @@ body {
   margin-right: 5px;
   outline: none;
   color: #cccccc;
-}
-
-/* Title styles */
-.title-1 {
-  font-size: 20px;
 }
 
 /* Testing */
