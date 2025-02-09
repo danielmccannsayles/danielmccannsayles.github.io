@@ -11,9 +11,12 @@
       rel="stylesheet"
       href="https://microsoft.github.io/vscode-codicons/dist/codicon.css"
     />
+    <script src="textBar.js" defer></script>
+    <script src="toggleArrow.js" defer></script>
   </head>
   <body>
     <div class="nb-container">
+      <!-- Title block -->
       <div class="text-container">
         <div class="hover-text-bar"></div>
         <i
@@ -23,6 +26,7 @@
         <div class="text-cell title-1">Title</div>
       </div>
 
+      <!-- Section block -->
       <div id="test-section">
         <div class="text-container">
           <div class="hover-text-bar"></div>
@@ -69,6 +73,16 @@
         </div>
       </div>
 
+      <div class="code-container">
+        <div class="hover-text-bar"></div>
+        <div class="code-cell">SOME CODE</div>
+      </div>
+
+      <!-- Cell block -->
+      <div class="code-cell">
+        <pre><code><span class="source-python"></span><br><span class="source-python meta-function-python storage-type-function-python">def</span><span class="source-python meta-function-python"> </span><span class="source-python meta-function-python entity-name-function-python">greet</span><span class="source-python meta-function-python punctuation-definition-parameters-begin-python">(</span><span class="source-python meta-function-python meta-function-parameters-python variable-parameter-function-python">name</span><span class="source-python meta-function-python">)</span><span class="source-python meta-function-python punctuation-section-function-begin-python">:</span><br><span class="source-python">    </span><span class="source-python keyword-control-flow-python">return</span><span class="source-python"> </span><span class="source-python meta-identifier-python">f</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-begin-python">"</span><span class="source-python string-quoted-double-single-line-python">Hello, </span><span class="source-python string-quoted-double-single-line-python constant-other-placeholder-python">{name}</span><span class="source-python string-quoted-double-single-line-python">!</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-end-python">"</span><br><span class="source-python"></span><br></code></pre>
+      </div>
+
       <div class="collapsible title-1">
         <button class="toggle-button" onclick="toggleButton(this, 'hackathon')">
           ^
@@ -111,88 +125,6 @@
 
     <!--       code -->
 
-    <script>
-      /** Pass 'this' to edit css on button, and id of div you want to control */
-      function toggleButton(button, id) {
-        button.textContent = button.textContent === "^" ? "v" : "^";
-        let content = document.getElementById(id);
-        content.style.display =
-          content.style.display === "none" ? "block" : "none";
-      }
-
-      function toggleArrow(arrow, id) {
-        if (arrow.classList.contains("codicon-chevron-right")) {
-          arrow.classList.replace(
-            "codicon-chevron-right",
-            "codicon-chevron-down"
-          );
-        } else {
-          arrow.classList.replace(
-            "codicon-chevron-down",
-            "codicon-chevron-right"
-          );
-        }
-
-        // hide/show content
-        let content = document.getElementById(id);
-        content.style.display =
-          content.style.display === "none" ? "block" : "none";
-
-        //TODO: add a 'x cells hidden' - add an element that shows this.
-        // Make its id the content one + placeholder. Switch its display, and update the number
-      }
-
-      //TODO: move this into last selected bar js file
-
-      /** Keep reference to lastSelectedBar*/
-      let lastSelectedBar = null;
-
-      //TODO: code to replicate the effect where on leaving the page the selected bar turns gray but still selected
-      // // user left
-      // window.addEventListener("blur", () => {
-      //   if (lastSelectedBar)
-      //     lastSelectedBar.classList.remove("text-bar-selected");
-      //   lastSelectedBar = null
-      // });
-
-      // //user returned
-      // window.addEventListener("focus", () => {
-      //   if (lastSelectedBar) lastSelectedBar.classList.add("text-bar-selected");
-      // });
-
-      /** Add onclick to textbar*/
-      const elements = document.querySelectorAll(".hover-text-bar");
-      elements.forEach((element) => {
-        element.addEventListener("click", (event) => {
-          const textCell = element.nextElementSibling;
-          if (!textCell) return;
-
-          // Select the bar (make it blue)
-          if (lastSelectedBar !== element) {
-            if (lastSelectedBar)
-              lastSelectedBar.classList.remove("text-bar-selected");
-
-            element.classList.add("text-bar-selected");
-            lastSelectedBar = element;
-          }
-
-          // Check if text is long enough to truncate
-          const maxLength = 25;
-          if (textCell.dataset.fullText < maxLength) return;
-
-          // Assign fulltext once
-          if (!textCell.dataset.fullText)
-            textCell.dataset.fullText = textCell.textContent;
-
-          // Toggle - add three to max length to account for the ellipses..
-          if (textCell.textContent.length > maxLength + 3) {
-            textCell.textContent =
-              textCell.dataset.fullText.slice(0, maxLength) + "...";
-          } else {
-            textCell.textContent = textCell.dataset.fullText;
-          }
-        });
-      });
-    </script>
+    <script></script>
   </body>
 </html>

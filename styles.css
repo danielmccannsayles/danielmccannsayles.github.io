@@ -55,11 +55,6 @@ body {
   background: #3077d2;
 }
 
-/* Code */
-.code-cell {
-  font-family: Menlo, Consolas, "Courier New", monospace;
-}
-
 /* Title styles */
 .title-1 {
   font-size: 20px;
