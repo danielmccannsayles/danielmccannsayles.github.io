@@ -60,13 +60,10 @@ async function highlightCode(code) {
   return result;
 }
 
-// Example Python code
 const code = `
-def greet(name):
-    return f"Hello, {name}!"
+
 `;
 
 highlightCode(code).then((html) => {
   fs.writeFileSync("output.html", html);
-  console.log("Syntax highlighted code saved to output.html");
 });
