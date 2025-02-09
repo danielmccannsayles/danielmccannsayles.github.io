@@ -16,15 +16,13 @@ let lastSelectedBar = null;
 //   if (lastSelectedBar) lastSelectedBar.classList.add("bar-selected");
 // });
 
-/** Add onclick to textbar*/
-// TODO: change to select on the cell-container. That way on click of the whole container changes bar
-// By using the event target I can see if they're clicking the hover-bar.
-const elements = document.querySelectorAll(".text-container");
+/** Add onclick to hover bars*/
+const elements = document.querySelectorAll(".cell-container");
 elements.forEach((element) => {
   element.addEventListener("click", (event) => {
-    const textCell = element.querySelector(".cell");
+    const cell = element.querySelector(".cell");
     const hoverBar = element.querySelector(".hover-bar");
-    if (!(textCell && hoverBar)) return;
+    if (!(cell && hoverBar)) return;
 
     // Always select the bar
     if (lastSelectedBar !== element) {
@@ -33,84 +31,76 @@ elements.forEach((element) => {
       lastSelectedBar = hoverBar;
     }
 
-    // If hover bar clicked, toggle the text
+    // If hover bar clicked, toggle using text or code
     if (event.target == hoverBar) {
-      // Check if text is long enough to truncate
-      const maxLength = 25;
-      if (textCell.dataset.fullText < maxLength) return;
-
-      // Assign fulltext once
-      if (!textCell.dataset.fullText)
-        textCell.dataset.fullText = textCell.textContent;
-
-      // Toggle - add three to max length to account for the ellipses..
-      if (textCell.textContent.length > maxLength + 3) {
-        textCell.textContent =
-          textCell.dataset.fullText.slice(0, maxLength) + "...";
+      if (element.classList.contains("code-container")) {
+        toggleCode(cell);
       } else {
-        textCell.textContent = textCell.dataset.fullText;
+        toggleText(cell);
       }
     }
   });
 });
 
-/** Code bar - assumes that inside the div is a pre, and then a code. */
-document.querySelectorAll(".code-bar").forEach((element) => {
-  element.addEventListener("click", () => {
-    const codeCell = element.nextElementSibling;
-    if (!codeCell) return;
+/** Controls truncating/showing for text cells */
+function toggleText(textCell) {
+  // Check if text is long enough to truncate
+  const maxLength = 25;
+  if (textCell.dataset.fullText < maxLength) return;
 
-    // Select the bar (make it blue)
-    if (lastSelectedBar !== element) {
-      if (lastSelectedBar) lastSelectedBar.classList.remove("bar-selected");
+  // Assign fulltext once
+  if (!textCell.dataset.fullText)
+    textCell.dataset.fullText = textCell.textContent;
 
-      element.classList.add("bar-selected");
-      lastSelectedBar = element;
+  // Toggle - add three to max length to account for the ellipses..
+  if (textCell.textContent.length > maxLength + 3) {
+    textCell.textContent =
+      textCell.dataset.fullText.slice(0, maxLength) + "...";
+  } else {
+    textCell.textContent = textCell.dataset.fullText;
+  }
+}
+
+/** Controls truncating/showing for code cells */
+function toggleCode(codeCell) {
+  const maxLength = 20;
+  // Store original HTML (this keeps all spans, classes, formatting)
+  if (!codeCell.dataset.fullHTML)
+    codeCell.dataset.fullHTML = codeCell.innerHTML;
+
+  if (codeCell.classList.contains("code-cell-truncated")) {
+    codeCell.classList.remove("code-cell-truncated");
+    codeCell.innerHTML = codeCell.dataset.fullHTML;
+  } else {
+    let charCount = 0;
+    let truncatedHTML = "";
+
+    // Get the <code>. div > pre > code
+    const codeElement = codeCell.querySelector("pre code");
+    if (!codeElement) return;
+
+    // Iterate over els while tracking count
+    for (const el of Array.from(codeElement.children)) {
+      // Remove br
+      if (el.tagName == "BR") continue;
+      if (charCount >= maxLength) break;
+      const span = el;
+
+      const spanText = span.textContent;
+      const remainingChars = maxLength - charCount;
+      if (spanText.length > remainingChars) {
+        truncatedHTML += `<span class="${span.className}">${spanText.slice(
+          0,
+          remainingChars
+        )}</span>`;
+        break;
+      } else {
+        truncatedHTML += span.outerHTML;
+        charCount += spanText.length;
+      }
     }
 
-    const maxLength = 20;
-
-    //TODO: get rid of padding on front when squished.
-
-    // Store original HTML (this keeps all spans, classes, formatting)
-    if (!codeCell.dataset.fullHTML)
-      codeCell.dataset.fullHTML = codeCell.innerHTML;
-
-    if (codeCell.classList.contains("code-cell-truncated")) {
-      // Restore original spans and classes
-      codeCell.innerHTML = codeCell.dataset.fullHTML;
-      codeCell.classList.remove("code-cell-truncated");
-      codeCell.style.whiteSpace = "pre-wrap"; // Keep format
-    } else {
-      let charCount = 0;
-      let truncatedHTML = "";
-
-      // Get the <code>. div > pre > code
-      const codeElement = codeCell.querySelector("pre code");
-
-      // Iterate over els while tracking count
-      Array.from(codeElement.children).forEach((el) => {
-        // Remove br
-        if (el.tagName == "BR") return;
-        if (charCount >= maxLength) return; // Stop if max length reached
-        const span = el;
-
-        const spanText = span.textContent;
-        const remainingChars = maxLength - charCount;
-        if (spanText.length > remainingChars) {
-          truncatedHTML += `<span class="${span.className}">${spanText.slice(
-            0,
-            remainingChars
-          )}</span>`;
-          charCount = maxLength; // Stop at max length
-        } else {
-          truncatedHTML += span.outerHTML; // Keep full span
-          charCount += spanText.length;
-        }
-      });
-
-      codeElement.innerHTML = truncatedHTML + `<span>...</span>`; // Set truncated HTML
-      codeCell.classList.add("code-cell-truncated");
-    }
-  });
-});
+    codeElement.innerHTML = truncatedHTML + `<span>...</span>`;
+    codeCell.classList.add("code-cell-truncated");
+  }
+}
