@@ -1,7 +1,7 @@
 /** This file contains code to control the clickable bars on the left side of text content */
 
-/** Keep reference to lastSelectedBar*/
-let lastSelectedBar = null;
+/** Global function to deselect the last selected hoverBar.  */
+let deselectOldBars = () => {};
 
 //TODO: code to replicate the effect where on leaving the page the selected bar turns gray but still selected
 // // user left
@@ -16,31 +16,63 @@ let lastSelectedBar = null;
 //   if (lastSelectedBar) lastSelectedBar.classList.add("bar-selected");
 // });
 
-/** Add onclick to hover bars*/
-const elements = document.querySelectorAll(".cell-container");
-elements.forEach((element) => {
-  element.addEventListener("click", (event) => {
-    const cell = element.querySelector(".cell");
-    const hoverBar = element.querySelector(".hover-bar");
+/** Setup hover bar functionality to all cell containers*/
+document.querySelectorAll(".cell-container").forEach((container) => {
+  container.addEventListener("click", (event) => {
+    const cell = container.querySelector(".cell");
+    const hoverBar = container.querySelector(".hover-bar");
     if (!(cell && hoverBar)) return;
 
-    // Always select the bar
-    if (lastSelectedBar !== element) {
-      if (lastSelectedBar) lastSelectedBar.classList.remove("bar-selected");
-      hoverBar.classList.add("bar-selected");
-      lastSelectedBar = hoverBar;
+    // If it's a code or output container, we need to link them..
+    if (container.classList.contains("code-container")) {
+      const otherHoverBar =
+        container.nextElementSibling.querySelector(".hover-bar");
+      selectCodeBars(hoverBar, otherHoverBar);
+    } else if (container.classList.contains("output-container")) {
+      const otherHoverBar =
+        container.previousElementSibling.querySelector(".hover-bar");
+      selectCodeBars(hoverBar, otherHoverBar);
+    } else {
+      // Default
+      if (!hoverBar.classList.contains("bar-selected")) {
+        deselectOldBars();
+        hoverBar.classList.add("bar-selected");
+        deselectOldBars = () => {
+          hoverBar.classList.remove("bar-selected");
+        };
+      }
     }
 
     // If hover bar clicked, toggle using text or code
     if (event.target == hoverBar) {
-      if (element.classList.contains("code-container")) {
+      if (container.classList.contains("code-container")) {
         toggleCode(cell);
+      } else if (container.classList.contains("output-container")) {
+        toggleOutput(cell);
       } else {
         toggleText(cell);
       }
     }
   });
 });
+
+/** Code bars are linked so we do it in this way. mainContainer is clicked element, other is linked */
+function selectCodeBars(hoverBar, otherHoverBar) {
+  if (
+    !(
+      hoverBar.classList.contains("bar-selected") &&
+      otherHoverBar.classList.contains("bar-selected")
+    )
+  ) {
+    deselectOldBars();
+    hoverBar.classList.add("bar-selected");
+    otherHoverBar.classList.add("bar-selected");
+    deselectOldBars = () => {
+      hoverBar.classList.remove("bar-selected");
+      otherHoverBar.classList.remove("bar-selected");
+    };
+  }
+}
 
 /** Controls truncating/showing for text cells */
 function toggleText(textCell) {
@@ -61,6 +93,17 @@ function toggleText(textCell) {
   }
 }
 
+/** Controls truncating/showing for output cells */
+function toggleOutput(outputCell) {
+  if (!outputCell.dataset.fullText)
+    outputCell.dataset.fullText = outputCell.textContent;
+
+  const collapsed = outputCell.dataset.collapsed;
+  if (collapsed) outputCell.textContent = outputCell.dataset.fullText;
+  else outputCell.textContent = "Outputs are collapsed ...";
+  outputCell.dataset.collapsed = !collapsed;
+}
+
 /** Controls truncating/showing for code cells */
 function toggleCode(codeCell) {
   const maxLength = 20;
@@ -79,6 +122,7 @@ function toggleCode(codeCell) {
     const codeElement = codeCell.querySelector("pre code");
     if (!codeElement) return;
 
+    // TODO: update this to save it in dataset to avoid recalc?
     // Iterate over els while tracking count
     for (const el of Array.from(codeElement.children)) {
       // Remove br
