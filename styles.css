@@ -13,22 +13,25 @@ body {
   max-width: 900px;
   margin: auto;
   box-sizing: border-box;
-  border: 2px #2b2b2b;
+  border: 1px #2b2b2b solid;
 }
 
-/* Text cell & container */
-.text-container {
+/* Cell container - generic */
+.cell-container {
   position: relative;
   margin-bottom: 20px;
-}
-
-.text-cell {
   padding-left: 40px;
   padding-right: 20px;
 }
 
-/* Text Bar */
-.hover-text-bar {
+.code-cell {
+  border: 1px #37373d solid;
+  padding-left: 30px;
+  background: #181818;
+}
+
+/* Hover Bar - generic */
+.hover-bar {
   position: absolute;
   left: 4px;
   width: 3px;
@@ -39,18 +42,18 @@ body {
   pointer-events: none;
 }
 
-.text-container:hover .hover-text-bar {
+.cell-container:hover .hover-bar {
   opacity: 1;
   pointer-events: auto;
   cursor: pointer;
 }
 
-.hover-text-bar:hover {
+.hover-bar:hover {
   width: 4px;
   left: 3px;
 }
 
-.text-bar-selected {
+.bar-selected {
   opacity: 1;
   background: #3077d2;
 }

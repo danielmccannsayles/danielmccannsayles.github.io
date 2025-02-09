@@ -11,31 +11,31 @@
       rel="stylesheet"
       href="https://microsoft.github.io/vscode-codicons/dist/codicon.css"
     />
-    <script src="textBar.js" defer></script>
+    <script src="hoverBar.js" defer></script>
     <script src="toggleArrow.js" defer></script>
   </head>
   <body>
     <div class="nb-container">
       <!-- Title block -->
-      <div class="text-container">
-        <div class="hover-text-bar"></div>
+      <div class="cell-container">
+        <div class="hover-bar text-bar"></div>
         <i
           class="title-arrow-toggle codicon codicon-chevron-down"
           onclick="toggleArrow(this, 'test-section')"
         ></i>
-        <div class="text-cell title-1">Title</div>
+        <div class="cell title-1">Title</div>
       </div>
 
       <!-- Section block -->
       <div id="test-section">
-        <div class="text-container">
-          <div class="hover-text-bar"></div>
-          <div class="text-cell">Subtitle</div>
+        <div class="cell-container">
+          <div class="hover-bar text-bar"></div>
+          <div class="cell">Subtitle</div>
         </div>
 
-        <div class="text-container">
-          <div class="hover-text-bar"></div>
-          <div class="text-cell">
+        <div class="cell-container">
+          <div class="hover-bar text-bar"></div>
+          <div class="cell">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Nec tempor dis
             natoque convallis convallis duis. Montes leo tincidunt natoque orci
             laoreet amet tortor aptent. Maximus sem lacus potenti, venenatis
@@ -73,15 +73,13 @@
         </div>
       </div>
 
-      <div class="code-container">
-        <div class="hover-text-bar"></div>
-        <div class="code-cell">SOME CODE</div>
+      <div class="cell-container">
+        <div class="hover-bar code-bar"></div>
+        <div class="cell code-cell"><pre><code><span class="source-python"></span><br><span class="source-python meta-function-python storage-type-function-python">def</span><span class="source-python meta-function-python"> </span><span class="source-python meta-function-python entity-name-function-python">greet</span><span class="source-python meta-function-python punctuation-definition-parameters-begin-python">(</span><span class="source-python meta-function-python meta-function-parameters-python variable-parameter-function-python">name</span><span class="source-python meta-function-python">)</span><span class="source-python meta-function-python punctuation-section-function-begin-python">:</span><br><span class="source-python">    </span><span class="source-python keyword-control-flow-python">return</span><span class="source-python"> </span><span class="source-python meta-identifier-python">f</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-begin-python">"</span><span class="source-python string-quoted-double-single-line-python">Hello, </span><span class="source-python string-quoted-double-single-line-python constant-other-placeholder-python">{name}</span><span class="source-python string-quoted-double-single-line-python">!</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-end-python">"</span><br><span class="source-python"></span><br></code></pre></div></div>
       </div>
 
       <!-- Cell block -->
-      <div class="code-cell">
-        <pre><code><span class="source-python"></span><br><span class="source-python meta-function-python storage-type-function-python">def</span><span class="source-python meta-function-python"> </span><span class="source-python meta-function-python entity-name-function-python">greet</span><span class="source-python meta-function-python punctuation-definition-parameters-begin-python">(</span><span class="source-python meta-function-python meta-function-parameters-python variable-parameter-function-python">name</span><span class="source-python meta-function-python">)</span><span class="source-python meta-function-python punctuation-section-function-begin-python">:</span><br><span class="source-python">    </span><span class="source-python keyword-control-flow-python">return</span><span class="source-python"> </span><span class="source-python meta-identifier-python">f</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-begin-python">"</span><span class="source-python string-quoted-double-single-line-python">Hello, </span><span class="source-python string-quoted-double-single-line-python constant-other-placeholder-python">{name}</span><span class="source-python string-quoted-double-single-line-python">!</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-end-python">"</span><br><span class="source-python"></span><br></code></pre>
-      </div>
+     
 
       <div class="collapsible title-1">
         <button class="toggle-button" onclick="toggleButton(this, 'hackathon')">
