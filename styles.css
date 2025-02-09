@@ -30,6 +30,13 @@ body {
   background: #181818;
 }
 
+.code-cell-truncated {
+  padding-left: 10px;
+  border: none;
+  border-bottom: 1px #37373d solid;
+  background: none;
+}
+
 /* Hover Bar - generic */
 .hover-bar {
   position: absolute;

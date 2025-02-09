@@ -49,7 +49,7 @@ elements.forEach((element) => {
   });
 });
 
-/** Code bar */
+/** Code bar - assumes that inside the div is a pre, and then a code. */
 document.querySelectorAll(".code-bar").forEach((element) => {
   element.addEventListener("click", () => {
     const codeCell = element.nextElementSibling;
@@ -65,23 +65,30 @@ document.querySelectorAll(".code-bar").forEach((element) => {
 
     const maxLength = 20;
 
+    //TODO: get rid of padding on front when squished.
+
     // Store original HTML (this keeps all spans, classes, formatting)
     if (!codeCell.dataset.fullHTML)
       codeCell.dataset.fullHTML = codeCell.innerHTML;
 
-    if (codeCell.dataset.truncated === "true") {
+    if (codeCell.classList.contains("code-cell-truncated")) {
       // Restore original spans and classes
       codeCell.innerHTML = codeCell.dataset.fullHTML;
-      codeCell.dataset.truncated = "false";
+      codeCell.classList.remove("code-cell-truncated");
       codeCell.style.whiteSpace = "pre-wrap"; // Keep format
     } else {
-      // Truncate while keeping structure
       let charCount = 0;
       let truncatedHTML = "";
 
-      // Iterate over spans while tracking the character count
-      Array.from(codeCell.children).forEach((span) => {
+      // Get the <code>. div > pre > code
+      const codeElement = codeCell.querySelector("pre code");
+
+      // Iterate over els while tracking count
+      Array.from(codeElement.children).forEach((el) => {
+        // Remove br
+        if (el.tagName == "BR") return;
         if (charCount >= maxLength) return; // Stop if max length reached
+        const span = el;
 
         const spanText = span.textContent;
         const remainingChars = maxLength - charCount;
@@ -89,7 +96,7 @@ document.querySelectorAll(".code-bar").forEach((element) => {
           truncatedHTML += `<span class="${span.className}">${spanText.slice(
             0,
             remainingChars
-          )}...</span>`;
+          )}</span>`;
           charCount = maxLength; // Stop at max length
         } else {
           truncatedHTML += span.outerHTML; // Keep full span
@@ -97,8 +104,8 @@ document.querySelectorAll(".code-bar").forEach((element) => {
         }
       });
 
-      codeCell.innerHTML = truncatedHTML; // Set truncated HTML
-      codeCell.dataset.truncated = "true";
+      codeElement.innerHTML = truncatedHTML + `<span>...</span>`; // Set truncated HTML
+      codeCell.classList.add("code-cell-truncated");
     }
   });
 });
