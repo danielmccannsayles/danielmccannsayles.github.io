@@ -62,9 +62,11 @@ body {
 }
 
 .code-cell {
+  position: relative;
   border: 1px #37373d solid;
   padding-left: 30px;
   background: #181818;
+  font-family: Menlo, Monaco, "Courier New", monospace;
 }
 
 .code-cell-truncated {
@@ -79,6 +81,19 @@ body {
   bottom: 2px;
   left: 17px;
   cursor: pointer;
+}
+
+.output-container {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+}
+
+.language {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  font-size: 12px;
+  font-family: inherit;
 }
 
 /* Title styles */

@@ -16,14 +16,14 @@ let deselectOldBars = () => {};
 //   if (lastSelectedBar) lastSelectedBar.classList.add("bar-selected");
 // });
 
-/** Setup hover bar functionality to all cell containers*/
+/** Setup hover bar functionality on all cell containers*/
 document.querySelectorAll(".cell-container").forEach((container) => {
   container.addEventListener("click", (event) => {
     const cell = container.querySelector(".cell");
     const hoverBar = container.querySelector(".hover-bar");
     if (!(cell && hoverBar)) return;
 
-    // If it's a code or output container, we need to link them..
+    // Always select hoverBar
     if (container.classList.contains("code-container")) {
       const otherHoverBar =
         container.nextElementSibling.querySelector(".hover-bar");
