@@ -16,7 +16,7 @@ body {
   border: 1px #2b2b2b solid;
 }
 
-/* Cell container - generic */
+/* Generic cell stuff */
 .cell-container {
   position: relative;
   margin-bottom: 20px;
@@ -24,20 +24,6 @@ body {
   padding-right: 20px;
 }
 
-.code-cell {
-  border: 1px #37373d solid;
-  padding-left: 30px;
-  background: #181818;
-}
-
-.code-cell-truncated {
-  padding-left: 10px;
-  border: none;
-  border-bottom: 1px #37373d solid;
-  background: none;
-}
-
-/* Hover Bar - generic */
 .hover-bar {
   position: absolute;
   left: 4px;
@@ -65,6 +51,20 @@ body {
   background: #3077d2;
 }
 
+/* Code cell stuff */
+.code-cell {
+  border: 1px #37373d solid;
+  padding-left: 30px;
+  background: #181818;
+}
+
+.code-cell-truncated {
+  padding-left: 10px;
+  border: none;
+  border-bottom: 1px #37373d solid;
+  background: none;
+}
+
 /* Title styles */
 .title-1 {
   font-size: 20px;
@@ -78,22 +78,10 @@ body {
   cursor: pointer;
 }
 
-.collapsible {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-
-/* TODO: make this use an actual icon lol */
-.toggle-button {
-  font-size: inherit;
+/* Run button */
+.code-run-button {
+  position: absolute;
+  bottom: 2px;
+  left: 17px;
   cursor: pointer;
-  border: none;
-  background: none;
-  padding: 5px;
-  margin-right: 5px;
-  outline: none;
-  color: #cccccc;
 }
-
-/* Testing */

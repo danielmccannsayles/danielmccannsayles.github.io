@@ -1,11 +1,4 @@
-/** Add handlers to the arrows. Button is old func. */
-
-/** Pass 'this' to edit css on button, and id of div you want to control */
-function toggleButton(button, id) {
-  button.textContent = button.textContent === "^" ? "v" : "^";
-  let content = document.getElementById(id);
-  content.style.display = content.style.display === "none" ? "block" : "none";
-}
+/** Add handlers to the arrows. */
 
 function toggleArrow(arrow, id) {
   if (arrow.classList.contains("codicon-chevron-right")) {

@@ -17,34 +17,39 @@ let lastSelectedBar = null;
 // });
 
 /** Add onclick to textbar*/
-const elements = document.querySelectorAll(".text-bar");
+// TODO: change to select on the cell-container. That way on click of the whole container changes bar
+// By using the event target I can see if they're clicking the hover-bar.
+const elements = document.querySelectorAll(".text-container");
 elements.forEach((element) => {
-  element.addEventListener("click", () => {
-    const textCell = element.nextElementSibling;
-    if (!textCell) return;
+  element.addEventListener("click", (event) => {
+    const textCell = element.querySelector(".cell");
+    const hoverBar = element.querySelector(".hover-bar");
+    if (!(textCell && hoverBar)) return;
 
-    // Select the bar (make it blue)
+    // Always select the bar
     if (lastSelectedBar !== element) {
       if (lastSelectedBar) lastSelectedBar.classList.remove("bar-selected");
-
-      element.classList.add("bar-selected");
-      lastSelectedBar = element;
+      hoverBar.classList.add("bar-selected");
+      lastSelectedBar = hoverBar;
     }
 
-    // Check if text is long enough to truncate
-    const maxLength = 25;
-    if (textCell.dataset.fullText < maxLength) return;
+    // If hover bar clicked, toggle the text
+    if (event.target == hoverBar) {
+      // Check if text is long enough to truncate
+      const maxLength = 25;
+      if (textCell.dataset.fullText < maxLength) return;
 
-    // Assign fulltext once
-    if (!textCell.dataset.fullText)
-      textCell.dataset.fullText = textCell.textContent;
+      // Assign fulltext once
+      if (!textCell.dataset.fullText)
+        textCell.dataset.fullText = textCell.textContent;
 
-    // Toggle - add three to max length to account for the ellipses..
-    if (textCell.textContent.length > maxLength + 3) {
-      textCell.textContent =
-        textCell.dataset.fullText.slice(0, maxLength) + "...";
-    } else {
-      textCell.textContent = textCell.dataset.fullText;
+      // Toggle - add three to max length to account for the ellipses..
+      if (textCell.textContent.length > maxLength + 3) {
+        textCell.textContent =
+          textCell.dataset.fullText.slice(0, maxLength) + "...";
+      } else {
+        textCell.textContent = textCell.dataset.fullText;
+      }
     }
   });
 });
