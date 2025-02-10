@@ -11,11 +11,17 @@
       rel="stylesheet"
       href="https://microsoft.github.io/vscode-codicons/dist/codicon.css"
     />
-    <script src="hoverBar.js" defer></script>
-    <script src="toggleArrow.js" defer></script>
+    <!-- Svelte -->
+    <script type="module" src="/src/main.js"></script>
+
+    <!-- Order is important. These run after the markdown -->
+    <!-- <script src="hoverBar.js" defer></script>
+    <script src="toggleArrow.js" defer></script> -->
   </head>
   <body>
     <div class="nb-container">
+      <div id="svelte-app"></div>
+
       <div class="cell-container">
         <div class="hover-bar"></div>
         <div class="cell title-1">Daniel McCann-Sayles' Portfolio</div>
@@ -33,19 +39,7 @@
       <div id="summary">
         <div class="cell-container">
           <div class="hover-bar"></div>
-          <div class="cell">
-            <pre>
-            Engineering degree 
-            Background in UI - design, frontend dev
-            Growing experience in Python/ data science
-            Interested in improving the world through AI led research
-            Passionate, Creative, Collaborative
-            I want to combine design, FE, my creativity and passion, and python backend. 
-           
-            * fun graphic?? *
-          </pre
-            >
-          </div>
+          <div class="cell" id="test"></div>
         </div>
       </div>
 

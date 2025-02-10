@@ -76,21 +76,32 @@ function selectCodeBars(hoverBar, otherHoverBar) {
 
 /** Controls truncating/showing for text cells */
 function toggleText(textCell) {
-  // Check if text is long enough to truncate
   const maxLength = 25;
-  if (textCell.dataset.fullText < maxLength) return;
 
-  // Assign fulltext once
-  if (!textCell.dataset.fullText)
-    textCell.dataset.fullText = textCell.textContent;
+  // Assign fullHTML & truncatedText once
+  if (!textCell.dataset.fullHTML) {
+    textCell.dataset.fullHTML = textCell.innerHTML;
 
-  // Toggle - add three to max length to account for the ellipses..
-  if (textCell.textContent.length > maxLength + 3) {
-    textCell.textContent =
-      textCell.dataset.fullText.slice(0, maxLength) + "...";
-  } else {
-    textCell.textContent = textCell.dataset.fullText;
+    let truncatedText = "";
+    let charCount = 0;
+    for (const el of Array.from(textCell.children)) {
+      if (charCount >= maxLength) break;
+      const text = el.textContent;
+      truncatedText += text;
+      charCount += text.length;
+    }
+    textCell.dataset.truncatedText = truncatedText + "...";
+    textCell.dataset.collapsed = false;
+
+    console.log(truncatedText);
   }
+
+  // Toggle
+  const collapsed = textCell.dataset.collapsed;
+  if (textCell.dataset.collapsed)
+    textCell.innerHTML = textCell.dataset.fullHTML;
+  else textCell.innerHTML = textCell.dataset.truncatedText;
+  textCell.dataset.collapsed = !collapsed;
 }
 
 /** Controls truncating/showing for output cells */
