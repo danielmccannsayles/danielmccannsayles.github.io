@@ -18,6 +18,8 @@ body {
   margin: auto;
   box-sizing: border-box;
   border: 1px #2b2b2b solid;
+  padding-top: 1px; /* Prevent margin collapse*/
+  border-top: none;
 }
 
 /* Generic cell stuff */

@@ -41,7 +41,11 @@
     on:keypress={toggleHoverBar}
   ></div>
   <div class="cell {collapsed ? 'collapsed' : ''}">
-    {@html collapsed ? collapsedContent : content}
+    {#if collapsed}
+      {collapsedContent}
+    {:else}
+      {@html content}
+    {/if}
   </div>
 </div>
 
