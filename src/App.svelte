@@ -42,6 +42,25 @@ Hi!!
       output="some output"
     />
   </div>
+
+  <!-- Cell block -->
+
+  <!-- Title 1 -->
+  <!-- Title/ Daniel McCann-Sayles -->
+
+  <!-- Summary -->
+
+  <!-- Work Experience -->
+
+  <!-- Projects -->
+
+  <!-- title 2 -->
+  <!--    kid fight -->
+
+  <!-- title 3 -->
+  <!--       intro -->
+
+  <!--       code -->
 </main>
 
 <style>
