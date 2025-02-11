@@ -5,6 +5,7 @@
   export let htmlCode = "";
   export let truncatedCode = "";
   export let output = "";
+  export let language = "Python";
   const collapsedOutput = output.slice(0, 20) + "...";
 
   let codeCollapsed = false;
@@ -57,6 +58,8 @@
     ></span>
     <div class="cell code-cell {codeCollapsed ? 'code-cell-truncated' : ''}">
       {@html codeCollapsed ? truncatedCode : htmlCode}
+
+      <div class="language">{language}</div>
     </div>
   </div>
 
@@ -73,4 +76,41 @@
 </div>
 
 <style>
+  .code-container {
+    margin-bottom: 2px;
+  }
+
+  .code-cell {
+    position: relative;
+    border: 1px #37373d solid;
+    padding-left: 30px;
+    background: #181818;
+    font-family: Menlo, Monaco, "Courier New", monospace;
+  }
+
+  .code-cell-truncated {
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px #37373d solid;
+    background: none;
+  }
+
+  .output-container {
+    font-family: Menlo, Monaco, "Courier New", monospace;
+    font-size: 12px;
+  }
+
+  .language {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    font-size: 12px;
+    font-family: inherit;
+  }
+  .code-run-button {
+    position: absolute;
+    top: 2px;
+    left: 17px;
+    cursor: pointer;
+  }
 </style>
