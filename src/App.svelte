@@ -6,6 +6,8 @@
   import Section from "./components/Section.svelte";
   import MacmProject from "./pages/projects/MacmProject.svelte";
   import AiGenerationProject from "./pages/projects/AIGenerationProject.svelte";
+  import SpeechToLlmProject from "./pages/projects/SpeechToLLMProject.svelte";
+  import CiscoHackathonProject from "./pages/projects/CiscoHackathonProject.svelte";
 </script>
 
 <main>
@@ -16,6 +18,8 @@
   <Section md="## Projects">
     <MacmProject />
     <AiGenerationProject />
+    <SpeechToLlmProject />
+    <CiscoHackathonProject />
   </Section>
 
   <CodeCell

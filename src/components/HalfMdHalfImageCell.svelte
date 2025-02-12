@@ -6,7 +6,6 @@
   export let md = "";
   export let imageSrc = "";
   export let imageWidthPercentage = 30; // Default width as a percentage
-  console.log(imageSrc);
 
   const content = marked.parse(md); // Precompute parsed HTML
   const collapsedContent = md.replace(/\n/g, "").slice(0, 20) + "...";

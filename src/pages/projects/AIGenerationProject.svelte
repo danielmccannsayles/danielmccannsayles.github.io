@@ -2,6 +2,9 @@
   import HalfMdHalfImageCell from "../../components/HalfMdHalfImageCell.svelte";
   import MdCell from "../../components/MDCell.svelte";
   import Section from "../../components/Section.svelte";
+  import CodeCell from "../../components/CodeCell.svelte";
+  import { AIcode1 } from "./code";
+
   import diff from "../../imgs/diff.png";
 </script>
 
@@ -32,7 +35,13 @@ Something that interested me, but I did not have the chance to explore, was  usi
 Whenever I can, I like to automate!
 
 The lead of the project remarked:
-   "Your curiosity, ability to learn new concepts, and come up with out-of-the-box ideas are impressive.”
+   "[Daniel's] curiosity, ability to learn new concepts, and come up with out-of-the-box ideas are impressive.”
     `}
+  />
+
+  <CodeCell
+    htmlCode={AIcode1}
+    truncatedCode="# Code to detect common"
+    output="none"
   />
 </Section>
