@@ -5,12 +5,13 @@
     sectionRef.classList.toggle("hidden");
   }
 
-  export let md;
+  export let title;
+  export let subtitle;
   let sectionRef;
 </script>
 
 <div>
-  <TitleCell {md} onToggle={handleToggle} />
+  <TitleCell {title} {subtitle} onToggle={handleToggle} />
   <div bind:this={sectionRef}>
     <slot />
   </div>

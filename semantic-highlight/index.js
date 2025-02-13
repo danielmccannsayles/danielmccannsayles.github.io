@@ -26,12 +26,12 @@ async function highlightCode(code) {
       createOnigString: (s) => new OnigString(s),
     }),
     loadGrammar: async () => {
-      const grammar = fs.readFileSync("./Python.tmLanguage", "utf-8");
+      const grammar = fs.readFileSync("./Swift.tmLanguage", "utf-8");
       return vscodeTextmate.parseRawGrammar(grammar);
     },
   });
 
-  const grammar = await registry.loadGrammar("source.python");
+  const grammar = await registry.loadGrammar("source.swift");
   const lines = code.split("\n");
 
   let result = "";

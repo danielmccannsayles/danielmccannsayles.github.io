@@ -8,7 +8,7 @@
   import diff from "../../imgs/diff.png";
 </script>
 
-<Section md="### AI Generation">
+<Section title="### AI Generation">
   <HalfMdHalfImageCell
     md="** There are (at least) two obvious things wrong with this graph - one is that the dots overlap, meaning the last applied (gpt diff) is overrepresented. The other is that its not super helpful, except for a preliminary visualization. If I was still working on this, the next thing I would do would be sorting/clustering these data points based on how they do - e.g. these do well w/ the gpt diff, these do well with the semantic diff. "
     imageSrc={diff}

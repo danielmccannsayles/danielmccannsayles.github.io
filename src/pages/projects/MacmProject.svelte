@@ -5,7 +5,7 @@
   import macm from "../../imgs/macm.gif";
 </script>
 
-<Section md="### MACM Exploration">
+<Section title="### MACM Exploration">
   <HalfMdHalfImageCell
     md="During some downtime.
   

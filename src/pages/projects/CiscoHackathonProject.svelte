@@ -6,7 +6,7 @@
   import MdCell from "../../components/MDCell.svelte";
 </script>
 
-<Section md="## Cisco Hackathon">
+<Section title="### Cisco Hackathon">
   <HalfMdHalfImageCell
     md={`
     I competed in an internal Cisco hackathon to explore how we could improve certain aspects of customer experience with AI. My team won 1st place out of over 20 teams!

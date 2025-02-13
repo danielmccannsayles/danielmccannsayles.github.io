@@ -1,14 +1,15 @@
-<!-- Title cells are not collapsible, and have a toggleArrow -->
 <script>
   import { selectedCells } from "./selectedCellsStore.js";
   import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
   // Input
-  export let md = "";
+  export let title = "";
+  export let subtitle = "";
   export let onToggle;
 
-  const content = marked.parse(md);
-  const collapsedContent = md.replace(/\n/g, "").slice(0, 20) + "...";
+  const titleHTML = marked.parse(title);
+  const subtitleHTML = marked.parse(subtitle);
+  const collapsedTitle = title.replace(/\n/g, "").slice(0, 20) + "...";
 
   // Toggle section
   let toggled = false;
@@ -58,7 +59,7 @@
     on:keypress={toggleArrow}
   ></i>
   <div class="cell {collapsed ? 'collapsed' : ''}">
-    {@html collapsed ? collapsedContent : content}
+    {@html collapsed ? collapsedTitle : titleHTML + subtitleHTML}
   </div>
 </div>
 

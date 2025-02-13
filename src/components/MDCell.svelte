@@ -4,7 +4,6 @@
 
   // Input
   export let md = "";
-
   const content = marked.parse(md); // Precompute parsed HTML
   const collapsedContent = md.replace(/\n/g, "").slice(0, 20) + "...";
 

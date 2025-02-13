@@ -1,5 +1,4 @@
 <script>
-  import CodeCell from "./components/CodeCell.svelte";
   import MdCell from "./components/MDCell.svelte";
   import Summary from "./pages/Summary.svelte";
   import WorkExperience from "./pages/WorkExperience.svelte";
@@ -8,25 +7,36 @@
   import AiGenerationProject from "./pages/projects/AIGenerationProject.svelte";
   import SpeechToLlmProject from "./pages/projects/SpeechToLLMProject.svelte";
   import CiscoHackathonProject from "./pages/projects/CiscoHackathonProject.svelte";
+  import Form from "./components/Form.svelte";
+
+  // All this just to have a clickable button in md that opens a form..
+  let showForm = false;
+  function toggleForm(event) {
+    event.preventDefault();
+    showForm = !showForm;
+  }
+
+  import { onMount } from "svelte";
+  onMount(() => {
+    const applyButton = document.querySelector('a[href="#apply-form"]');
+    if (applyButton) {
+      applyButton.addEventListener("click", toggleForm);
+    }
+  });
 </script>
 
 <main>
   <MdCell md="# Daniel McCann-Sayles' Portfolio" />
   <Summary />
+  <Form bind:showForm />
   <WorkExperience />
 
-  <Section md="## Projects">
+  <Section title="## Projects">
     <MacmProject />
     <AiGenerationProject />
     <SpeechToLlmProject />
     <CiscoHackathonProject />
   </Section>
-
-  <CodeCell
-    htmlCode={`<pre><code><span class="source-python"></span><br><span class="source-python meta-function-python storage-type-function-python">def</span><span class="source-python meta-function-python"> </span><span class="source-python meta-function-python entity-name-function-python">greet</span><span class="source-python meta-function-python punctuation-definition-parameters-begin-python">(</span><span class="source-python meta-function-python meta-function-parameters-python variable-parameter-function-python">name</span><span class="source-python meta-function-python">)</span><span class="source-python meta-function-python punctuation-section-function-begin-python">:</span><br><span class="source-python">    </span><span class="source-python keyword-control-flow-python">return</span><span class="source-python"> </span><span class="source-python meta-identifier-python">f</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-begin-python">"</span><span class="source-python string-quoted-double-single-line-python">Hello, </span><span class="source-python string-quoted-double-single-line-python constant-other-placeholder-python">{name}</span><span class="source-python string-quoted-double-single-line-python">!</span><span class="source-python string-quoted-double-single-line-python punctuation-definition-string-end-python">"</span><br><span class="source-python"></span><br></code></pre>`}
-    truncatedCode={"def greet(name):"}
-    output="some output"
-  />
 </main>
 
 <style>
