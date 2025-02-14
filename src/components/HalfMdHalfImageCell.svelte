@@ -29,7 +29,7 @@
 
 <div
   bind:this={cell}
-  class="cell-container"
+  class="cell-container cell-container-offset"
   role="button"
   tabindex="0"
   on:click={selectCell}

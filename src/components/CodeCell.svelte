@@ -41,7 +41,7 @@
   on:click={selectCell}
   on:keypress={selectCell}
 >
-  <div class="cell-container code-container">
+  <div class="cell-container cell-container-offset code-container">
     <div
       class="hover-bar {isSelected ? 'bar-selected' : ''}"
       role="button"
@@ -63,7 +63,11 @@
     </div>
   </div>
 
-  <div class="cell-container output-container {hideOutput ? 'hidden' : ''}">
+  <div
+    class="cell-container cell-container-offset output-container {hideOutput
+      ? 'hidden'
+      : ''}"
+  >
     <div
       class="hover-bar {isSelected ? 'bar-selected' : ''}"
       role="button"

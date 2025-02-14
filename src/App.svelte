@@ -14,7 +14,10 @@
   <Summary />
   <WorkExperience />
 
-  <Section title="## Projects">
+  <Section
+    title="## Projects"
+    subtitle="A collection of projects from 2024 -> onwards that I've done at work, on my own, and with others. All focused on ML, LLMs, and Python "
+  >
     <MacmProject />
     <AiGenerationProject />
     <SpeechToLlmProject />

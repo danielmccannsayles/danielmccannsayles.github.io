@@ -36,7 +36,7 @@
 
 <div
   bind:this={cell}
-  class="title-cell-container"
+  class="cell-container"
   role="button"
   tabindex="0"
   on:click={selectCell}
@@ -64,29 +64,8 @@
     </div>
   </div>
   <div style="margin-left: 40px">
-    {#if !collapsed}
+    {#if !collapsed && subtitle !== ""}
       {@html subtitleHTML}
     {/if}
   </div>
 </div>
-
-<style>
-  .title-arrow-toggle {
-    position: absolute;
-    bottom: 2px;
-    left: 17px;
-    cursor: pointer;
-  }
-
-  .title-cell-container {
-    position: relative;
-    margin-bottom: 20px;
-    padding-right: 20px;
-  }
-
-  .title-container {
-    padding-left: 40px;
-    position: inherit;
-    width: 100%;
-  }
-</style>

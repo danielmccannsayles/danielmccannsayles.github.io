@@ -5,7 +5,7 @@
   import { SpeechCode1 } from "./code";
 </script>
 
-<Section title="### Speech to LLM App">
+<Section title="### Speech to LLM App" hideToStart={true}>
   <MdCell
     md={`
     I wanted to take better notes/ have a personal AI assistant.  I worked on this for a couple of weeks in July while I had some free time. 

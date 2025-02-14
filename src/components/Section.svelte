@@ -7,7 +7,15 @@
 
   export let title;
   export let subtitle;
+  export let hideToStart = false;
   let sectionRef;
+
+  import { onMount } from "svelte";
+  onMount(() => {
+    if (hideToStart) {
+      handleToggle();
+    }
+  });
 </script>
 
 <div>

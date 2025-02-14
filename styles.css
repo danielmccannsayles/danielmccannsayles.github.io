@@ -34,8 +34,11 @@ blockquote {
 .cell-container {
   position: relative;
   margin-bottom: 20px;
-  padding-left: 40px;
   padding-right: 20px;
+}
+
+.cell-container-offset {
+  padding-left: 40px;
 }
 
 .hover-bar {
@@ -80,4 +83,18 @@ a:hover {
 
 h3 {
   color: #a182f8;
+}
+
+/*  Title cell */
+.title-arrow-toggle {
+  position: absolute;
+  bottom: 2px;
+  left: 17px;
+  cursor: pointer;
+}
+
+.title-container {
+  padding-left: 40px;
+  position: inherit;
+  width: 100%;
 }
