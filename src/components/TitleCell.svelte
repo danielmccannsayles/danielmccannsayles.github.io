@@ -36,7 +36,7 @@
 
 <div
   bind:this={cell}
-  class="cell-container"
+  class="title-cell-container"
   role="button"
   tabindex="0"
   on:click={selectCell}
@@ -49,19 +49,44 @@
     on:click={toggleHoverBar}
     on:keypress={toggleHoverBar}
   ></div>
-  <i
-    class="title-arrow-toggle codicon {toggled
-      ? 'codicon-chevron-right'
-      : 'codicon-chevron-down'}"
-    role="button"
-    tabindex="0"
-    on:click={toggleArrow}
-    on:keypress={toggleArrow}
-  ></i>
-  <div class="cell {collapsed ? 'collapsed' : ''}">
-    {@html collapsed ? collapsedTitle : titleHTML + subtitleHTML}
+  <div class="title-container">
+    <i
+      class="title-arrow-toggle codicon {toggled
+        ? 'codicon-chevron-right'
+        : 'codicon-chevron-down'}"
+      role="button"
+      tabindex="0"
+      on:click={toggleArrow}
+      on:keypress={toggleArrow}
+    ></i>
+    <div class=" {collapsed ? 'collapsed' : ''}">
+      {@html collapsed ? collapsedTitle : titleHTML}
+    </div>
+  </div>
+  <div style="margin-left: 40px">
+    {#if !collapsed}
+      {@html subtitleHTML}
+    {/if}
   </div>
 </div>
 
 <style>
+  .title-arrow-toggle {
+    position: absolute;
+    bottom: 2px;
+    left: 17px;
+    cursor: pointer;
+  }
+
+  .title-cell-container {
+    position: relative;
+    margin-bottom: 20px;
+    padding-right: 20px;
+  }
+
+  .title-container {
+    padding-left: 40px;
+    position: inherit;
+    width: 100%;
+  }
 </style>

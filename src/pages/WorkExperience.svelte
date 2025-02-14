@@ -4,11 +4,10 @@
   import Section from "../components/Section.svelte";
 </script>
 
-<Section title="## Work Experience">
-  <MdCell
-    md="I've been working as a *front-end developer* for around 2 years now. Since early 2024 I've been pushing to learn more about ML and LLMs. I've looked for opportunities at work and on my own"
-  />
-
+<Section
+  title="## Work Experience"
+  subtitle="I've been working as a *front-end developer* for around 2 years now. Since early 2024 I've been pushing to learn more about ML and LLMs. I've looked for opportunities at work and on my own"
+>
   <MdCell
     md={`
 ### Cisco Systems, *Software Engineer*

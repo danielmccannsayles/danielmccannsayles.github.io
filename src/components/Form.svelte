@@ -1,5 +1,5 @@
 <script>
-  export let showForm = false; // Parent controls this
+  export let showForm = false;
 
   let name = "";
   let info = "";
@@ -11,12 +11,13 @@
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Get these from network request if they change
     const formData = new URLSearchParams();
     formData.append("entry.1070389681", name);
     formData.append("entry.927940325", info);
     formData.append("entry.1627112616", company);
     formData.append("entry.44072114", position);
-    formData.append("entry.1108380112", fit); // Changed from 'passion' to 'fit'
+    formData.append("entry.1108380112", fit);
 
     try {
       await fetch(
@@ -30,8 +31,8 @@
       );
 
       status = "Form submitted successfully!";
-      name = info = company = position = fit = ""; // Clear form fields
-      showForm = false; // Hide form after submission
+      name = info = company = position = fit = "";
+      showForm = false;
     } catch (error) {
       status = "Failed to submit the form.";
       console.error("Error:", error);
@@ -41,22 +42,29 @@
 
 <div class="form-container" class:hidden={!showForm}>
   <form on:submit={handleSubmit}>
-    <label>Name:</label>
+    <label for="name">Your Name:</label>
     <input type="text" bind:value={name} required />
 
-    <label>Info:</label>
+    <label for="info">Contact Info:</label>
     <input type="text" bind:value={info} required />
 
-    <label>Company:</label>
+    <label for="company">Company:</label>
     <input type="text" bind:value={company} required />
 
-    <label>Position:</label>
+    <label for="position">Position:</label>
     <input type="text" bind:value={position} required />
 
-    <label>Why would I be a good fit?</label>
+    <label for="fit">Why would Daniel be a good fit?</label>
     <textarea bind:value={fit} required></textarea>
 
-    <button type="submit">Submit</button>
+    <div class="button-container">
+      <button type="submit">Submit</button>
+      <button
+        type="cancel"
+        class="cancel-button"
+        on:click={() => (showForm = false)}>Close</button
+      >
+    </div>
   </form>
 
   {#if status}
@@ -82,6 +90,8 @@
 
   input,
   textarea {
+    background-color: #181818;
+    color: #ccc;
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -90,15 +100,33 @@
     font-size: 14px;
   }
 
+  input:focus,
+  textarea:focus {
+    outline: 2px solid #a182f8;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
   button {
     background: #007bff;
-    color: white;
+    color: #ccc;
     border: none;
     padding: 10px 15px;
     margin-top: 15px;
     cursor: pointer;
     border-radius: 5px;
     width: 100%;
+  }
+
+  .cancel-button {
+    background: #ff6262;
+  }
+
+  .cancel-button:hover {
+    background: #e55151;
   }
 
   button:hover {

@@ -1,7 +1,22 @@
 <script>
-  import Chips from "../components/Chips.svelte";
+  import Form from "../components/Form.svelte";
   import MdCell from "../components/MDCell.svelte";
   import Section from "../components/Section.svelte";
+
+  // All this just to have a clickable button in md that opens a form..
+  let showForm = false;
+  function toggleForm(event) {
+    event.preventDefault();
+    showForm = !showForm;
+  }
+
+  import { onMount } from "svelte";
+  onMount(() => {
+    const applyButton = document.querySelector('a[href="#apply-form"]');
+    if (applyButton) {
+      applyButton.addEventListener("click", toggleForm);
+    }
+  });
 </script>
 
 <Section title="## Summary">
@@ -23,4 +38,6 @@ I want to combine user interaction/experience and machine learning to create
 
 What are you waiting for? [Hire Me!](#apply-form)"
   />
+
+  <Form bind:showForm />
 </Section>
