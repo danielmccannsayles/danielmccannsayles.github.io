@@ -42,6 +42,7 @@ blockquote {
 }
 
 .hover-bar {
+  z-index: 10;
   position: absolute;
   width: 3px;
   left: 4px;

@@ -13,8 +13,6 @@
   }
 
   let cell;
-
-  // Reactive variable
   $: isSelected = $selectedCells === cell;
   function selectCell() {
     // Deselect others

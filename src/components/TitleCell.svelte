@@ -21,6 +21,7 @@
   // Hover bar collapse
   let collapsed = false;
   function toggleHoverBar() {
+    console.log("toggled");
     collapsed = !collapsed;
   }
 
@@ -63,9 +64,9 @@
       {@html collapsed ? collapsedTitle : titleHTML}
     </div>
   </div>
-  <div style="margin-left: 40px">
-    {#if !collapsed && subtitle !== ""}
+  {#if !collapsed && subtitle !== ""}
+    <div style="margin-left: 40px">
       {@html subtitleHTML}
-    {/if}
-  </div>
+    </div>
+  {/if}
 </div>
