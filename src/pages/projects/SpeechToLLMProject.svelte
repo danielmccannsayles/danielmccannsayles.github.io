@@ -3,33 +3,69 @@
   import Section from "../../components/Section.svelte";
   import CodeCell from "../../components/CodeCell.svelte";
   import { SpeechCode1 } from "./code";
+  import Chips from "../../components/Chips.svelte";
 </script>
 
 <Section title="### Speech to LLM App" hideToStart={true}>
   <MdCell
-    md={`
-    I wanted to take better notes/ have a personal AI assistant.  I worked on this for a couple of weeks in July while I had some free time. 
+    md={`I think well when walking, and I would like to be able to brainstorm ideas while in that flow state. Going back for my computer or pulling out my phone often interrupts what I'm thinking. It would be nice to have voice transcribed notes.
 
-I like to talk to myself when walking, and I would like to be able to brainstorm ideas. Ideally I could offload some cognitive tasks, such as recalling or looking things up. I also find that in a back and forth manner I can come up with better ideas.
+Additionally, I find that a conversational dialog is conducive to developing better ideas. I worked on this for a couple of weeks in July while I had some free time. 
 
-To do this I made a very simple iOS app that sends audio to a node server that transcribes the audio and listens for a wake word. Upon this wake word a call to ChatGPT is triggered with the past context. The iOS app receives this audio.
+The idea is simple ->
 
-All the audio is also transcribed and kept as notes. I also explored using calls to ChatGPT to clean up this audio, though this naive approach didn’t work super well. 
+1. A basic iOS app that sends audio to a Node server on my computer. 
 
-Some things I considered doing but didn’t get around to were:
-Adding keywords that could create new notes, or give the context of the previous x lines of notes to ChatGPT, along with a command to format it in some way.
-More generally, giving more options to ChatGPT - e.g. searching, or custom function calling. 
+CODE
 
-Takeaways:
-I do not enjoy Swift. I was able to hack together an app using a lot of ChatGPT and debugging. 
-Tech stacks are just *tools* that allow you to do *things*. Doing *things* is what’s important. 
-I struggled with audio transcription - I tend to mumble and the transcriber I was using did not like that.
-I didn’t have a measurable goal - 
-I stopped working on this because it wasn’t giving validation
-It’s important to build in measurable outcomes to prototype stages - how can I validate if this idea is *worth continuing*? What value can I derive from *each stage*
-I called this Minerva because it sounded cool. After I made the repo I found out there is another AI tool called Minerva.. fools rarely differ I suppose..
+2. The Node server transcribes the audio and listens for a wake word. 
+
+CODE
+
+
+3. Upon this wake word a call to ChatGPT is triggered with the past 'x' amount of context. This 
+
+CODE
+
+
+4. All the transcribed audio and responses are kept as notes.
+
+CODE
+
+
 `}
   />
+
+  <MdCell
+    md={`Some things I considered doing but didn’t get around to were:
+1. Adding keywords that could create new notes, or give the context of the previous x lines of notes to ChatGPT, along with a command to format it in some way.
+2. More generally, giving more options to ChatGPT - e.g. searching, or custom function calling. 
+
+I stopped this project because I wasn't convinced I was actually getting more benefit out of it than going on a walk to clear my mind and then writing on my computer. 
+
+I still think that a \`perfect\` AI assistant with transcription and note taking and function calling, *AND* a LLM re-writing the notes for clarity/ future reference, or some sort of mental model, would be *decently* useful.
+
+Unforunately this would require:
+1. Much more development & edge case debugging
+2. A period of adaptation for me => I found that I mumble a lot, and directly turning my thoughts into words *coherently enough* is harder than I thought. 
+
+And I was not ready to commit to both of these. `}
+  />
+
+  <MdCell
+    md={`Takeaways:
+1. I do not enjoy Swift - However, I was able to hack together an app using a lot of ChatGPT and debugging. 
+    
+    > Tech stacks are just *tools* that allow you to do *things*. Doing *things* is what’s important. 
+2. I didn’t have a measurable goal for this prototype stage - 
+    1. As I mentioned above, the stage I reached was not super helpful to me, which meant I wasn't able to validate this project super well. 
+    2. It’s important to build in measurable outcomes to prototype stages - how can I validate if this idea is *worth continuing*? What value can I derive from *each stage*
+
+Overall, I learned a bit about calling LLMs, voice recording, audio processing, node Streams, and node servers.
+got a good benchmark for how well I could do something technically unfamiliar with ChatGPT. `}
+  />
+
+  <Chips items={["LLMs", "Node", "Streams", "Swift"]} />
 
   <CodeCell
     htmlCode={SpeechCode1}

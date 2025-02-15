@@ -7,6 +7,7 @@
 
   export let title;
   export let subtitle;
+  export let hiddenBlurbHtml;
   export let hideToStart = false;
   let sectionRef;
 
@@ -19,7 +20,13 @@
 </script>
 
 <div>
-  <TitleCell {title} {subtitle} onToggle={handleToggle} />
+  <TitleCell
+    {title}
+    {subtitle}
+    {hiddenBlurbHtml}
+    {hideToStart}
+    onToggle={handleToggle}
+  />
   <div bind:this={sectionRef}>
     <slot />
   </div>

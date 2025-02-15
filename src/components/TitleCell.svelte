@@ -5,23 +5,24 @@
   // Input
   export let title = "";
   export let subtitle = "";
+  export let hideToStart = false;
+  export let hiddenBlurbHtml = "";
   export let onToggle;
 
   const titleHTML = marked.parse(title);
   const subtitleHTML = marked.parse(subtitle);
   const collapsedTitle = title.replace(/\n/g, "").slice(0, 20) + "...";
 
-  // Toggle section
-  let toggled = false;
+  // Hide/show section
+  let hide = false;
   function toggleArrow() {
-    toggled = !toggled;
+    hide = !hide;
     onToggle();
   }
 
   // Hover bar collapse
   let collapsed = false;
   function toggleHoverBar() {
-    console.log("toggled");
     collapsed = !collapsed;
   }
 
@@ -33,6 +34,14 @@
       selectedCells.update(() => cell);
     }
   }
+
+  // Starting hide or not
+  import { onMount } from "svelte";
+  onMount(() => {
+    if (hideToStart) {
+      hide = true;
+    }
+  });
 </script>
 
 <div
@@ -52,7 +61,7 @@
   ></div>
   <div class="title-container">
     <i
-      class="title-arrow-toggle codicon {toggled
+      class="title-arrow-toggle codicon {hide
         ? 'codicon-chevron-right'
         : 'codicon-chevron-down'}"
       role="button"
@@ -64,9 +73,19 @@
       {@html collapsed ? collapsedTitle : titleHTML}
     </div>
   </div>
-  {#if !collapsed && subtitle !== ""}
-    <div style="margin-left: 40px">
-      {@html subtitleHTML}
-    </div>
+  {#if !collapsed}
+    {#if subtitle !== ""}
+      <div style="margin-left: 40px">
+        {@html subtitleHTML}
+      </div>
+    {/if}
+    {#if hide}
+      <div style="margin-left: 40px">
+        <slot />
+      </div>
+    {/if}
   {/if}
 </div>
+
+<style>
+</style>

@@ -7,8 +7,7 @@
   import Chips from "../../components/Chips.svelte";
 </script>
 
-<!-- hideToStart={true} -->
-<Section title="### Cisco Hackathon">
+<Section title="### Cisco Hackathon" hideToStart={true} hiddenBlurbHtml="<">
   <HalfMdHalfImageCell
     md={`
   I competed in an internal Cisco hackathon to explore how we could improve  customer experience use cases with AI. 
