@@ -58,12 +58,12 @@
     <textarea bind:value={fit} required></textarea>
 
     <div class="button-container">
-      <button type="submit">Submit</button>
       <button
         type="cancel"
         class="cancel-button"
         on:click={() => (showForm = false)}>Close</button
       >
+      <button type="submit">Submit</button>
     </div>
   </form>
 

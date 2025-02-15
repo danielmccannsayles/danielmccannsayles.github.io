@@ -12,7 +12,7 @@
     md={`
 ### Cisco Systems, *Software Engineer*
     Jul 2023 - Present 
-- Developed modern, high-performance Angular applications, leveraging RxJS, NgRx, Signals, Cypress, and Jest for optimal performance and testing.
+- Developed modern, high-performance Angular applications, leveraging RxJS, NgRx, Signals, Cypress, and Jest.
 - Took initiative to explore AI/LLM applications, contributing to a hackathon-winning project on AI use cases.
 - Researched, maintained, and enforced best practices across frontend projects.
 - Collaborated with team members and cross-functional teams, mentoring, sharing knowledge, and fostering strong relationships.

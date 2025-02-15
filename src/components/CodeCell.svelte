@@ -35,6 +35,7 @@
 </script>
 
 <div
+  class="code-and-output"
   bind:this={codeAndOuputContainer}
   role="button"
   tabindex="0"
@@ -82,6 +83,10 @@
 <style>
   .code-container {
     margin-bottom: 2px;
+  }
+
+  .code-and-output {
+    margin-bottom: 20px;
   }
 
   .code-cell {

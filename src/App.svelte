@@ -7,15 +7,12 @@
   import AiGenerationProject from "./pages/projects/AIGenerationProject.svelte";
   import SpeechToLlmProject from "./pages/projects/SpeechToLLMProject.svelte";
   import CiscoHackathonProject from "./pages/projects/CiscoHackathonProject.svelte";
-  import TitleCell from "./components/TitleCell.svelte";
 </script>
 
 <main>
   <MdCell md="# Daniel McCann-Sayles' Portfolio" />
   <Summary />
   <WorkExperience />
-
-  <TitleCell title="# HI" />
 
   <Section
     title="## Projects"
