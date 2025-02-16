@@ -6,7 +6,6 @@
   export let title = "";
   export let subtitle = "";
   export let hideToStart = false;
-  export let hiddenBlurbHtml = "";
   export let onToggle;
 
   const titleHTML = marked.parse(title);

@@ -7,14 +7,23 @@
   import Chips from "../../components/Chips.svelte";
 </script>
 
-<Section title="### Cisco Hackathon" hideToStart={true} hiddenBlurbHtml="<">
+<Section title="### Cisco Hackathon" hideToStart={true}>
+  <div slot="hiddenBlurb">
+    <div class="content-flex">
+      <div class="text-content">
+        A Cisco Hackathon exploring generative AI that my team won!
+      </div>
+
+      <img style="height: 60px;" src={hackathon} alt="" />
+    </div>
+  </div>
+
   <HalfMdHalfImageCell
-    md={`
-  I competed in an internal Cisco hackathon to explore how we could improve  customer experience use cases with AI. 
+    md={`I competed in an internal Cisco hackathon to explore how we could improve customer experience use cases with AI. 
 
 My team won 1st place out of over 20 teams!
 
-The compeotition took place over the span of two weeks. It was hosted by a different organization in Cisco, so it was different products and a different setting than I'm used to. Luckily my team had some experience we were able to draw on. `}
+The competition took place over the span of two weeks. It was hosted by a different organization in Cisco, so it was different products and a different setting than I'm used to. Luckily my team had some experience we were able to draw on. `}
     imageSrc={hackathon}
     imageWidthPercentage="40"
   />
@@ -40,3 +49,11 @@ Overall, I had a lot of fun meeting people, collaborating, and creating our proj
 
   <Chips items={["LangChain", "FAISS", "RAG", "Streamlit"]} />
 </Section>
+
+<style>
+  .content-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>

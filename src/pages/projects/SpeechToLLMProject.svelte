@@ -6,6 +6,9 @@
 </script>
 
 <Section title="### Speech to LLM App" hideToStart={true}>
+  <div slot="hiddenBlurb">
+    A small project involving LLM calling and audio transcription
+  </div>
   <MdCell
     md={`I think well when walking, and I would like to be able to brainstorm ideas while in that flow state. Going back for my computer or pulling out my phone often interrupts what I'm thinking. It would be nice to have voice transcribed notes.
 
