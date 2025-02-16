@@ -6,6 +6,16 @@
 </script>
 
 <Section title="### MACM Exploration" hideToStart={true}>
+  <div slot="hiddenBlurb">
+    <div class="content-flex">
+      <img style="height: 60px;" src={macm} alt="" />
+      <div>
+        An exploration of a research paper into agentic AI workflows. Chaining
+        LLM calling and testing out different patterns
+      </div>
+    </div>
+  </div>
+
   <HalfMdHalfImageCell
     md="During some downtime.
   
@@ -42,3 +52,11 @@
   "
   />
 </Section>
+
+<style>
+  .content-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>

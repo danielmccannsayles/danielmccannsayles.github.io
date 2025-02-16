@@ -10,11 +10,8 @@
 <Section title="### Cisco Hackathon" hideToStart={true}>
   <div slot="hiddenBlurb">
     <div class="content-flex">
-      <div class="text-content">
-        A Cisco Hackathon exploring generative AI that my team won!
-      </div>
-
       <img style="height: 60px;" src={hackathon} alt="" />
+      <div>A Cisco Hackathon exploring generative AI that my team won!</div>
     </div>
   </div>
 

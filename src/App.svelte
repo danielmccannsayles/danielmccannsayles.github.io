@@ -7,21 +7,10 @@
   import AiGenerationProject from "./pages/projects/AIGenerationProject.svelte";
   import SpeechToLlmProject from "./pages/projects/SpeechToLLMProject.svelte";
   import CiscoHackathonProject from "./pages/projects/CiscoHackathonProject.svelte";
-  import TitleCell from "./components/TitleCell.svelte";
-  import diff from "./imgs/diff.png";
 </script>
 
 <main>
   <MdCell md="# Daniel McCann-Sayles' Portfolio" />
-  <!--  Test title => adding subtitle blurb -->
-  <TitleCell title="### Test title" subtitle="Test subtitle">
-    <div class="content-flex">
-      <div class="text-content">HIIII CONTENT CONTENT</div>
-      <div class="image-container" style="--image-width: 30%;">
-        <img class="image-content" src={diff} alt="" />
-      </div>
-    </div>
-  </TitleCell>
   <Summary />
 
   <WorkExperience />
@@ -36,25 +25,3 @@
     <CiscoHackathonProject />
   </Section>
 </main>
-
-<style>
-  .content-flex {
-    display: flex;
-    align-items: center;
-    gap: 10%;
-  }
-
-  .text-content {
-    flex: 1;
-  }
-
-  .image-container {
-    flex: 0 0 var(--image-width, 30%);
-    max-width: var(--image-width, 30%);
-  }
-
-  .image-content {
-    width: 100%;
-    height: auto;
-  }
-</style>

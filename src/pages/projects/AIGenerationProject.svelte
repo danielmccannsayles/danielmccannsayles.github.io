@@ -7,7 +7,17 @@
   import diff from "../../imgs/diff.png";
 </script>
 
-<Section title="### AI Generation" hideToStart={true}>
+<Section title="### AI Generation Improvement" hideToStart={true}>
+  <div slot="hiddenBlurb">
+    <div class="content-flex">
+      <img style="height: 60px;" src={diff} alt="" />
+      <div>
+        A Cisco project where I did some data science to try and improve a LLM
+        generated document
+      </div>
+    </div>
+  </div>
+
   <HalfMdHalfImageCell
     md="** There are (at least) two obvious things wrong with this graph - one is that the dots overlap, meaning the last applied (gpt diff) is overrepresented. The other is that its not super helpful, except for a preliminary visualization. If I was still working on this, the next thing I would do would be sorting/clustering these data points based on how they do - e.g. these do well w/ the gpt diff, these do well with the semantic diff. "
     imageSrc={diff}
@@ -82,3 +92,11 @@ def remove_signature_chunks(trailing_addition: str, signature_embeddings, model:
     language="python"
   />
 </Section>
+
+<style>
+  .content-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
