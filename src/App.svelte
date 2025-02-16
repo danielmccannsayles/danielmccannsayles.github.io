@@ -13,6 +13,7 @@
 
 <main>
   <MdCell md="# Daniel McCann-Sayles' Portfolio" />
+  <!--  Test title => adding subtitle blurb -->
   <TitleCell title="### Test title" subtitle="Test subtitle">
     <div class="content-flex">
       <div class="text-content">HIIII CONTENT CONTENT</div>
@@ -22,6 +23,7 @@
     </div>
   </TitleCell>
   <Summary />
+
   <WorkExperience />
 
   <Section

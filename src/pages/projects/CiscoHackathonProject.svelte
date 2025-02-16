@@ -34,9 +34,7 @@ Overall, I had a lot of fun meeting people, collaborating, and creating our proj
   />
 
   <CodeCell
-    htmlCode={`<div> unfortunately I have no code I'm allowed to share here :(<div>`}
-    truncatedCode=":("
-    output="I'm serious!! No code here, no sir"
+    code={`unfortunately I have no code I'm allowed to share here :(`}
     language="raw"
   />
 

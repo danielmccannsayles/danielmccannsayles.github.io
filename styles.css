@@ -1,3 +1,12 @@
+/* Override hljs */
+pre {
+  margin: 0;
+}
+
+code.hljs {
+  background: transparent;
+}
+
 body {
   margin: 0;
   background-color: #181818;

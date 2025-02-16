@@ -2,7 +2,6 @@
   import MdCell from "../../components/MDCell.svelte";
   import Section from "../../components/Section.svelte";
   import CodeCell from "../../components/CodeCell.svelte";
-  import { SpeechCode1 } from "./code";
   import Chips from "../../components/Chips.svelte";
 </script>
 
@@ -36,6 +35,30 @@ CODE
 `}
   />
 
+  <CodeCell
+    code={`struct ContentView: View { ...
+    func startRecording() {
+        setupAudioSession()
+        startServerSession { success, error in
+            DispatchQueue.main.async {
+                self.isLoading = false
+                if success {
+                    self.audioEngine = AVAudioEngine()
+                    self.inputNode = self.audioEngine.inputNode
+                    let nativeFormat = self.inputNode.inputFormat(forBus: 0)
+                    let recordingFormat = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: nativeFormat.sampleRate, channels: 1, interleaved: true)!
+                    self.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, time in
+                        if !self.isPaused { // If paused don't send buffer
+                            self.sendAudioBuffer(buffer)
+                        }
+                    }
+                   ...
+            }
+        }
+    }  `}
+    language="swift"
+  />
+
   <MdCell
     md={`Some things I considered doing but didn’t get around to were:
 1. Adding keywords that could create new notes, or give the context of the previous x lines of notes to ChatGPT, along with a command to format it in some way.
@@ -66,10 +89,4 @@ got a good benchmark for how well I could do something technically unfamiliar wi
   />
 
   <Chips items={["LLMs", "Node", "Streams", "Swift"]} />
-
-  <CodeCell
-    htmlCode={SpeechCode1}
-    truncatedCode="struct ConventView: View {'{'}..."
-    output="none"
-  />
 </Section>

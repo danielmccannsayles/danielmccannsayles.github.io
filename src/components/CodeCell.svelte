@@ -1,44 +1,79 @@
+<!-- 
+ Code for adding output
+ 
+  export let output = "";
+  const collapsedOutput = output.slice(0, 20) + "...";
+  
+    let outputCollapsed = false;
+  function toggleOutput() {
+    outputCollapsed = !outputCollapsed;
+  }
+
+ let hideOutput = true;
+  function showOutput() {
+    hideOutput = false;
+  }
+ 
+    on:click={showOutput}
+    on:keypress={showOutput}
+
+      <div
+    class="cell-container cell-container-offset output-container {hideOutput
+      ? 'hidden'
+      : ''}"
+  >
+    <div
+      class="hover-bar {isSelected ? 'bar-selected' : ''}"
+      role="button"
+      tabindex="0"
+      on:click={toggleOutput}
+      on:keypress={toggleOutput}
+    ></div>
+    <div class="cell">{@html outputCollapsed ? collapsedOutput : output}</div>
+  </div>
+ -->
+
 <script>
   import { selectedCells } from "./selectedCellsStore.js";
 
-  // Input
-  export let htmlCode = "";
-  export let truncatedCode = "";
-  export let output = "";
-  export let language = "Python";
-  const collapsedOutput = output.slice(0, 20) + "...";
+  export let code = "";
+  export let language = "python";
+  const truncatedCode = code.slice(0, 20) + "...";
 
   let codeCollapsed = false;
   function toggleCode() {
     codeCollapsed = !codeCollapsed;
   }
 
-  let outputCollapsed = false;
-  function toggleOutput() {
-    outputCollapsed = !outputCollapsed;
-  }
-
   let codeAndOuputContainer;
-  // Reactive variable
   $: isSelected = $selectedCells === codeAndOuputContainer;
   function selectCell() {
-    // Deselect others
     if (!isSelected) {
       selectedCells.update(() => codeAndOuputContainer);
     }
   }
 
-  let hideOutput = true;
-  function showOutput() {
-    hideOutput = false;
-  }
+  import { tick } from "svelte";
+  import hljs from "highlight.js";
+  import "highlight.js/styles/atom-one-dark.css";
+
+  let codeElement;
+
+  $: if (language !== "raw")
+    (async () => {
+      // On dom update (tick) w/ changed codeElement, highlight element. Needed for toggle
+      if (codeElement) {
+        await tick();
+        hljs.highlightElement(codeElement);
+      }
+    })();
 </script>
 
 <div
-  class="code-and-output"
-  bind:this={codeAndOuputContainer}
+  class="biiig-container"
   role="button"
   tabindex="0"
+  bind:this={codeAndOuputContainer}
   on:click={selectCell}
   on:keypress={selectCell}
 >
@@ -54,29 +89,19 @@
       class="code-run-button codicon codicon-play"
       role="button"
       tabindex="0"
-      on:click={showOutput}
-      on:keypress={showOutput}
     ></span>
-    <div class="cell code-cell {codeCollapsed ? 'code-cell-truncated' : ''}">
-      {@html codeCollapsed ? truncatedCode : htmlCode}
-
-      <div class="language">{language}</div>
-    </div>
-  </div>
-
-  <div
-    class="cell-container cell-container-offset output-container {hideOutput
-      ? 'hidden'
-      : ''}"
-  >
-    <div
-      class="hover-bar {isSelected ? 'bar-selected' : ''}"
-      role="button"
-      tabindex="0"
-      on:click={toggleOutput}
-      on:keypress={toggleOutput}
-    ></div>
-    <div class="cell">{@html outputCollapsed ? collapsedOutput : output}</div>
+    {#if codeCollapsed}
+      <div class="cell code-cell code-cell-truncated">
+        {truncatedCode}
+      </div>
+    {:else}
+      <div class="cell code-cell">
+        <pre><code bind:this={codeElement} class="language-{language}"
+            >{code}</code
+          ></pre>
+        <div class="language">{language}</div>
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -85,14 +110,14 @@
     margin-bottom: 2px;
   }
 
-  .code-and-output {
+  .biiig-container {
     margin-bottom: 20px;
   }
 
   .code-cell {
     position: relative;
     border: 1px #37373d solid;
-    padding-left: 30px;
+    padding-left: 10px;
     background: #181818;
     font-family: Menlo, Monaco, "Courier New", monospace;
   }
@@ -104,11 +129,6 @@
     background: none;
   }
 
-  .output-container {
-    font-family: Menlo, Monaco, "Courier New", monospace;
-    font-size: 12px;
-  }
-
   .language {
     position: absolute;
     right: 4px;
@@ -116,6 +136,10 @@
     font-size: 12px;
     font-family: inherit;
   }
+  .language:first-letter {
+    text-transform: capitalize;
+  }
+
   .code-run-button {
     position: absolute;
     top: 2px;

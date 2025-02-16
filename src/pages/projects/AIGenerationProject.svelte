@@ -3,7 +3,6 @@
   import MdCell from "../../components/MDCell.svelte";
   import Section from "../../components/Section.svelte";
   import CodeCell from "../../components/CodeCell.svelte";
-  import { AIcode1 } from "./code";
 
   import diff from "../../imgs/diff.png";
 </script>
@@ -40,8 +39,46 @@ The lead of the project remarked:
   />
 
   <CodeCell
-    htmlCode={AIcode1}
-    truncatedCode="# Code to detect common"
-    output="none"
+    code={`# Code to detect common signature chunks ----------
+
+from sentence_transformers import SentenceTransformer, util
+
+# Load a pre-trained Sentence-BERT model
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# Vectorize the known signature chunks
+signature_embeddings = model.encode(known_signature_chunks, convert_to_tensor=True)
+
+# Pre-vectorize searchable text, broken down by sentence level
+def vectorize_text_by_sentences(text: str, model: SentenceTransformer):
+    sentences = text.splitlines()
+    sentence_embeddings = model.encode(sentences, convert_to_tensor=True)
+    return sentences, sentence_embeddings
+
+def remove_signature_chunks(trailing_addition: str, signature_embeddings, model: SentenceTransformer, threshold=0.6):
+    lines, sentence_embeddings = vectorize_text_by_sentences(trailing_addition, model)
+
+     # Sliding window approach to match and remove signatures
+    for start in range(len(lines)):
+        for window_size in range(1, len(lines) - start + 1):
+            # Extract the embeddings for the current window of sentences
+            window_embeddings = sentence_embeddings[start:start + window_size]
+            combined_window_embedding = window_embeddings.mean(dim=0, keepdim=True)
+
+            # Calculate cosine similarity between the current window and known signature embeddings
+            cosine_scores = util.cos_sim(combined_window_embedding, signature_embeddings)
+            max_score = max(cosine_scores[0])
+
+            # If the maximum similarity score exceeds the threshold
+            if max_score > threshold:
+                print(f"Match: {max_score:.4f}")
+               # Remove all lines after the match
+                remaining_text = "\\n".join(lines[:start])
+                print(f"Remaining text after removal:\\n{remaining_text}")
+                return remaining_text
+
+    # No match found
+    return False`}
+    language="python"
   />
 </Section>
