@@ -2,18 +2,18 @@
   import HalfMdHalfImageCell from "../../components/HalfMdHalfImageCell.svelte";
   import MdCell from "../../components/MDCell.svelte";
   import Section from "../../components/Section.svelte";
+  import Teaser from "../../components/Teaser.svelte";
   import macm from "../../imgs/macm.gif";
 </script>
 
 <Section title="### MACM Exploration" hideToStart={true}>
   <div slot="hiddenBlurb">
-    <div class="content-flex">
-      <img style="height: 60px;" src={macm} alt="" />
-      <div>
-        An exploration of a research paper into agentic AI workflows. Chaining
-        LLM calling and testing out different patterns
-      </div>
-    </div>
+    <Teaser
+      imgSrc={macm}
+      imgAlt="A gif I made showing the idea behind my final version of the chaining pattern"
+      text="An exploration of a research paper into agentic AI workflows. Chaining
+        LLM calling and testing out different patterns"
+    />
   </div>
 
   <HalfMdHalfImageCell
@@ -52,11 +52,3 @@
   "
   />
 </Section>
-
-<style>
-  .content-flex {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-</style>

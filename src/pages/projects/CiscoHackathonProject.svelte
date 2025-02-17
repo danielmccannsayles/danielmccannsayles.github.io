@@ -5,14 +5,16 @@
   import hackathon from "../../imgs/hackathon.png";
   import MdCell from "../../components/MDCell.svelte";
   import Chips from "../../components/Chips.svelte";
+  import Teaser from "../../components/Teaser.svelte";
 </script>
 
 <Section title="### Cisco Hackathon" hideToStart={true}>
   <div slot="hiddenBlurb">
-    <div class="content-flex">
-      <img style="height: 60px;" src={hackathon} alt="" />
-      <div>A Cisco Hackathon exploring generative AI that my team won!</div>
-    </div>
+    <Teaser
+      imgSrc={hackathon}
+      imgAlt="A graphic I created showing the hackathon flow"
+      text="A Cisco Hackathon exploring generative AI that my team won!"
+    />
   </div>
 
   <HalfMdHalfImageCell
@@ -46,11 +48,3 @@ Overall, I had a lot of fun meeting people, collaborating, and creating our proj
 
   <Chips items={["LangChain", "FAISS", "RAG", "Streamlit"]} />
 </Section>
-
-<style>
-  .content-flex {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-</style>

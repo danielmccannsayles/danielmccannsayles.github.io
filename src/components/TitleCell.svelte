@@ -44,6 +44,7 @@
 </script>
 
 <div
+  {...$$restProps}
   bind:this={cell}
   class="cell-container"
   role="button"

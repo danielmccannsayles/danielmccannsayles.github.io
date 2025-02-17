@@ -3,43 +3,29 @@
   import Section from "../../components/Section.svelte";
   import CodeCell from "../../components/CodeCell.svelte";
   import Chips from "../../components/Chips.svelte";
+  import Teaser from "../../components/Teaser.svelte";
 </script>
 
 <Section title="### Speech to LLM App" hideToStart={true}>
   <div slot="hiddenBlurb">
-    A small project involving LLM calling and audio transcription
+    <Teaser
+      text="A small project involving LLM calling and audio transcription"
+    />
   </div>
   <MdCell
     md={`I think well when walking, and I would like to be able to brainstorm ideas while in that flow state. Going back for my computer or pulling out my phone often interrupts what I'm thinking. It would be nice to have voice transcribed notes.
 
 Additionally, I find that a conversational dialog is conducive to developing better ideas. I worked on this for a couple of weeks in July while I had some free time. 
 
-The idea is simple ->
-
-1. A basic iOS app that sends audio to a Node server on my computer. 
-
-CODE
-
-2. The Node server transcribes the audio and listens for a wake word. 
-
-CODE
-
-
-3. Upon this wake word a call to ChatGPT is triggered with the past 'x' amount of context. This 
-
-CODE
-
-
-4. All the transcribed audio and responses are kept as notes.
-
-CODE
-
-
-`}
+The idea is simple ->`}
   />
 
-  <CodeCell
-    code={`struct ContentView: View { ...
+  <MdCell
+    md={`1. A basic iOS app that sends audio to a Node server on my computer.`}
+  />
+  <Section title="Code:" inset={true} hideToStart={true}>
+    <CodeCell
+      code={`struct ContentView: View { ...
     func startRecording() {
         setupAudioSession()
         startServerSession { success, error in
@@ -59,9 +45,33 @@ CODE
             }
         }
     }  `}
-    language="swift"
-  />
+      language="swift"
+    />
+  </Section>
 
+  <MdCell
+    md={`2. The Node server transcribes the audio and listens for a wake word. `}
+  />
+  <Section title="Code:" inset={true} hideToStart={true}>
+    <CodeCell code={`//TODO: `} language="javascript" />
+  </Section>
+
+  <MdCell
+    md={`3. Upon this wake word a call to ChatGPT is triggered with the past 'x' amount of context.
+`}
+  />
+  <Section title="Code:" inset={true} hideToStart={true}>
+    <CodeCell code={`//TODO: `} language="javascript" />
+  </Section>
+
+  <MdCell
+    md={`4. All the transcribed audio and responses are kept as notes.`}
+  />
+  <Section title="Code:" inset={true} hideToStart={true}>
+    <CodeCell code={`//TODO: `} language="javascript" />
+  </Section>
+
+  <!--  End coding -->
   <MdCell
     md={`Some things I considered doing but didn’t get around to were:
 1. Adding keywords that could create new notes, or give the context of the previous x lines of notes to ChatGPT, along with a command to format it in some way.
