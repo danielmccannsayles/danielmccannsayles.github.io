@@ -11,7 +11,7 @@
   <MdCell
     md={`
 ### Cisco Systems, *Software Engineer*
-    Jul 2023 - Present 
+*Jul 2023 - Present*
 - Developed modern, high-performance Angular applications, leveraging RxJS, NgRx, Signals, Cypress, and Jest.
 - Took initiative to explore AI/LLM applications, contributing to a hackathon-winning project on AI use cases.
 - Researched, maintained, and enforced best practices across frontend projects.
@@ -24,7 +24,7 @@
   <MdCell
     md={`
 ### Cisco Systems, *Software Engineer Intern*
-    Jun 2022 - Sep 2022
+*Jun 2022 - Sep 2022*
 
 - Formed team of interns to improve sentiment analysis project - improved accuracy from ~65% to ~94%. Worked with different Hugging Face models, cleaned and managed data
 - Built test harnesses for shared Angular components to improve robustness

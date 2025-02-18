@@ -8,7 +8,7 @@
   import Teaser from "../../components/Teaser.svelte";
 </script>
 
-<Section title="### Cisco Hackathon" hideToStart={true}>
+<Section title="### Cisco Hackathon" subtitle="*May 2024*" hideToStart={true}>
   <div slot="hiddenBlurb">
     <Teaser
       imgSrc={hackathon}

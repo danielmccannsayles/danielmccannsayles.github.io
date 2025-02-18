@@ -8,7 +8,11 @@
   import Teaser from "../../components/Teaser.svelte";
 </script>
 
-<Section title="### AI Generation Improvement" hideToStart={true}>
+<Section
+  title="### AI Generation Improvement"
+  subtitle="*August 2024*"
+  hideToStart={true}
+>
   <div slot="hiddenBlurb">
     <Teaser
       imgSrc={diff}

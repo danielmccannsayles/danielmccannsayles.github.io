@@ -6,7 +6,11 @@
   import macm from "../../imgs/macm.gif";
 </script>
 
-<Section title="### MACM Exploration" hideToStart={true}>
+<Section
+  title="### MACM Exploration"
+  subtitle="*October 2024*"
+  hideToStart={true}
+>
   <div slot="hiddenBlurb">
     <Teaser
       imgSrc={macm}

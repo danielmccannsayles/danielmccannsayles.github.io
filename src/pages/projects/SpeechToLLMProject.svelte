@@ -6,7 +6,11 @@
   import Teaser from "../../components/Teaser.svelte";
 </script>
 
-<Section title="### Speech to LLM App" hideToStart={true}>
+<Section
+  title="### Speech to LLM App"
+  subtitle="*July 2024*"
+  hideToStart={true}
+>
   <div slot="hiddenBlurb">
     <Teaser
       text="A small project involving LLM calling and audio transcription"
