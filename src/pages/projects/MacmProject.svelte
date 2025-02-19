@@ -7,7 +7,7 @@
 </script>
 
 <Section
-  title="### MACM Exploration"
+  title="### LLM Chaining Exploration"
   subtitle="*October 2024*"
   hideToStart={true}
 >

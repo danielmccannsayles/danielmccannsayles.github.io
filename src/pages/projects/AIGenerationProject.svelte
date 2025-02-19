@@ -9,7 +9,7 @@
 </script>
 
 <Section
-  title="### AI Generation Improvement"
+  title="### LLM Generation Data Science"
   subtitle="*August 2024*"
   hideToStart={true}
 >

@@ -133,7 +133,7 @@ class Board:
 \`mserver.py\` hosts a server which starts threaded processes as clients join. 
 \`mclient.py\` initiates a new pygame \`ServerGame.py\` process that uses the Network \`network.py\` class to communicate with the server. 
 
-Below are snippets from each to hopefully convey their main functions. `}
+Below are snippets from each file to hopefully convey their main functions. `}
   />
 
   <Section title="Code:" inset={true} hideToStart={true}>
