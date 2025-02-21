@@ -23,7 +23,7 @@
   <HalfMdHalfImageCell
     md="During some downtime.
   
-  I explored a Cisco research project  focused on agentic AI workflows to improve performance on math  problem-solving benchmarks. I optimized the code base, explored  asynchronous alternatives, and reduced costs while increasing speed. I  also explored alternative methods for connecting LLM calls and evaluated their effectiveness in  problem-solving.
+  I explored a Cisco research project focused on agentic AI workflows to improve performance on math  problem-solving benchmarks. I optimized the code base, explored  asynchronous alternatives, and reduced costs while increasing speed. I  also explored alternative methods for connecting LLM calls and evaluated their effectiveness in  problem-solving.
   
   This experience sharpened my skills in prompt engineering, OpenAI APIs, and agentic workflows, which I plan to apply to future AI applications"
     imageSrc={macm}

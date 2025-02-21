@@ -21,7 +21,9 @@
 
 Additionally, I find that a conversational dialog is conducive to developing better ideas. If I could have an LLM respond to my notes, and add context or argue points, it might help my ideation.
 
-I worked on this for a couple of weeks in July while I had some free time. The idea is simple ->`}
+I worked on this for a couple of weeks in July while I had some free time. Check out all the code [here](https://github.com/danielmccannsayles/minerva_server_2.0) or follow along with me below.
+
+The idea is simple ->`}
   />
 
   <MdCell
