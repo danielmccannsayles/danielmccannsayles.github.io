@@ -4,12 +4,12 @@
   import Section from "../../components/Section.svelte";
   import CodeCell from "../../components/CodeCell.svelte";
 
-  import diff from "../../imgs/diff.png";
+  import diff from "../../assets/diff.png";
   import Teaser from "../../components/Teaser.svelte";
 </script>
 
 <Section
-  title="### LLM Generation Data Science"
+  title="### Cisco LLM Generation Data Science"
   subtitle="*August 2024*"
   hideToStart={true}
 >

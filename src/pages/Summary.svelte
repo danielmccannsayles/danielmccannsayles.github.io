@@ -2,7 +2,7 @@
   import Form from "../components/Form.svelte";
   import MdCell from "../components/MDCell.svelte";
   import Section from "../components/Section.svelte";
-  import chart from "../imgs/chart.png";
+  import chart from "../assets/chart.png";
 
   // All this just to have a clickable button in md that opens a form..
   let showForm = false;

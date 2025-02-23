@@ -2,10 +2,11 @@
   import Section from "../../components/Section.svelte";
   import CodeCell from "../../components/CodeCell.svelte";
   import HalfMdHalfImageCell from "../../components/HalfMdHalfImageCell.svelte";
-  import hackathon from "../../imgs/hackathon.png";
   import MdCell from "../../components/MDCell.svelte";
   import Chips from "../../components/Chips.svelte";
   import Teaser from "../../components/Teaser.svelte";
+
+  import hackathon from "../../assets/hackathon.png";
 </script>
 
 <Section title="### Cisco Hackathon" subtitle="*May 2024*" hideToStart={true}>

@@ -8,10 +8,12 @@
   import SpeechToLlmProject from "./pages/projects/SpeechToLLMProject.svelte";
   import CiscoHackathonProject from "./pages/projects/CiscoHackathonProject.svelte";
   import KidFightGameProject from "./pages/projects/KidFightGameProject.svelte";
+  import QuickLinks from "./pages/QuickLinks.svelte";
 </script>
 
 <main>
   <MdCell md="# Daniel McCann-Sayles' Portfolio" />
+  <QuickLinks />
   <Summary />
   <WorkExperience />
 
