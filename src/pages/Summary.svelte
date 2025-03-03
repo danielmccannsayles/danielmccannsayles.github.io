@@ -29,8 +29,7 @@ making the world better through improving AI's ability to help progress scientif
 "
 >
   <MdCell
-    md="
-Here's 3 key facts to get to know me:
+    md="That's a mouthful, so here's 3 key facts to get to know me:
 
 * Background in UI - Angular, React, Figma
 * Burgeoning experience in Python and ML

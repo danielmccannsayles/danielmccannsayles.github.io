@@ -24,6 +24,8 @@ As a kid I used to have arguments with friends where we would one up the other. 
 I thought it would be fun to approximate some of this back and forth creativity - in a table top manner, like Pokemon.
 There were two distinct phases to this project.
 
+> A fun (terrible) problem I encountered was in using a matrix to create the board, and then trying to index into it using 'x' and 'y', which are unintuitively 'flipped'. This same thing came up recently with Tensors, and I experienced flashbacks..
+
 I'll talk a bit about each, but only show code for the second. You can check out the repository [here](https://github.com/danielmccannsayles/KidFightGame) on my github`}
   />
 
