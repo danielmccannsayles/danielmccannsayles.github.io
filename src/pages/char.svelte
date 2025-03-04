@@ -24,7 +24,7 @@
   title="## Summary"
   subtitle="Hi! I'm Daniel.
 
-*I'm looking for a multi-functional position at a company that cares about 
+*I'm looking for a multi-functional (backend/data oriented) position at a company that cares about 
 making the world better through __safe AI__ applied to scientific research*
 "
 >
@@ -47,20 +47,11 @@ Visually inclined? Here's a graphic condensing the past 5 years of my life into 
   </div>
 
   <MdCell
-    md="
+    md="What I bring to the table:
 
-Some more stuff;
-I want to combine user interaction/experience and machine learning to create AI-powered research for a better world
-
-3 words to describe me:
-
-> Passionate, Creative, Collaborative
-
-I bring my passion for 
-my creative ideas
-and I love working with people
-
-What are you waiting for? [Hire Me!](#apply-form)"
+> Passionate, Creative, Collaborative 
+ 
+  What are you waiting for? [Hire Me!](#apply-form)"
   />
   <Form bind:showForm />
 </Section>
