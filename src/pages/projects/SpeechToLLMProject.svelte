@@ -13,7 +13,7 @@
 >
   <div slot="hiddenBlurb">
     <Teaser
-      text="A small project making an app to transcribe verbal notes and added AI assistant functionality"
+      text="A small project making an app to transcribe verbal notes with added AI assistant functionality"
     />
   </div>
   <MdCell

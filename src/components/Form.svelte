@@ -54,7 +54,7 @@
     <label for="position">Position:</label>
     <input type="text" bind:value={position} required />
 
-    <label for="fit">Why would Daniel be a good fit?</label>
+    <label for="fit">Why would I be a good fit?</label>
     <textarea bind:value={fit} required></textarea>
 
     <div class="button-container">

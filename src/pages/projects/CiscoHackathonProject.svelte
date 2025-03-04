@@ -14,7 +14,7 @@
     <Teaser
       imgSrc={hackathon}
       imgAlt="A graphic I created showing the hackathon flow"
-      text="A Cisco Hackathon exploring generative AI that my team won!"
+      text="A Cisco Hackathon, exploring generative AI, that my team won!"
     />
   </div>
 
