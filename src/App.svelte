@@ -1,6 +1,6 @@
 <script>
   import MdCell from "./components/MDCell.svelte";
-  import Summary from "./pages/char.svelte";
+  import Summary from "./pages/Summary.svelte";
   import WorkExperience from "./pages/WorkExperience.svelte";
   import Section from "./components/Section.svelte";
   import MacmProject from "./pages/projects/MacmProject.svelte";

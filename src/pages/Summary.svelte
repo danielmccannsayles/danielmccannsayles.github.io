@@ -25,7 +25,7 @@
   subtitle="Hi! I'm Daniel.
 
 *I'm looking for a multi-functional (backend/data oriented) position at a company that cares about 
-making the world better through __safe AI__ applied to scientific research*
+improve the world through __applied safe AI__*
 "
 >
   <MdCell
