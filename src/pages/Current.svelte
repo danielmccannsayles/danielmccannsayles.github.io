@@ -11,6 +11,7 @@
 >
   <MdCell
     md=" - *Self learning* the ARENA AI safety course materials - [github](https://github.com/danielmccannsayles/my-arena)
- - Applying to jobs!"
+- Building this website! It seemed fun to style it like a jupyter notebook. I tried to replicate my VSCode theme, Default Dark Modern - [github](https://github.com/danielmccannsayles/portfolio-notebook)
+- Applying to jobs!"
   />
 </Section>
