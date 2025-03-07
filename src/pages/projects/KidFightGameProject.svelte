@@ -21,10 +21,8 @@
 
 As a kid I used to have arguments with friends where we would one up the other. I would have a laser, he would have a laser deflecting mirror, I would have gone back in time and weakened his mirror so it cracked, etc. 
 
-I thought it would be fun to approximate some of this back and forth creativity - in a table top manner, like Pokemon.
+I thought it would be fun to approximate some of this back and forth creativity - in a table top manner, like Magic.
 There were two distinct phases to this project.
-
-> A fun (terrible) problem I encountered was in using a matrix to create the board, and then trying to index into it using 'x' and 'y', which are unintuitively 'flipped'. This same thing came up recently with Tensors, and I experienced flashbacks..
 
 I'll talk a bit about each, but only show code for the second. You can check out the repository [here](https://github.com/danielmccannsayles/KidFightGame) on my github`}
   />
@@ -32,6 +30,8 @@ I'll talk a bit about each, but only show code for the second. You can check out
   <MdCell
     md={`#### First pass / Pygame era:
 We first started by finding a pygame game implementing chess. It made sense to just start with that chessboard. Unforunately this introduced a pattern of coupled game display and logic that lasted for a while. 
+
+> A fun (terrible) problem I encountered was in using a matrix to create the board, and then trying to index into it using 'x' and 'y', which are unintuitively 'flipped'. This same thing came up recently with Tensors, and I experienced flashbacks..
 
 This was pretty fun. Lots of learning how to use pygame. Learned about pygame events to allow certain things to happen in time w/ clock. For calling chatgpt we did this asynchronously. To do this I made a new thread, which is debatably the right answer, but it works fine. We started implementing some path finding and logic for the little game pieces. 
 
