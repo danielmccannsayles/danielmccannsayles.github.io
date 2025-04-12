@@ -12,12 +12,17 @@
   <MdCell
     md={`
 ### Cisco Systems, *Software Engineer*
-*Jul 2023 - Present*
+
+Frontend Developer, *Jul 2023 - Present*
 - Developed modern, high-performance Angular applications, leveraging RxJS, NgRx, Signals, Cypress, and Jest.
 - Took initiative to explore AI/LLM applications, contributing to a hackathon-winning project on AI use cases.
 - Researched, maintained, and enforced best practices across frontend projects.
 - Collaborated with team members and cross-functional teams, mentoring, sharing knowledge, and fostering strong relationships.
 - Continuously tackled complex challenges, improving technical skills and increasing my impact on the team.
+
+Backend Developer, *Mar 2025 - Present*
+- Recognized for initiative in AI/LLM → joined team building agentic LLM querying process for sentiment
+- Got up to speed quickly and contributing high quality code w/ python, langchain, langchain, weaviate, SQL
 `}
   />
   <Chips items={["Python", "LLMs", "Typescript", "Angular", "Jest"]} />

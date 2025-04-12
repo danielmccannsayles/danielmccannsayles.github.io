@@ -10,6 +10,7 @@
   import KidFightGameProject from "./pages/projects/KidFightGameProject.svelte";
   import QuickLinks from "./pages/QuickLinks.svelte";
   import Current from "./pages/Current.svelte";
+  import ArenaProject from "./pages/projects/ArenaProject.svelte";
 </script>
 
 <main>
@@ -24,6 +25,7 @@
     subtitle="A collection of projects from 2024 -> onwards that I've done at work, on my own, and with others. All focused on ML, LLMs, and Python "
     hideToStart="true"
   >
+    <ArenaProject />
     <KidFightGameProject />
     <MacmProject />
     <AiGenerationProject />

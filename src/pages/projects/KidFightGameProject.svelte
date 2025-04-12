@@ -17,23 +17,26 @@
     />
   </div>
   <MdCell
-    md={`My friend Devin is interested in game design. I was talking with him about how having ‘real AI’ in games is going to allow awesome interactive stuff. I thought it would be fun to see what could be done creatively with AI
+    md={`My friend Devin is interested in game design. I was talking with him about how having ‘real AI’ in games is going to allow awesome interactive stuff. 
+    
+> I thought it would be fun to see what could be done creatively with AI.
 
 As a kid I used to have arguments with friends where we would one up the other. I would have a laser, he would have a laser deflecting mirror, I would have gone back in time and weakened his mirror so it cracked, etc. 
 
-I thought it would be fun to approximate some of this back and forth creativity - in a table top manner, like Magic.
-There were two distinct phases to this project.
+I wanted to approximate some of this back and forth creativity - in a table-top manner, like Magic or Pokemon.
 
-I'll talk a bit about each, but only show code for the second. You can check out the repository [here](https://github.com/danielmccannsayles/KidFightGame) on my github`}
+*There were two distinct phases to this project* - I'll talk a bit about each, but only show code for the second. You can check out the repository [here](https://github.com/danielmccannsayles/KidFightGame) on my github`}
   />
 
   <MdCell
     md={`#### First pass / Pygame era:
-We first started by finding a pygame game implementing chess. It made sense to just start with that chessboard. Unforunately this introduced a pattern of coupled game display and logic that lasted for a while. 
+We first started by finding a pygame game implementing chess. It made sense to just start with that chessboard. Unfortunately this introduced a pattern of coupled game display and logic that lasted for a while. 
 
 > A fun (terrible) problem I encountered was in using a matrix to create the board, and then trying to index into it using 'x' and 'y', which are unintuitively 'flipped'. This same thing came up recently with Tensors, and I experienced flashbacks..
 
-This was pretty fun. Lots of learning how to use pygame. Learned about pygame events to allow certain things to happen in time w/ clock. For calling chatgpt we did this asynchronously. To do this I made a new thread, which is debatably the right answer, but it works fine. We started implementing some path finding and logic for the little game pieces. 
+This was pretty fun. Lots of learning how to use pygame. I learned about using pygame events to allow occurences to happen in time w/ the clock. Calling chatgpt was done asynchronously to avoid stalling, in a new thread. We implemented some path finding and behavioural logic for the game pieces.
+
+A lot of this part of the project was sort of irrelevant to my larger goals. I spent a day making a custom input for pygame that expended to fit text. We spent a while getting rid of the chess code - e.g. click and other methods. Adding in all the correct offsets in pygame. 
 
 I learned a fair amount about OOP as well, something I'm not super familiar with. Pygame is cool, but it also took a fair amount of boilerplate to make something simple. Though maybe this is just all game development.. it's [really not my field](https://youtu.be/noZ1gBRXd5E?t=314) .`}
   />

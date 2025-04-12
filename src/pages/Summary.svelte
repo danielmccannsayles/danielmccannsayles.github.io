@@ -24,7 +24,7 @@
   title="## Summary"
   subtitle="Hi! I'm Daniel.
 
-*I'm looking for a multi-functional (backend/data oriented) position at a company that cares about 
+*I'm looking for a multi-functional (backend/data-oriented) position at a company that cares about 
 improving the world through __applied safe AI__*
 "
 >
@@ -35,7 +35,7 @@ improving the world through __applied safe AI__*
   * 2 years of paid experience
   * 4 total w/o
 * Burgeoning experience w/ Python and ML
-  *  \> 1 year of projects, courses/self-learning, work opportunities
+  * 1 year of projects, courses/self-learning, work opportunities 
 * Excited about AI's *potential*, worried about AI's *risks*
 
 Visually inclined? Here's a graphic condensing the past 5 years of my life into a few thousand pixels:
