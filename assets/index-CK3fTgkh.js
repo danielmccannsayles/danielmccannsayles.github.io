@@ -1134,7 +1134,7 @@ This leads to one final lesson learned, which is common in many of my projects..
 - Applying to [MATS 8.0](https://www.matsprogram.org/)! I think research is a great way I could help with AI alignment. For the past couple weeks I've been reading a lot of representative papers from all the streams, and have applied to a few I find interesting!
 - Building this website! It seemed fun to style it like a jupyter notebook. I tried to replicate my VSCode theme, Default Dark Modern - [github](https://github.com/danielmccannsayles/portfolio-notebook)
 - Applying to jobs!`})},$$slots:{default:!0}})}var RT=z('<div slot="hiddenBlurb"><!></div>');function CT(t){Se(t,{title:"### ARENA AI safety (unaffiliated)",subtitle:"*February 2025*",hideToStart:!0,children:(e,n)=>{X(e,{md:`I completed the first chapter of the ARENA AI safety [course](https://www.arena.education/) on my own. 
-I planned on following the whole course, but it's heavy on \`mechanistic interpretation\`, something I'm not convinced will be helpful for alignment.
+I planned on following the whole course, but it's heavy on \`mechanistic interpretation\`, something I'm [not convinced](https://www.lesswrong.com/posts/4uXCAJNuPKtKBsi28/negative-results-for-saes-on-downstream-tasks) will be helpful for alignment.
     
 My work can be seen on [github](https://github.com/danielmccannsayles/my-arena) 
 
