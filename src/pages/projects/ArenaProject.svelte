@@ -18,7 +18,7 @@
 
   <MdCell
     md={`I completed the first chapter of the ARENA AI safety [course](https://www.arena.education/) on my own. 
-I planned on following the whole course, but it's heavy on \`mechanistic interpretation\`, something I'm not convinced will be helpful for alignment.
+I planned on following the whole course, but it's heavy on \`mechanistic interpretation\`, something I'm [not convinced](https://www.lesswrong.com/posts/4uXCAJNuPKtKBsi28/negative-results-for-saes-on-downstream-tasks) will be helpful for alignment.
     
 My work can be seen on [github](https://github.com/danielmccannsayles/my-arena) 
 
