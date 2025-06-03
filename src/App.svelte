@@ -11,6 +11,8 @@
   import QuickLinks from "./pages/QuickLinks.svelte";
   import Current from "./pages/Current.svelte";
   import ArenaProject from "./pages/projects/ArenaProject.svelte";
+  import PortfolioWebsite from "./pages/projects/PortfolioWebsite.svelte";
+  import MATSApplication from "./pages/projects/MATSApplication.svelte";
 </script>
 
 <main>
@@ -21,11 +23,13 @@
   <WorkExperience />
 
   <Section
-    title="## Projects"
-    subtitle="A collection of projects from 2024 -> onwards that I've done at work, on my own, and with others. All focused on ML, LLMs, and Python "
+    title="## Projects, Learning, Explorations"
+    subtitle="A collection of self-contained snippets of work from 2024 -> that I've done at work, on my own, and with others. Mostly focused on ML, LLMs, and Python. Some paid/through work"
     hideToStart="true"
   >
+    <MATSApplication />
     <ArenaProject />
+    <PortfolioWebsite />
     <KidFightGameProject />
     <MacmProject />
     <AiGenerationProject />

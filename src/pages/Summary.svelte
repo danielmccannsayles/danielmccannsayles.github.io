@@ -24,18 +24,18 @@
   title="## Summary"
   subtitle="Hi! I'm Daniel.
 
-*I'm looking for a multi-functional (backend/data-oriented) position at a company that cares about 
-improving the world through __applied safe AI__*
+*I'm looking for a multi-functional (technical) position with an organization that cares about 
+improving the world through __applied safe AI__* (more generally: helping w/ alignment)
 "
 >
   <MdCell
-    md="That's a mouthful, so here's 3 facts (approx.) to get to know me:
+    md="That's a mouthful, so here's ~3 facts to get to know me:
 
 * Background in UI - Angular, React, Figma
   * 2 years of paid experience
   * 4 total w/o
-* Burgeoning experience w/ Python and ML
-  * 1 year of projects, courses/self-learning, work opportunities 
+* Burgeoning experience w/ Python, ML, LLMs
+  * \>1 year of projects, courses/self-learning, work opportunities 
 * Excited about AI's *potential*, worried about AI's *risks*
 
 Visually inclined? Here's a graphic condensing the past 5 years of my life into a few thousand pixels:

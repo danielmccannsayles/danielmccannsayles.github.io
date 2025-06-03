@@ -7,18 +7,19 @@
 
 <Section
   title="### ARENA AI safety (unaffiliated)"
-  subtitle="*February 2025*"
+  subtitle="*March 2025*"
   hideToStart={true}
 >
   <div slot="hiddenBlurb">
     <Teaser
-      text="To learn more about AI safety & ML fundamentals, I self-learned Chapter 0 of the ARENA AI safety program"
+      text="To familiarize myself with AI safety & ML fundamentals, I self-learned Chapter 0 of the ARENA AI safety program"
     />
   </div>
 
   <MdCell
-    md={`I completed the first chapter of the ARENA AI safety [course](https://www.arena.education/) on my own. 
-I planned on following the whole course, but it's heavy on \`mechanistic interpretation\`, something I'm [not convinced](https://www.lesswrong.com/posts/4uXCAJNuPKtKBsi28/negative-results-for-saes-on-downstream-tasks) will be helpful for alignment.
+    md={`I completed the first chapter of the ARENA AI safety [course](https://www.arena.education/) on my own.
+
+I originally planned to complete the course, but decided to pivo after the first chapter - there are higher impact things I could do for alignment.
     
 My work can be seen on [github](https://github.com/danielmccannsayles/my-arena) 
 
