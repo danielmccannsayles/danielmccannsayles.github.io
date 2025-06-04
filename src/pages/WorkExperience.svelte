@@ -22,7 +22,8 @@ Frontend Developer, *Jul 2023 - Present*
 
 Backend Developer, *Mar - May 2025*
 - Recognized for initiative in AI/LLM → joined team building agentic LLM querying process for sentiment
-- Got up to speed quickly and contributing high quality code w/ python, langchain, langchain, weaviate, SQL
+- Got up to speed quickly and started contributing high quality code w/ python, langchain, langchain, weaviate, SQL
+- Explored latency improvements through parallelization of workflow & removeal of unnecessary context 
 
 Data-viz AI Agent team, *May 2025 - Present*
 - Worked with a team building simple data-visualizing agentic AI application for internal & customer use.
