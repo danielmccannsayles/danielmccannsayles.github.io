@@ -1,15 +1,15 @@
-name: Build and Deploy to docs/
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
 
 jobs:
-  build-and-commit:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout source
         uses: actions/checkout@v3
 
       - name: Setup Node
@@ -20,18 +20,12 @@ jobs:
       - name: Install deps and build
         run: |
           npm ci
-          npm run build  # builds to docs/
-          touch docs/.nojekyll # tell gh not jekyll
+          npm run build  
+          touch docs/.nojekyll
 
-      - name: Commit and push docs
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add docs
-          git diff --cached --quiet || git commit -m "Auto-build: deploy to docs"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          publish_dir: ./docs
+          publish_branch: gh-pages # read from gh-pages branch
