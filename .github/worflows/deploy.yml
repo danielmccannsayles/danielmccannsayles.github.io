@@ -1,0 +1,31 @@
+name: Build and Deploy to docs/
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps and build
+        run: |
+          npm ci
+          npm run build  # builds to docs/
+
+      - name: Push built docs back to main
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add docs
+          git commit -m "Auto-build: deploy to docs" || echo "No changes to commit"
+          git push
