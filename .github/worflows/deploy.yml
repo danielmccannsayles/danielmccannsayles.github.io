@@ -21,6 +21,7 @@ jobs:
         run: |
           npm ci
           npm run build  # builds to docs/
+          touch docs/.nojekyll # tell gh not jekyll
 
       - name: Commit and push docs
         run: |

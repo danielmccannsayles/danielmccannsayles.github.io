@@ -1,6 +1,3 @@
 node_modules
 
-# Only built on gh
-docs/
-
 .DS_Store
