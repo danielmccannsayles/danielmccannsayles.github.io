@@ -1,6 +1,9 @@
 # Portfolio Website
 
-_Check it out: https://danielmccannsayles.github.io/_
+Portfolio of my recent work.
+
+TLDR; SWE, UI/UX experience, burgeoning Python/ML/LLM experience.
+Interested in AI & AI alignment through the coming transformative period
 
 ## About
 
