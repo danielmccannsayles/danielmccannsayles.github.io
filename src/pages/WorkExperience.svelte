@@ -13,7 +13,7 @@
     md={`
 ### Cisco Systems, *Software Engineer*
 
-Frontend Developer, *Jul 2023 - Present*
+Frontend Developer, *Jul 2023 - Jun 2025*
 - Developed modern, high-performance Angular applications, leveraging RxJS, NgRx, Signals, Cypress, and Jest.
 - Took initiative to explore AI/LLM applications, contributing to a hackathon-winning project on AI use cases.
 - Researched, maintained, and enforced best practices across frontend projects.
@@ -25,7 +25,7 @@ Backend Developer, *Mar - May 2025*
 - Got up to speed quickly and started contributing high quality code w/ python, langchain, langchain, weaviate, SQL
 - Explored latency improvements through parallelization of workflow & removeal of unnecessary context 
 
-Data-viz AI Agent team, *May 2025 - Present*
+Developer, Data-viz AI Agent team, *May - June 2025*
 - Worked with a team building simple data-visualizing agentic AI application for internal & customer use.
 - Built evaluation pipeline for validating agent improvement, using Typscript, Genkit
 `}
