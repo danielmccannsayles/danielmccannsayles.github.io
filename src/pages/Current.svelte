@@ -10,9 +10,8 @@
   hideToStart="true"
 >
   <MdCell
-    md="
-- Learning, reading, thinking about AI alignment. Been [reading](https://www.lesswrong.com/posts/dHNKtQ3vTBxTfTPxu/what-is-the-alignment-problem) a [lot](https://www.lesswrong.com/posts/8wBN8cdNAv3c7vt6p/the-case-against-ai-control-research) by [John Wentsworth](https://www.lesswrong.com/posts/7Z4WC4AFgfmZ3fCDC/instrumental-goals-are-a-different-and-friendlier-kind-of) on LessWrong
-- Looking into jobs, programs, and more opportunities that I believe have high impact on the trajectory of transformative AI"
+    md="- Looking into jobs, programs, and more opportunities that I believe have high impact on the trajectory of transformative AI
+- Learning, reading, thinking about AI alignment. Been [reading](https://www.lesswrong.com/posts/dHNKtQ3vTBxTfTPxu/what-is-the-alignment-problem) a [lot](https://www.lesswrong.com/posts/8wBN8cdNAv3c7vt6p/the-case-against-ai-control-research) by [John Wentsworth](https://www.lesswrong.com/posts/7Z4WC4AFgfmZ3fCDC/instrumental-goals-are-a-different-and-friendlier-kind-of) on LessWrong"
   />
 </Section>
 
