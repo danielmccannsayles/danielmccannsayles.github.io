@@ -6,7 +6,7 @@
 
 <Section
   title="## Work Experience"
-  subtitle="I've been working as a *software engineer* for around 2 years now. Since early 2024 I've been pushing to learn more about ML and LLMs. I've looked for opportunities both at work and on my own"
+  subtitle="I've been working as a *Software Engineer* for around 2 years now. Since early 2024 I've been pushing to learn more about ML and LLMs. I've looked for opportunities both at work and on my own"
   hideToStart="True"
 >
   <MdCell
@@ -16,18 +16,16 @@
 Frontend Developer, *Jul 2023 - Jun 2025*
 - Developed modern, high-performance Angular applications, leveraging RxJS, NgRx, Signals, Cypress, and Jest.
 - Took initiative to explore AI/LLM applications, contributing to a hackathon-winning project on AI use cases.
-- Researched, maintained, and enforced best practices across frontend projects.
 - Collaborated with team members and cross-functional teams, mentoring, sharing knowledge, and fostering strong relationships.
 - Worked on various out of domain projects - getting up to speed quickly - many on AI
 
 Backend Developer, *Mar - May 2025*
 - Recognized for initiative in AI/LLM → joined team building agentic LLM querying process for sentiment
-- Got up to speed quickly and started contributing high quality code w/ python, langchain, langchain, weaviate, SQL
-- Explored latency improvements through parallelization of workflow & removeal of unnecessary context 
+- Got up to speed quickly and started contributing high quality code w/ python, langchain, weaviate, SQL
+- Explored latency improvements through parallelization of workflow & removal of unnecessary context 
 
 Developer, Data-viz AI Agent team, *May - June 2025*
 - Worked with a team building simple data-visualizing agentic AI application for internal & customer use.
-- Built evaluation pipeline for validating agent improvement, using Typscript, Genkit
 `}
   />
   <Chips items={["Python", "LLMs", "Typescript", "Angular", "Jest"]} />

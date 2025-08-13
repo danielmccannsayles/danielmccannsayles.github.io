@@ -17,7 +17,7 @@
     />
   </div>
   <MdCell
-    md={`I think well when walking, and I would like to be able to brainstorm ideas while in that flow state. Going back for my computer or pulling out my phone often interrupts what I'm thinking. It would be nice to have voice transcribed notes.
+    md={`I think well when walking, and I'd like to be able to brainstorm ideas whilst in this flow state. Going back for my computer or pulling out my phone  interrupts what I'm thinking. I wanted voice transcribed notes.
 
 Additionally, I find that a conversational dialog is conducive to developing better ideas. If I could have an LLM respond to my notes, and add context or argue points, it might help my ideation.
 
@@ -342,11 +342,11 @@ I stopped this project because I wasn't convinced I was actually getting more be
 
 I still think that a \`perfect\` AI assistant with transcription and note taking and function calling, *AND* a LLM re-writing the notes for clarity/ future reference, or some sort of mental model, would be *decently* useful.
 
-Unforunately this would require:
+Unfortunately this would require:
 1. Much more development & edge case debugging
-2. A period of adaptation for me => I found that I mumble a lot, and directly turning my thoughts into words *coherently enough* is harder than I thought. 
+2. A period of adaptation for me => I found that I mumble a lot, and directly turning my thoughts into words *coherently* is harder than I thought. 
 
-And I was not ready to commit to both of these. `}
+..And I was not ready to commit to both of these. `}
   />
 
   <MdCell

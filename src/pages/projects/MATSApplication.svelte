@@ -5,7 +5,7 @@
 </script>
 
 <Section
-  title="### AI alignment learning + MATS applications"
+  title="### AI Alignment Learning + MATS applications"
   subtitle="*Mar-Apr 2025*"
   hideToStart={true}
 >
@@ -16,16 +16,21 @@
   </div>
 
   <MdCell
-    md={`[MATS 8.0](https://www.matsprogram.org/apply) seemed like a good way to contribute to AI safety research while also learning (I don't have previous research experience).
+    md={`[MATS](https://www.matsprogram.org/apply) seemed like a good way to contribute to AI safety research while also learning.
 
-I also took it as an opportunity to get a state of the field. To do so, I read through each stream, and the representative papers I found intruiging. 
+I took the application process as an opportunity to get a state of the field. To do so, I read through each stream, and the representative papers I found intruiging.
+
 This gave me a solid knowledge base. Alignment is hard to define: it's a very broad idea with no clear solution.
 
-A few papers I find worth mentioning:
+A few papers I find worth mentioning
 1. Representation Engineering: An interesting paradigm to be sure. The general concept, taking a high top-down approach to interpretability, seems promising. Common mechanistic interpretability operates on such a low level that I'm convinced it has to miss out on representations hidden at higher levels. One thing this paper doesn't explore is concept representations over a temporal axis - it's concerned with the current state of the model, and averages concepts over many passes. 
+
 2. Lean Agent (formal proof solving): Training LM to output in a formal language. Progress here would lead to more accurate AI agents (probably a good thing).
+
 3. Distributed Control: Threat evaluation & control over distributed deployments of models - looking for stateless collusion. I hadn't thought of stateless collusion until this. 
-4. Belief Geometry in the Residual Stream: Really cool. Results seem to suggest that future context is represented in the residual stream of models - that they're actually planning ahead! I'd like to see this be applied to SAE Interpretability - it's often not clear what SAE circuits or features represent - maybe some of this confusion can be explained by 
+
+4. Belief Geometry in the Residual Stream: Really cool. Results seem to suggest that future context is represented in the residual stream of models - that they're actually planning ahead! I'd like to see this be applied to SAE Interpretability - it's often not clear what SAE circuits or features represent - maybe some of this confusion can be explained by acknowledging that many features are probably pointing at future context.
+
 5. Interpretability in Param Space: Another high-level method of interpreting LLM 'thoughts'.
 
 _In case it's not clear from this list, I'm interested in the technical problems of alignment: creating minds that share our values._
@@ -53,7 +58,7 @@ _This is the closest to what I believe now (June 3rd)_`}
   />
 
   <MdCell
-    md={`Unfortunately for past me I did not get into MATS for this summer - but fortunate for you, prospective employer/collaborator/peer :)
-I plan on looking into representation engineering more, and potentially other high level interpretability paradigms. `}
+    md={`Unfortunately for past me I did not get into MATS - but fortunate for you, prospective employer/collaborator/peer :)
+I plan on looking into representation engineering, and potentially other high level interpretability paradigms. `}
   />
 </Section>

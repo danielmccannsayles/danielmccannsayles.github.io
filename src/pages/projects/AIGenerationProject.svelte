@@ -23,20 +23,20 @@
   </div>
 
   <HalfMdHalfImageCell
-    md="I had the opportunity to work on an internal Cisco project exploring how well an LLM email generation process was doing. A system would generate emails which are then looked over by users, optionally changed, and then sent. As a metric of how well the process was doing, the stakeholders were currently calculating a diff between the sent and generated email. 
+    md="I had the opportunity to work on a Cisco project exploring how well an LLM-email-generation process was doing. A system generated emails which were then looked over by users, optionally changed, and sent. As a metric of how well the process was doing, the stakeholders were currently calculating a diff between the sent and generated email. 
 
 I was tasked with exploring this diff, and seeing how it could be improved."
     imageSrc={diff}
   />
 
   <MdCell
-    md={`An important lesson I learned is that ‘data analysis’ is a surprisingly difficult thing to do. This motif appears later in my AI Math solving exploration as well. There are so many different ways of calculating metrics, and so many different metrics. 
+    md={`Metrics are hard. There are so many ways of calculating metrics, and so many different metrics. 
 
 Crucially, these metrics also depend on the audience and your intentions - the metrics you would show to an executive are completely different than those you might show to a technical stakeholder, and again different than those a customer might care about.
 
-It's fascinating. You want to create some sort of visualization out of your data that your audience can easily read. This is something I find really interesting, especially when reading AI papers. 
+I find data analysis fascinating. Trying to create a visualization out of your data to tell your audience a story. 
 
-To explore the diff, I created multiple Jupyter notebooks and spent a few weeks immersing myself in the data =>`}
+Practically, I created multiple Jupyter notebooks and spent a few weeks immersing myself in the data =>`}
   />
 
   <MdCell
@@ -171,11 +171,11 @@ def remove_signature_chunks(trailing_addition: str, signature_embeddings, model:
   <MdCell
     md={`Reflection: 
 
-1. I made some progress on improving the diff, and exploring alternative methods. I found that the diff library they were using was comparing sentences, so by changing this to match every single character the similarity score increased - which was, *technically*, the objective. 
+1. I made *some* progress on improving the diff, and exploring alternative methods. 
 
-2. I learned a lot - becoming more familiar with python, the pitfalls of data analysis - it's easy to get lost in the minutia.  
+2. I learned a lot - about python, the pitfalls of data analysis (it's easy to get lost in the minutia)  
 
-3. Something that interested me, but I was not able to explore, was using the diff scores to improve the generation process. We have the data for each diff - it would be interesting to try collating these and sorting them by similar corrections to produce recommendations or common problems. You could imagine this being done automatically and generating a list of top 'x' priorities to make the generation more accurate, along with the % improvement each would bring. 
+3. Something I wasn't able to explore was using the diff scores to improve the generation process. It would be interesting to try collating all the diff data and sorting them by similar corrections to produce recommendations or common problems. I imagine this being done automatically and generating a list o the top 'X' priorities to improve the generation.
 
   > Whenever I can, I like to automate. This drive and desire to explore new ideas is something that I look forward to bringing to a smaller company, with more cross-functional opportunities
 

@@ -21,18 +21,18 @@
   <HalfMdHalfImageCell
     md={`I competed in an internal Cisco hackathon to explore how we could improve customer experience use cases with AI. 
 
-My team won 1st place out of over 20 teams!
+*My team won 1st place out of over 20 teams!*
 
-The competition took place over the span of two weeks. It was hosted by a different organization in Cisco, so it was different products and a different setting than I'm used to. Luckily my team had some experience we were able to draw on. `}
+The competition took place over the span of two weeks. It was hosted by a different organization in Cisco, so it was different products and a different setting than I was used to. `}
     imageSrc={hackathon}
-    imageWidthPercentage="40"
+    imageWidthPercentage="30"
   />
   <MdCell
     md={`I played a few key roles on the team: 
 1. Collaborating closely with our team lead to hash out his ideas and customer knowledge, and come up with a winning idea. He has a lot of knowledge around the specific field; *together* we were able to turn this into an implementation. 
 2. Executing on this; I quickly learned how to build, and built, a smart AI assistant using Streamlit and a RAG system with FAISS and LangChain.
 
-This showcases my holistic skill set. <span id="text-accent">I’m at my best when I have the ability to work closely with the product, with stakeholders, and with the implementation itself!</span>
+This showcases my holistic skill set. I’m at my best when I have the ability to work closely with the product, with stakeholders, and with the implementation itself!
 
 My team lead graciously said this about me:
 
@@ -42,10 +42,10 @@ Overall, I had a lot of fun meeting people, collaborating, and creating our proj
  `}
   />
 
-  <CodeCell
+  <!-- <CodeCell
     code={`unfortunately I have no code I'm allowed to share here :(`}
     language="raw"
-  />
+  /> -->
 
   <Chips items={["LangChain", "FAISS", "RAG", "Streamlit"]} />
 </Section>

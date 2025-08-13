@@ -24,7 +24,7 @@
 
   <Section
     title="## Projects, Learning, Explorations"
-    subtitle="A collection of self-contained snippets of work from 2024 -> that I've done at work, on my own, and with others. Mostly focused on ML, LLMs, and Python. Some paid/through work"
+    subtitle="A collection of self-contained snippets of work from 2024 onwards that I've done at work, on my own, and with others."
     hideToStart="true"
   >
     <MATSApplication />

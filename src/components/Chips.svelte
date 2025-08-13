@@ -2,11 +2,11 @@
   export let items = [];
 </script>
 
-<div class="chips-container">
+<!-- <div class="chips-container">
   {#each items as item}
     <span class="chip">{item}</span>
   {/each}
-</div>
+</div> -->
 
 <style>
   .chips-container {

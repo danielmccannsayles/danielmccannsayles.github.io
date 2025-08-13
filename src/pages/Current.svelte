@@ -1,5 +1,4 @@
 <script>
-  import Form from "../components/Form.svelte";
   import MdCell from "../components/MDCell.svelte";
   import Section from "../components/Section.svelte";
 </script>
@@ -10,8 +9,16 @@
   hideToStart="true"
 >
   <MdCell
-    md="- Looking into jobs, programs, and more opportunities that I believe have high impact on the trajectory of transformative AI
-- Learning, reading, thinking about AI alignment. Been [reading](https://www.lesswrong.com/posts/dHNKtQ3vTBxTfTPxu/what-is-the-alignment-problem) a [lot](https://www.lesswrong.com/posts/8wBN8cdNAv3c7vt6p/the-case-against-ai-control-research) by [John Wentsworth](https://www.lesswrong.com/posts/7Z4WC4AFgfmZ3fCDC/instrumental-goals-are-a-different-and-friendlier-kind-of) on LessWrong"
+    md="
+- I quit my job to work full-time on AI alignment.
+  - I'm still figuring out the most high impact things I want to be doing
+- Participating in the [MARS 3.0](https://www.cambridgeaisafety.org/mars) program. 
+  - I'm helping [CivAI](https://civai.org/) build demoes of AI capabilities to inform policymakers & the general public
+- Exploring AI tools for epistemics
+
+    
+    
+    "
   />
 </Section>
 
