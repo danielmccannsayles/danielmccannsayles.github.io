@@ -6,7 +6,6 @@
 
 <Section
   title="## Summary"
-  hideToStart={true}
   subtitle="Hi! I'm Daniel.
 
 *I want AI to go well and be broadly good for humanity*"
