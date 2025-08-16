@@ -8,12 +8,12 @@
 <Section title="### ARENA AI safety" subtitle="*March 2025*" hideToStart={true}>
   <div slot="hiddenBlurb">
     <Teaser
-      text="To familiarize myself with AI safety & ML fundamentals, I *self-learned* Chapter 0 of the ARENA AI safety program"
+      text="To familiarize myself with AI safety & ML fundamentals, I self-learned Chapter 0 of the ARENA AI safety program"
     />
   </div>
 
   <MdCell
-    md={`I completed the first chapter of the ARENA AI safety [course](https://www.arena.education/) on my own.
+    md={`I completed the first chapter of the ARENA AI safety [course](https://www.arena.education/)
 
 I originally planned to complete the course, but decided to pivot after the first chapter.
     

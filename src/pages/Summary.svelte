@@ -12,7 +12,7 @@
 >
   <MdCell
     md="
-  I like doing: Coding, Creating, Iterating, Learning, Writing ..
+  I like *doing*. Coding, Creating, Iterating, Learning, Writing..
     
 Here's ~3 facts to get to know me:
 
