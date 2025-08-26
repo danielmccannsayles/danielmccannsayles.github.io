@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+  import { theme } from "./stores/themeStore.js";
   import MdCell from "./components/MDCell.svelte";
   import Summary from "./pages/Summary.svelte";
   import WorkExperience from "./pages/WorkExperience.svelte";
@@ -13,10 +15,19 @@
   import ArenaProject from "./pages/projects/ArenaProject.svelte";
   import PortfolioWebsite from "./pages/projects/PortfolioWebsite.svelte";
   import MATSApplication from "./pages/projects/MATSApplication.svelte";
+  import ThemeToggle from "./components/ThemeToggle.svelte";
+
+  // Initialize theme on mount
+  onMount(() => {
+    document.documentElement.setAttribute("data-theme", $theme);
+  });
 </script>
 
 <main>
-  <MdCell md="# Daniel McCann-Sayles' Portfolio" />
+  <div class="header">
+    <MdCell md="# Daniel McCann-Sayles' Portfolio" />
+    <ThemeToggle />
+  </div>
   <QuickLinks />
   <Summary />
   <Current />
@@ -37,3 +48,12 @@
     <CiscoHackathonProject />
   </Section>
 </main>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: 20px;
+  }
+</style>

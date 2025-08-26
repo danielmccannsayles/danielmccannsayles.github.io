@@ -1,3 +1,33 @@
+/* Theme Variables */
+:root {
+  /* Dark theme (default) */
+  --bg-primary: #181818;
+  --bg-secondary: #1f1f1f;
+  --bg-tertiary: #2b2b2b;
+  --text-primary: #cccccc;
+  --text-secondary: #eeeeee;
+  --text-accent: #a182f8;
+  --border: #37373d;
+  --hover-bar: #37373d;
+  --hover-bar-active: #3077d2;
+  --link: #3077d2;
+  --blockquote-border: #a182f8;
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #333333;
+  --text-secondary: #111111;
+  --text-accent: #6f42c1;
+  --border: #dee2e6;
+  --hover-bar: #dee2e6;
+  --hover-bar-active: #0d6efd;
+  --link: #0d6efd;
+  --blockquote-border: #6f42c1;
+}
+
 /* Override hljs */
 pre {
   margin: 0;
@@ -15,17 +45,17 @@ code.hljs {
 
 body {
   margin: 0;
-  background-color: #181818;
-  color: #cccccc;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
     sans-serif;
 }
 
 blockquote {
-  /* background: #181818; */
+  /* background: var(--bg-primary); */
   padding: 1px;
   padding-left: 10px;
-  border-left: 4px solid #a182f8;
+  border-left: 4px solid var(--blockquote-border);
   font-style: italic;
 }
 
@@ -36,11 +66,11 @@ blockquote {
 
 /* Notebook - maxes out at 900px */
 .nb-container {
-  background-color: #1f1f1f;
+  background-color: var(--bg-secondary);
   max-width: 800px;
   margin: auto;
   box-sizing: border-box;
-  border: 1px #2b2b2b solid;
+  border: 1px var(--bg-tertiary) solid;
   padding-top: 1px; /* Prevent margin collapse*/
   padding-bottom: 30px;
   border-top: none;
@@ -63,7 +93,7 @@ blockquote {
   width: 3px;
   left: 4px;
   height: 100%;
-  background: #37373d;
+  background: var(--hover-bar);
   border-radius: 2px;
   opacity: 0;
   pointer-events: none;
@@ -82,16 +112,16 @@ blockquote {
 
 .bar-selected {
   opacity: 1;
-  background: #3077d2;
+  background: var(--hover-bar-active);
 }
 
 .collapsed {
-  border-bottom: 1px #37373d solid;
+  border-bottom: 1px var(--border) solid;
 }
 
 a {
   text-decoration: none;
-  color: #3077d2;
+  color: var(--link);
   text-decoration: underline;
 }
 
@@ -115,17 +145,17 @@ h2,
 h4,
 h5,
 h6 {
-  color: #eeeeee;
+  color: var(--text-secondary);
 }
 
 em {
-  color: #eeeeee;
+  color: var(--text-secondary);
 }
 
 h3 {
-  color: #a182f8;
+  color: var(--text-accent);
 }
 
 h3 > em {
-  color: #a182f8;
+  color: var(--text-accent);
 }
