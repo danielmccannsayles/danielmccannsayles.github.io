@@ -20,7 +20,7 @@
   .header-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
