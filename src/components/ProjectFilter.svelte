@@ -9,8 +9,9 @@
 </script>
 
 <div class="filter-bar">
-  <h2 class="projects-title">Projects</h2>
-  <div class="view-toggle">
+  <div class="filter-content">
+    <h2 class="projects-title">Projects</h2>
+    <div class="view-toggle">
     <button 
       class="toggle-btn"
       class:active={viewMode === 'list'}
@@ -36,21 +37,27 @@
         <rect x="9" y="9" width="6" height="6" rx="1"/>
       </svg>
     </button>
+    </div>
   </div>
 </div>
 
 <style>
   .filter-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    margin-bottom: 24px;
+    width: 100%;
     background: var(--bg-primary);
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
+  }
+
+  .filter-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .projects-title {

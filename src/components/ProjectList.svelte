@@ -224,10 +224,10 @@
 
   .side-panel {
     position: fixed;
-    top: 120px;
+    top: 80px;
     right: 0;
     width: 400px;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 80px);
     background: var(--bg-secondary);
     border-left: 1px solid var(--border);
     padding: 24px;
@@ -298,11 +298,11 @@
 
     .side-panel {
       position: fixed;
-      top: 120px;
+      top: 80px;
       left: 0;
       right: 0;
       width: 100%;
-      height: calc(100vh - 120px);
+      height: calc(100vh - 80px);
     }
   }
 </style>

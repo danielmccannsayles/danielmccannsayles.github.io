@@ -35,12 +35,13 @@
     </p>
     <p>Here are some things I've done:</p>
   </div>
-
-  <div class="projects-section">
-    <ProjectFilter {viewMode} onViewChange={handleViewChange} />
-    <ProjectList {viewMode} />
-  </div>
 </main>
+
+<ProjectFilter {viewMode} onViewChange={handleViewChange} />
+
+<div class="projects-content">
+  <ProjectList {viewMode} />
+</div>
 
 <style>
   main {
@@ -63,8 +64,10 @@
     margin-bottom: 48px;
   }
 
-  .projects-section {
-    margin-top: 48px;
+  .projects-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 30px;
   }
 
   em {
