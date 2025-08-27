@@ -2,6 +2,14 @@
   import { onMount } from "svelte";
   import { theme } from "./stores/themeStore.js";
   import Header from "./components/Header.svelte";
+  import ProjectFilter from "./components/ProjectFilter.svelte";
+  import ProjectList from "./components/ProjectList.svelte";
+
+  let viewMode = "list";
+
+  function handleViewChange(mode) {
+    viewMode = mode;
+  }
 
   onMount(() => {
     document.documentElement.setAttribute("data-theme", $theme);
@@ -27,6 +35,11 @@
     </p>
     <p>Here are some things I've done:</p>
   </div>
+
+  <div class="projects-section">
+    <ProjectFilter {viewMode} onViewChange={handleViewChange} />
+    <ProjectList {viewMode} />
+  </div>
 </main>
 
 <style>
@@ -35,10 +48,23 @@
     margin: 0 auto;
     padding: 0px 30px;
     line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .intro {
+    margin-bottom: 40px;
   }
 
   .availability {
     margin-bottom: 0;
+  }
+
+  .about {
+    margin-bottom: 48px;
+  }
+
+  .projects-section {
+    margin-top: 48px;
   }
 
   em {

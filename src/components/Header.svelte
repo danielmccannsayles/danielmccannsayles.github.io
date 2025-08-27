@@ -12,9 +12,6 @@
 <style>
   .site-header {
     background-color: var(--bg-secondary);
-    position: sticky;
-    top: 0;
-    z-index: 100;
   }
 
   .header-content {
