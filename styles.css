@@ -1,7 +1,7 @@
 /* Theme Variables */
 :root {
   /* Dark theme (default) */
-  --bg-primary: #181818;
+  --bg-primary: #252525;
   --bg-secondary: #1f1f1f;
   --bg-tertiary: #2b2b2b;
   --text-primary: #cccccc;
@@ -15,9 +15,9 @@
 }
 
 [data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #e9ecef;
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #eaeaea;
+  --bg-tertiary: #dcdde0;
   --text-primary: #333333;
   --text-secondary: #111111;
   --text-accent: #6f42c1;
@@ -64,79 +64,10 @@ blockquote {
   display: none;
 }
 
-/* Notebook - maxes out at 900px */
-.nb-container {
-  background-color: var(--bg-secondary);
-  max-width: 800px;
-  margin: auto;
-  box-sizing: border-box;
-  border: 1px var(--bg-tertiary) solid;
-  padding-top: 1px; /* Prevent margin collapse*/
-  padding-bottom: 30px;
-  border-top: none;
-}
-
-/* Generic cell stuff */
-.cell-container {
-  position: relative;
-  margin-bottom: 20px;
-  padding-right: 20px;
-}
-
-.cell-container-offset {
-  padding-left: 40px;
-}
-
-.hover-bar {
-  z-index: 10;
-  position: absolute;
-  width: 3px;
-  left: 4px;
-  height: 100%;
-  background: var(--hover-bar);
-  border-radius: 2px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.cell-container:hover .hover-bar {
-  opacity: 1;
-  pointer-events: auto;
-  cursor: pointer;
-}
-
-.hover-bar:hover {
-  width: 5px;
-  left: 3px;
-}
-
-.bar-selected {
-  opacity: 1;
-  background: var(--hover-bar-active);
-}
-
-.collapsed {
-  border-bottom: 1px var(--border) solid;
-}
-
 a {
   text-decoration: none;
   color: var(--link);
   text-decoration: underline;
-}
-
-/*  Title cell */
-.title-arrow-toggle {
-  position: absolute;
-  bottom: 2px;
-  left: 17px;
-  cursor: pointer;
-}
-
-.title-container {
-  padding-left: 40px;
-  position: inherit;
-  width: 100%;
 }
 
 /* emphasize */

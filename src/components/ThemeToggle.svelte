@@ -8,7 +8,6 @@
   {:else}
     <i class="codicon codicon-color-mode"></i>
   {/if}
-  <span class="theme-label">{$theme === "dark" ? "Light" : "Dark"}</span>
 </button>
 
 <style>
@@ -17,7 +16,7 @@
     align-items: center;
     gap: 8px;
     background: none;
-    border: 1px solid var(--border);
+    border: none; /*1px solid var(--border);*/
     border-radius: 4px;
     padding: 8px 12px;
     color: var(--text-primary);
@@ -29,7 +28,6 @@
 
   .theme-toggle:hover {
     background-color: var(--bg-tertiary);
-    border-color: var(--hover-bar-active);
   }
 
   .theme-toggle i {

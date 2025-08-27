@@ -1,59 +1,48 @@
 <script>
   import { onMount } from "svelte";
   import { theme } from "./stores/themeStore.js";
-  import MdCell from "./components/MDCell.svelte";
-  import Summary from "./pages/Summary.svelte";
-  import WorkExperience from "./pages/WorkExperience.svelte";
-  import Section from "./components/Section.svelte";
-  import MacmProject from "./pages/projects/MacmProject.svelte";
-  import AiGenerationProject from "./pages/projects/AIGenerationProject.svelte";
-  import SpeechToLlmProject from "./pages/projects/SpeechToLLMProject.svelte";
-  import CiscoHackathonProject from "./pages/projects/CiscoHackathonProject.svelte";
-  import KidFightGameProject from "./pages/projects/KidFightGameProject.svelte";
-  import QuickLinks from "./pages/QuickLinks.svelte";
-  import Current from "./pages/Current.svelte";
-  import ArenaProject from "./pages/projects/ArenaProject.svelte";
-  import PortfolioWebsite from "./pages/projects/PortfolioWebsite.svelte";
-  import MATSApplication from "./pages/projects/MATSApplication.svelte";
-  import ThemeToggle from "./components/ThemeToggle.svelte";
+  import Header from "./components/Header.svelte";
 
-  // Initialize theme on mount
   onMount(() => {
     document.documentElement.setAttribute("data-theme", $theme);
   });
 </script>
 
-<main>
-  <div class="header">
-    <MdCell md="# Daniel McCann-Sayles' Portfolio" />
-    <ThemeToggle />
-  </div>
-  <QuickLinks />
-  <Summary />
-  <Current />
-  <WorkExperience />
+<Header />
 
-  <Section
-    title="## Projects, Learning, Explorations"
-    subtitle="A collection of self-contained snippets of work from 2024 onwards that I've done at work, on my own, and with others."
-    hideToStart="true"
-  >
-    <MATSApplication />
-    <ArenaProject />
-    <PortfolioWebsite />
-    <KidFightGameProject />
-    <MacmProject />
-    <AiGenerationProject />
-    <SpeechToLlmProject />
-    <CiscoHackathonProject />
-  </Section>
+<main>
+  <p class="subtitle">Hi! I'm Daniel.</p>
+  <p class="tagline">
+    <em>I want AI to go well and be broadly good for humanity.</em>
+    I'm working towards this now. Open to correspondence & collaboration.
+  </p>
+  <p>I like <em>doing</em>. Coding, Creating, Iterating, Learning, Writing..</p>
+  <p>Here are some things I've done:</p>
 </main>
 
 <style>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-right: 20px;
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .tagline {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+
+  em {
+    color: var(--text-secondary);
   }
 </style>
