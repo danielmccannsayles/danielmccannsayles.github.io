@@ -2,14 +2,7 @@
   import { onMount } from "svelte";
   import { theme } from "./stores/themeStore.js";
   import Header from "./components/Header.svelte";
-  import ProjectFilter from "./components/ProjectFilter.svelte";
-  import ProjectList from "./components/ProjectList.svelte";
-
-  let viewMode = "list";
-
-  function handleViewChange(mode) {
-    viewMode = mode;
-  }
+  import Projects from "./components/Projects.svelte";
 
   onMount(() => {
     document.documentElement.setAttribute("data-theme", $theme);
@@ -37,11 +30,7 @@
   </div>
 </main>
 
-<ProjectFilter {viewMode} onViewChange={handleViewChange} />
-
-<div class="projects-content">
-  <ProjectList {viewMode} />
-</div>
+<Projects />
 
 <style>
   main {
@@ -64,11 +53,6 @@
     margin-bottom: 48px;
   }
 
-  .projects-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24px 30px;
-  }
 
   em {
     color: var(--text-secondary);
