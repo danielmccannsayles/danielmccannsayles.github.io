@@ -29,7 +29,7 @@
     sidePanelVisible = false;
     setTimeout(() => {
       expandedId = null;
-    }, 300); // Match transition duration
+    }, 300);
   }
 
   function handleKeydown(event, projectId) {
@@ -61,25 +61,28 @@
         class="project-card"
         class:expanded={expandedId === project.id && viewMode === "list"}
         class:selected={expandedId === project.id && viewMode === "grid"}
-        on:click={() => toggleExpand(project.id)}
-        on:keydown={(e) => handleKeydown(e, project.id)}
-        role="button"
-        tabindex="0"
       >
-        <div class="project-header">
-          <div class="project-info">
-            <h3 class="project-title">{project.title}</h3>
-            <div class="project-date">{project.date}</div>
+        <div
+          class="project-blurb"
+          on:click={() => toggleExpand(project.id)}
+          on:keydown={(e) => handleKeydown(e, project.id)}
+          role="button"
+          tabindex="0"
+        >
+          <div class="project-header">
+            <div class="project-info">
+              <h3 class="project-title">{project.title}</h3>
+              <div class="project-date">{project.date}</div>
+            </div>
+            <div
+              class="expand-icon"
+              class:rotated={expandedId === project.id && viewMode === "list"}
+            >
+              <i class="codicon codicon-chevron-down"></i>
+            </div>
           </div>
-          <div
-            class="expand-icon"
-            class:rotated={expandedId === project.id && viewMode === "list"}
-          >
-            <i class="codicon codicon-chevron-down"></i>
-          </div>
+          <p class="project-summary">{project.summary}</p>
         </div>
-
-        <p class="project-summary">{project.summary}</p>
 
         {#if expandedId === project.id && viewMode === "list"}
           <div class="project-description" transition:slide={{ duration: 300 }}>
@@ -148,18 +151,21 @@
     background: var(--bg-primary);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 20px;
-    cursor: pointer;
     transition: all 0.2s ease;
-  }
-
-  .project-card:hover {
-    border-color: var(--hover-bar);
-    background: var(--bg-tertiary);
   }
 
   .project-card.selected {
     border-color: var(--hover-bar-active);
+  }
+
+  .project-blurb {
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .project-blurb:hover {
+    border-color: var(--hover-bar);
+    background: var(--bg-tertiary);
   }
 
   .project-header {
@@ -207,8 +213,8 @@
   }
 
   .project-description {
-    margin-top: 16px;
-    padding-top: 16px;
+    padding: 20px;
+    padding-top: 10px;
     border-top: 1px solid var(--border);
     line-height: 1.6;
     color: var(--text-primary);

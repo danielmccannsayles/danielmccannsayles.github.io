@@ -39,7 +39,6 @@
   .filter-bar {
     width: 100%;
     background: var(--bg-primary);
-    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -52,6 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--border);
   }
 
   .projects-title {
