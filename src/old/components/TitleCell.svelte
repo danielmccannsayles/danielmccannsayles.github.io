@@ -1,5 +1,5 @@
 <script>
-  import { selectedCells } from "./selectedCellsStore.js";
+  import { selectedCells } from "../../components/selectedCellsStore.js";
   import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
   // Input
