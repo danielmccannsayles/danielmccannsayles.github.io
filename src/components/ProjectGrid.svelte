@@ -1,6 +1,7 @@
 <script>
   import { slide } from "svelte/transition";
   import { projects } from "../data/projects.js";
+  import "../styles/project-card.css";
 
   let expandedId = null;
   let sidePanelVisible = false;
@@ -102,50 +103,8 @@
     background: var(--bg-tertiary);
   }
 
-  .project-card {
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
-
   .project-card.selected {
     background: var(--bg-tertiary);
-  }
-
-  .project-blurb {
-    padding: 20px;
-    cursor: pointer;
-  }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
-  }
-
-  .project-info {
-    flex: 1;
-  }
-
-  .project-title {
-    margin: 0 0 4px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-secondary);
-  }
-
-  .project-date {
-    font-size: 14px;
-    color: var(--text-accent);
-    font-weight: 500;
-  }
-
-  .project-summary {
-    margin: 0;
-    line-height: 1.5;
-    color: var(--text-primary);
   }
 
   .side-panel {
