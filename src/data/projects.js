@@ -1,13 +1,15 @@
-import { portfolioWebsite } from "./project1-portfolio.js";
-import { arenaAiSafety } from "./project2-arena.js";
-import { kidFightGame } from "./project3-kidfight.js";
-import { llmChainingExploration } from "./project4-llmchaining.js";
-import { ciscoLlmGeneration } from "./project5-ciscollm.js";
-import { llmVerbalAssistant } from "./project6-verbalassistant.js";
-import { ciscoHackathon } from "./project7-ciscohackathon.js";
+import { portfolioWebsite } from "./portfolio.js";
+import { arenaAiSafety } from "./arena.js";
+import { kidFightGame } from "./kidfight.js";
+import { llmChainingExploration } from "./llmchaining.js";
+import { ciscoLlmGeneration } from "./ciscollm.js";
+import { llmVerbalAssistant } from "./verbalassistant.js";
+import { ciscoHackathon } from "./ciscohackathon.js";
+import { matsApplication } from "./mats.js";
 
 export const projects = [
   portfolioWebsite,
+  matsApplication,
   arenaAiSafety,
   kidFightGame,
   llmChainingExploration,
