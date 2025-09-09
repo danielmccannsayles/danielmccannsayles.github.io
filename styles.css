@@ -37,12 +37,6 @@ code.hljs {
   background: transparent;
 }
 
-/* Consider enabling this on small screen size */
-/* .code-cell pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-} */
-
 body {
   margin: 0;
   background-color: var(--bg-primary);
