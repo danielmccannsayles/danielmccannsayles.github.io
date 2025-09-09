@@ -24,6 +24,27 @@
   <div class="filter-content">
     <h2 class="projects-title">Projects</h2>
     <div class="controls">
+      {#if viewMode === "list"}
+        <div class="verbose-toggle">
+          <button
+            class="btn"
+            class:active={verboseMode}
+            on:click={toggleVerboseMode}
+            title={verboseMode
+              ? "Switch to concise mode (hide project summaries)"
+              : "Switch to verbose mode (show project summaries)"}
+            aria-label={verboseMode
+              ? "Switch to concise mode"
+              : "Switch to verbose mode"}
+          >
+            {#if verboseMode}
+              <VerboseIcon />
+            {:else}
+              <ConciseIcon />
+            {/if}
+          </button>
+        </div>
+      {/if}
       <div class="view-toggle">
         <button
           class="toggle-btn"
@@ -42,24 +63,6 @@
           <GridIcon />
         </button>
       </div>
-      {#if viewMode === "list"}
-        <div class="verbose-toggle">
-          <button
-            class="toggle-btn"
-            class:active={verboseMode}
-            on:click={toggleVerboseMode}
-            aria-label={verboseMode
-              ? "Switch to concise mode"
-              : "Switch to verbose mode"}
-          >
-            {#if verboseMode}
-              <VerboseIcon />
-            {:else}
-              <ConciseIcon />
-            {/if}
-          </button>
-        </div>
-      {/if}
     </div>
   </div>
 </div>
@@ -106,9 +109,18 @@
 
   .verbose-toggle {
     display: flex;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
+  }
+
+  .verbose-toggle .btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .verbose-toggle .btn.active {
+    background: transparent;
+    color: var(--text-secondary);
   }
 
   .toggle-btn {
