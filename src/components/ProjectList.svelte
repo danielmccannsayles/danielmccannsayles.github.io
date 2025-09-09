@@ -3,6 +3,7 @@
   import { projects } from "../data/projects.js";
   import "../styles/project-card.css";
 
+  export let verboseMode = true;
   let expandedId = null;
 
   function toggleExpand(projectId) {
@@ -37,7 +38,9 @@
               <i class="codicon codicon-chevron-down"></i>
             </div>
           </div>
-          <p class="project-summary">{project.summary}</p>
+          {#if verboseMode || expandedId === project.id}
+            <p class="project-summary">{project.summary}</p>
+          {/if}
         </div>
 
         {#if expandedId === project.id}
@@ -78,7 +81,6 @@
   .expand-icon.rotated {
     transform: rotate(180deg);
   }
-
 
   .project-description {
     padding: 20px;

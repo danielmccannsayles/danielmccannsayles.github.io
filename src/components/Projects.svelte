@@ -4,17 +4,22 @@
   import ProjectGrid from "./ProjectGrid.svelte";
 
   let viewMode = "list";
+  let verboseMode = true;
 
   function handleViewChange(mode) {
     viewMode = mode;
   }
+
+  function handleVerboseChange(verbose) {
+    verboseMode = verbose;
+  }
 </script>
 
-<ProjectFilter {viewMode} onViewChange={handleViewChange} />
+<ProjectFilter {viewMode} {verboseMode} onViewChange={handleViewChange} onVerboseChange={handleVerboseChange} />
 
 <div class="projects-content">
   {#if viewMode === "list"}
-    <ProjectList />
+    <ProjectList {verboseMode} />
   {:else}
     <ProjectGrid />
   {/if}
