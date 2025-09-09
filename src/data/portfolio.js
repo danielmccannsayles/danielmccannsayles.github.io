@@ -1,8 +1,9 @@
 export const portfolioWebsite = {
   id: "portfolio-website",
   title: "This website",
-  date: "February 2025",
-  summary: "I thought it would be fun to style this like a Jupyter notebook, since I've been using those a lot the past year. I tried to replicate my VSCode theme, Default Dark Modern",
+  date: "Feb - Sep 2025",
+  summary:
+    "I thought it would be fun to style this like a Jupyter notebook, since I've been using those a lot the past year. I tried to replicate my VSCode theme, Default Dark Modern",
   content: [
     {
       type: "md",

@@ -45,7 +45,7 @@
           </button>
         </div>
       {/if}
-      <div class="view-toggle">
+      <!-- <div class="view-toggle">
         <button
           class="toggle-btn"
           class:active={viewMode === "list"}
@@ -62,7 +62,7 @@
         >
           <GridIcon />
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

@@ -15,14 +15,19 @@
   }
 </script>
 
-<ProjectFilter {viewMode} {verboseMode} onViewChange={handleViewChange} onVerboseChange={handleVerboseChange} />
+<ProjectFilter
+  {viewMode}
+  {verboseMode}
+  onViewChange={handleViewChange}
+  onVerboseChange={handleVerboseChange}
+/>
 
 <div class="projects-content">
-  {#if viewMode === "list"}
-    <ProjectList {verboseMode} />
-  {:else}
+  <!-- {#if viewMode === "list"} -->
+  <ProjectList {verboseMode} />
+  <!-- {:else}
     <ProjectGrid />
-  {/if}
+  {/if} -->
 </div>
 
 <style>
