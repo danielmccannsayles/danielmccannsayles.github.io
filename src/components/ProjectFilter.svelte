@@ -118,11 +118,6 @@
     transition: all 0.2s ease;
   }
 
-  .verbose-toggle .btn.active {
-    background: transparent;
-    color: var(--text-secondary);
-  }
-
   .toggle-btn {
     display: flex;
     align-items: center;
