@@ -30,9 +30,7 @@
             class="btn"
             class:active={verboseMode}
             on:click={toggleVerboseMode}
-            title={verboseMode
-              ? "Switch to concise mode (hide project summaries)"
-              : "Switch to verbose mode (show project summaries)"}
+            title={verboseMode ? "Hide summaries" : "Show summaries"}
             aria-label={verboseMode
               ? "Switch to concise mode"
               : "Switch to verbose mode"}
@@ -97,6 +95,7 @@
     display: flex;
     gap: 12px;
     align-items: center;
+    height: 100%;
   }
 
   .view-toggle {
@@ -109,6 +108,8 @@
 
   .verbose-toggle {
     display: flex;
+    height: 100%;
+    align-items: center;
   }
 
   .verbose-toggle .btn {
@@ -117,6 +118,8 @@
     background: transparent;
     cursor: pointer;
     transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
   }
 
   .toggle-btn {

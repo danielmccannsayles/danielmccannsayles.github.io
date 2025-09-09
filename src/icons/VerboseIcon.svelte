@@ -1,7 +1,7 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
   <!-- V shape at top  -->
   <path
-    d="M5 1 L8 4 L11 1"
+    d="M5 2 L8 5 L11 2"
     stroke="currentColor"
     stroke-width="1.5"
     fill="none"
@@ -11,14 +11,14 @@
   />
   <!-- Vertical line in middle  -->
   <path
-    d="M8 6 L8 10"
+    d="M8 7 L8 11"
     stroke="currentColor"
     stroke-width="1.5"
     stroke-linecap="round"
   />
   <!-- ^ shape at bottom  -->
   <path
-    d="M5 15 L8 12 L11 15"
+    d="M5 16 L8 13 L11 16"
     stroke="currentColor"
     stroke-width="1.5"
     fill="none"
