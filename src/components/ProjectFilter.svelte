@@ -112,6 +112,7 @@
   }
 
   .verbose-toggle .btn {
+    color: var(--text-primary);
     border: none;
     background: transparent;
     cursor: pointer;

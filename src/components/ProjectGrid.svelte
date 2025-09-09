@@ -1,6 +1,7 @@
 <script>
   import { slide } from "svelte/transition";
   import { projects } from "../data/projects.js";
+  import ProjectCard from "./ProjectCard.svelte";
   import "../styles/project-card.css";
 
   let expandedId = null;
@@ -73,11 +74,7 @@
       </div>
       <div class="side-panel-date">{selectedProject.date}</div>
       <div class="side-panel-content">
-        {@html selectedProject.description
-          .replace(/\n\n/g, "</p><p>")
-          .replace(/\n/g, "<br>")
-          .replace(/^/, "<p>")
-          .replace(/$/, "</p>")}
+        <ProjectCard project={selectedProject} />
       </div>
     </div>
   {/if}

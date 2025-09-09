@@ -1,6 +1,7 @@
 <script>
   import { slide } from "svelte/transition";
   import { projects } from "../data/projects.js";
+  import ProjectCard from "./ProjectCard.svelte";
   import "../styles/project-card.css";
 
   export let verboseMode = true;
@@ -45,11 +46,7 @@
 
         {#if expandedId === project.id}
           <div class="project-description" transition:slide={{ duration: 300 }}>
-            {@html project.description
-              .replace(/\n\n/g, "</p><p>")
-              .replace(/\n/g, "<br>")
-              .replace(/^/, "<p>")
-              .replace(/$/, "</p>")}
+            <ProjectCard {project} />
           </div>
         {/if}
       </div>
