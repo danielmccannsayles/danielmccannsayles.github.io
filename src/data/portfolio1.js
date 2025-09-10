@@ -1,7 +1,9 @@
-export const portfolioWebsite = {
-  id: "portfolio-website",
-  title: "This website",
-  date: ["02/2025", "09/2025"],
+export const portfolioWebsite1 = {
+  id: "portfolio-website1",
+  title: "Portfolio Website",
+  subtitle: "(Notebook)",
+  series: { name: "portfolio", number: "1.0" },
+  date: ["02/2025"],
   format: "write-up",
   summary:
     "I thought it would be fun to style this like a Jupyter notebook, since I've been using those a lot the past year. I tried to replicate my VSCode theme, Default Dark Modern",

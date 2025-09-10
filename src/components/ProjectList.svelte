@@ -30,8 +30,8 @@
           <div class="project-header">
             <div class="project-info">
               <h3 class="project-title">
-                {project.title}{#if project.subtitle}, <span
-                    class="project-subtitle">{project.subtitle}</span
+                {project.title}{#if project.subtitle}
+                  <span class="project-subtitle">{" " + project.subtitle}</span
                   >{/if}
               </h3>
               <div class="project-date">{formatDateRange(project.date)}</div>
@@ -101,7 +101,6 @@
   .project-description :global(p:last-child) {
     margin-bottom: 0;
   }
-
 
   .project-subtitle {
     color: var(--text-primary);
