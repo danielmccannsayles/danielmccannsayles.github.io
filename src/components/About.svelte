@@ -1,8 +1,24 @@
 <script>
+  import { slide } from "svelte/transition";
   import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
   import chart from "../assets/chart.png";
 
-  const aboutText = `Here's ~3 facts to get to know me:
+  let expanded = false;
+
+  function toggleExpanded() {
+    expanded = !expanded;
+  }
+
+  function handleKeydown(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleExpanded();
+    }
+  }
+
+  const aboutText = `I like <em>doing</em>. Coding, Creating, Iterating, Learning, Writing..
+  
+Here's ~3 facts to get to know me:
 
 * Background in UI - Angular, React, Figma
   * 2 years of paid experience
@@ -21,34 +37,77 @@ Visually inclined? Here's a graphic condensing the past 5 years of my life into 
   const parsedClosing = marked.parse(closingText);
 </script>
 
-<section class="about-section">
-  <div class="about-content">
-    {@html parsedAbout}
-
-    <div class="img-container">
-      <img src={chart} alt="A chart showing the past 5 years of my life" />
+<div class="about-section">
+  <div
+    class="about-header"
+    on:click={toggleExpanded}
+    on:keydown={handleKeydown}
+    role="button"
+    tabindex="0"
+  >
+    <h2 class="about-title">About</h2>
+    <div class="expand-icon" class:rotated={expanded}>
+      <i class="codicon codicon-chevron-down"></i>
     </div>
-
-    {@html parsedClosing}
   </div>
-</section>
+
+  {#if expanded}
+    <div class="about-content" transition:slide={{ duration: 300 }}>
+      {@html parsedAbout}
+
+      <div class="img-container">
+        <img src={chart} alt="A chart showing the past 5 years of my life" />
+      </div>
+
+      {@html parsedClosing}
+    </div>
+  {/if}
+</div>
 
 <style>
-  .about-section {
-    max-width: 800px;
-    margin: 0 auto 48px auto;
-    padding: 0 30px;
+  .about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    border-radius: 4px;
+  }
+
+  .about-header:hover {
+    background: var(--bg-tertiary);
+  }
+
+  .about-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .expand-icon {
+    color: var(--text-primary);
+    transition: transform 0.2s ease;
+  }
+
+  .expand-icon.rotated {
+    transform: rotate(180deg);
   }
 
   .about-content {
-    line-height: 1.6;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 16px;
   }
 
   .img-container {
     margin: 24px 100px;
     max-width: 100%;
     background-color: #181818;
-    border: 1px #2b2b2b solid;
+    border: 1px solid var(--border);
     border-radius: 10px;
   }
 

@@ -23,15 +23,11 @@
     </p>
   </div>
 
-  <div class="about">
-    <p>
-      I like <em>doing</em>. Coding, Creating, Iterating, Learning, Writing..
-    </p>
-    <p>Here are some things I've done:</p>
-  </div>
-</main>
+  <p>More:</p>
+  <About />
 
-<About />
+  <p>Featured:</p>
+</main>
 
 <Projects />
 
@@ -42,7 +38,7 @@
     padding: 0px 30px;
     line-height: 1.2;
     font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   .intro {
@@ -51,10 +47,6 @@
 
   .availability {
     margin-bottom: 0;
-  }
-
-  .about {
-    margin-bottom: 48px;
   }
 
   em {
