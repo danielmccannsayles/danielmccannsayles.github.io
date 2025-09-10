@@ -36,7 +36,7 @@
   function handleScroll() {
     if (markerElement) {
       // Show button when we've scrolled past the filter
-      showScrollButton = window.scrollY > markerElement.offsetTop;
+      showScrollButton = window.scrollY > markerElement.offsetTop + 5;
     }
   }
 
