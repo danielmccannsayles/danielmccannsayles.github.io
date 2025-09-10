@@ -4,6 +4,7 @@
   import Header from "./components/Header.svelte";
   import About from "./components/About.svelte";
   import Projects from "./components/Projects.svelte";
+  import Featured from "./components/Featured.svelte";
 
   onMount(() => {
     document.documentElement.setAttribute("data-theme", $theme);
@@ -26,7 +27,8 @@
   <p>More:</p>
   <About />
 
-  <p>Featured:</p>
+  <!-- <p>Featured:</p>
+  <Featured /> -->
 </main>
 
 <Projects />
