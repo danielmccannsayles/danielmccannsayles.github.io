@@ -1,3 +1,5 @@
+<!--WARNING:  NOT USED CURRENTLY. MAY be out of date. -->
+
 <script>
   import { slide } from "svelte/transition";
   import { projects } from "../data/projects.js";

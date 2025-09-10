@@ -12,8 +12,7 @@
   export let onVerboseChange = () => {};
 
   let showScrollButton = false;
-  let filterBarElement;
-  let initialOffsetTop = 0;
+  let markerElement;
 
   function setViewMode(mode) {
     viewMode = mode;
@@ -26,24 +25,19 @@
   }
 
   function scrollToProjects() {
-    if (initialOffsetTop > 0) {
-      window.scrollTo({ top: initialOffsetTop, behavior: "smooth" });
+    if (markerElement) {
+      markerElement.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   function handleScroll() {
-    if (initialOffsetTop > 0) {
-      // Show button when we've scrolled past the original position of the filter bar
-      showScrollButton = window.scrollY > initialOffsetTop;
+    if (markerElement) {
+      // Show button when we've scrolled past the filter
+      showScrollButton = window.scrollY > markerElement.offsetTop;
     }
   }
 
   onMount(() => {
-    // Capture the initial position before any scrolling
-    if (filterBarElement) {
-      initialOffsetTop = filterBarElement.offsetTop;
-    }
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -51,7 +45,10 @@
   });
 </script>
 
-<div class="filter-bar" bind:this={filterBarElement}>
+<!-- Invisible marker div for scroll reference -->
+<div class="projects-marker" bind:this={markerElement}></div>
+
+<div class="filter-bar">
   <div class="filter-content">
     <div class="title-container">
       {#if showScrollButton}
@@ -221,5 +218,11 @@
   .toggle-btn.active {
     background: var(--hover-bar-active);
     color: white;
+  }
+
+  .projects-marker {
+    height: 0;
+    width: 0;
+    visibility: hidden;
   }
 </style>
