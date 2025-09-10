@@ -6,6 +6,7 @@
   import ConciseIcon from "../icons/ConciseIcon.svelte";
   import ArrowUpIcon from "../icons/ArrowUpIcon.svelte";
   import { expandedId } from "../stores/project-store.js";
+  import { projects } from "../data/projects.js";
 
   export let viewMode = "list"; // 'list' or 'grid'
   export let verboseMode = true; // true for verbose, false for concise
@@ -64,6 +65,7 @@
         </button>
       {/if}
       <h2 class="projects-title">Projects</h2>
+      <span class="project-count">{projects.length}</span>
     </div>
     <div class="controls">
       {#if viewMode === "list"}
@@ -142,6 +144,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    gap: 12px;
   }
 
   .scroll-button {
@@ -202,6 +205,18 @@
     font-size: 24px;
     font-weight: 500;
     color: var(--text-secondary);
+  }
+
+  .project-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 5px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 12px;
   }
 
   .controls {
