@@ -5,10 +5,7 @@
   import VerboseIcon from "../icons/VerboseIcon.svelte";
   import ConciseIcon from "../icons/ConciseIcon.svelte";
   import ArrowUpIcon from "../icons/ArrowUpIcon.svelte";
-  import {
-    expandedId,
-    filteredProjects,
-  } from "../stores/project-store.js";
+  import { expandedId, filteredProjects } from "../stores/project-store.js";
   import FilterBar from "./FilterBar.svelte";
 
   export let viewMode = "list"; // 'list' or 'grid'
@@ -225,7 +222,7 @@
 
   .controls {
     display: flex;
-    gap: 12px;
+    gap: 20px;
     align-items: center;
     height: 100%;
   }
@@ -290,5 +287,4 @@
     width: 0;
     visibility: hidden;
   }
-
 </style>

@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import {
     selectedSeries,
     setSeriesFilter,
@@ -7,6 +8,7 @@
 
   export let disabled = false;
   let showDropdown = false;
+  let dropdownElement;
 
   function toggleDropdown() {
     if (!disabled) {
@@ -18,10 +20,23 @@
     setSeriesFilter(seriesName);
     showDropdown = false;
   }
+
+  function handleClickOutside(event) {
+    if (dropdownElement && !dropdownElement.contains(event.target)) {
+      showDropdown = false;
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  });
 </script>
 
 {#if $availableSeries.length > 0}
-  <div class="series-dropdown">
+  <div class="series-dropdown" bind:this={dropdownElement}>
     <button
       class="dropdown-button"
       class:disabled

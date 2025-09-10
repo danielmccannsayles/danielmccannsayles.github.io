@@ -28,7 +28,7 @@
   </button>
 
   <SeriesDropdown disabled={!$hasSeriesInFiltered} />
-  
+
   <button
     class="clear-button"
     class:disabled={!$hasActiveFilters}
@@ -89,7 +89,7 @@
     width: 32px;
     height: 32px;
     background: transparent;
-    border: 1px solid var(--border);
+    border: none;
     border-radius: 6px;
     color: var(--text-primary);
     cursor: pointer;
