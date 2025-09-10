@@ -82,8 +82,8 @@
   .project-description {
     padding: 20px;
     padding-top: 10px;
+    font-size: 14px;
     border-top: 1px solid var(--border);
-    line-height: 1.6;
     color: var(--text-primary);
   }
 

@@ -23,18 +23,19 @@
 
 .project-title {
   margin: 0 0 4px 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-secondary);
 }
 
 .project-date {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-accent);
   font-weight: 500;
 }
 
 .project-summary {
+  font-size: 14px;
   padding-top: 12px;
   margin: 0;
   line-height: 1.5;

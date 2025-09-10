@@ -37,7 +37,8 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 0px 30px;
-    line-height: 1.6;
+    line-height: 1.2;
+    font-size: 16px;
     margin-bottom: 30px;
   }
 
@@ -52,7 +53,6 @@
   .about {
     margin-bottom: 48px;
   }
-
 
   em {
     color: var(--text-secondary);

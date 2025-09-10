@@ -11,7 +11,6 @@
 
 <style>
   .project-content {
-    line-height: 1.6;
     color: var(--text-primary);
   }
 </style>
