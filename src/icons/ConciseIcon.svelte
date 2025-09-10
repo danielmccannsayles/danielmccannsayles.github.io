@@ -9,13 +9,7 @@
     stroke-linejoin="round"
     style="transition: 'd 0.3s ease'"
   />
-  <!-- Vertical line in middle  -->
-  <path
-    d="M8 7 L8 11"
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
-  />
+
   <!-- V shape at bottom -->
   <path
     d="M5 12 L8 15 L11 12"

@@ -183,13 +183,22 @@
   }
 
   .verbose-toggle .btn {
-    color: var(--text-primary);
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
     background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
     cursor: pointer;
     transition: all 0.2s ease;
-    display: flex;
-    justify-content: center;
+  }
+
+  .verbose-toggle .btn:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-primary);
   }
 
   .toggle-btn {
