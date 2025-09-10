@@ -41,7 +41,11 @@
         >
           <div class="project-header">
             <div class="project-info">
-              <h3 class="project-title">{project.title}</h3>
+              <h3 class="project-title">
+                {project.title}{#if project.subtitle}, <span
+                    class="project-subtitle">{project.subtitle}</span
+                  >{/if}
+              </h3>
               <div class="project-date">{project.date}</div>
             </div>
             <div class="chips">
@@ -126,5 +130,12 @@
     border-radius: 4px;
     font-size: 12px;
     font-family: "SF Mono", Consolas, monospace;
+  }
+
+  .project-subtitle {
+    color: var(--text-primary);
+    font-weight: 400;
+    font-style: italic;
+    /* font-size: 14px; */
   }
 </style>

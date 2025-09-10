@@ -27,15 +27,16 @@
         <p class="availability">
           I'm working towards this now. Open to correspondence & collaboration.
         </p>
-        <!-- <Links /> -->
       </div>
     </div>
   </div>
 
   <About />
 
-  <p>Featured:</p>
-  <Featured {featuredItems} />
+  <!-- <p>Featured:</p>
+  <Featured {featuredItems} /> -->
+
+  <p>Projects, learning, experiences:</p>
 </main>
 
 <Projects />
@@ -52,7 +53,7 @@
 
   .intro {
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .intro-content {
