@@ -3,21 +3,45 @@ import { projects } from "../data/projects.js";
 
 export const expandedId = writable(null);
 export const showExperienceOnly = writable(false);
+export const selectedSeries = writable(null);
 
 export const filteredProjects = derived(
-  showExperienceOnly,
-  ($showExperienceOnly) => {
+  [showExperienceOnly, selectedSeries],
+  ([$showExperienceOnly, $selectedSeries]) => {
+    let filtered = projects;
+
     if ($showExperienceOnly) {
-      return projects.filter(project => project.experience === true);
+      filtered = filtered.filter((project) => project.experience === true);
     }
-    return projects;
+
+    if ($selectedSeries) {
+      filtered = filtered.filter(
+        (project) => project.series?.name === $selectedSeries
+      );
+    }
+
+    return filtered;
   }
 );
 
+export const availableSeries = derived([], () => {
+  const seriesSet = new Set();
+  projects.forEach((project) => {
+    if (project.series?.name) {
+      seriesSet.add(project.series.name);
+    }
+  });
+  return Array.from(seriesSet).sort();
+});
+
 export function toggleExpand(projectId) {
-  expandedId.update(current => current === projectId ? null : projectId);
+  expandedId.update((current) => (current === projectId ? null : projectId));
 }
 
 export function toggleExperienceFilter() {
-  showExperienceOnly.update(current => !current);
+  showExperienceOnly.update((current) => !current);
+}
+
+export function setSeriesFilter(seriesName) {
+  selectedSeries.set(seriesName);
 }

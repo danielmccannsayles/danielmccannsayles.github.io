@@ -5,7 +5,13 @@
   import VerboseIcon from "../icons/VerboseIcon.svelte";
   import ConciseIcon from "../icons/ConciseIcon.svelte";
   import ArrowUpIcon from "../icons/ArrowUpIcon.svelte";
-  import { expandedId, showExperienceOnly, toggleExperienceFilter, filteredProjects } from "../stores/project-store.js";
+  import {
+    expandedId,
+    showExperienceOnly,
+    toggleExperienceFilter,
+    filteredProjects,
+  } from "../stores/project-store.js";
+  import SeriesDropdown from "./SeriesDropdown.svelte";
 
   export let viewMode = "list"; // 'list' or 'grid'
   export let verboseMode = true; // true for verbose, false for concise
@@ -72,11 +78,17 @@
           class="filter-chip"
           class:active={$showExperienceOnly}
           on:click={toggleExperienceFilter}
-          title={$showExperienceOnly ? "Show all projects" : "Show work experience only"}
-          aria-label={$showExperienceOnly ? "Show all projects" : "Show work experience only"}
+          title={$showExperienceOnly
+            ? "Show all projects"
+            : "Show work experience only"}
+          aria-label={$showExperienceOnly
+            ? "Show all projects"
+            : "Show work experience only"}
         >
           work experience
         </button>
+
+        <SeriesDropdown />
       </div>
       {#if viewMode === "list"}
         <div class="verbose-toggle">

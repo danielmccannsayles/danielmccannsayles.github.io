@@ -2,7 +2,11 @@
   import ProjectCard from "./ProjectCard.svelte";
   import ProjectChips from "./ProjectChips.svelte";
   import "../styles/project-card.css";
-  import { expandedId, toggleExpand, filteredProjects } from "../stores/project-store.js";
+  import {
+    expandedId,
+    toggleExpand,
+    filteredProjects,
+  } from "../stores/project-store.js";
   import { formatDateRange } from "../utils/dateFormatter.js";
 
   export let verboseMode = true;
