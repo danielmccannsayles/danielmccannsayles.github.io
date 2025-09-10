@@ -25,6 +25,7 @@
     <button
       class="dropdown-button"
       class:disabled
+      class:active={$selectedSeries}
       on:click={toggleDropdown}
       {disabled}
       title="Filter by series"
@@ -80,9 +81,20 @@
     min-width: 120px;
   }
 
-  .dropdown-button:hover:not(:disabled) {
+  .dropdown-button:hover:not(:disabled):not(.active) {
     background: var(--bg-tertiary);
     border-color: var(--text-primary);
+  }
+
+  .dropdown-button.active {
+    background: var(--text-accent);
+    color: white;
+    border-color: var(--text-accent);
+  }
+
+  .dropdown-button.active:hover:not(:disabled) {
+    background: var(--text-accent);
+    opacity: 0.9;
   }
 
   .dropdown-button.disabled,

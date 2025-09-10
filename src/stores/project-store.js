@@ -39,13 +39,13 @@ export const hasExperienceProjects = derived(
   [selectedSeries],
   ([$selectedSeries]) => {
     let projectsToCheck = projects;
-    
+
     if ($selectedSeries) {
       projectsToCheck = projectsToCheck.filter(
         (project) => project.series?.name === $selectedSeries
       );
     }
-    
+
     return projectsToCheck.some((project) => project.experience === true);
   }
 );
@@ -55,12 +55,22 @@ export const hasSeriesInFiltered = derived(
   [showExperienceOnly],
   ([$showExperienceOnly]) => {
     let projectsToCheck = projects;
-    
+
     if ($showExperienceOnly) {
-      projectsToCheck = projectsToCheck.filter((project) => project.experience === true);
+      projectsToCheck = projectsToCheck.filter(
+        (project) => project.experience === true
+      );
     }
-    
+
     return projectsToCheck.some((project) => project.series?.name);
+  }
+);
+
+// Check if any filters are currently active
+export const hasActiveFilters = derived(
+  [showExperienceOnly, selectedSeries],
+  ([$showExperienceOnly, $selectedSeries]) => {
+    return $showExperienceOnly || $selectedSeries !== null;
   }
 );
 
@@ -74,4 +84,9 @@ export function toggleExperienceFilter() {
 
 export function setSeriesFilter(seriesName) {
   selectedSeries.set(seriesName);
+}
+
+export function clearAllFilters() {
+  showExperienceOnly.set(false);
+  selectedSeries.set(null);
 }
