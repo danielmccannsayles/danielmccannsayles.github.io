@@ -1,5 +1,5 @@
 <script>
-  import picture from "../assets/me/picture.jpg";
+  import { picture } from "$assets";
 </script>
 
 <div class="intro">

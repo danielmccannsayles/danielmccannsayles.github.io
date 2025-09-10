@@ -1,7 +1,7 @@
 <script>
   import { slide } from "svelte/transition";
   import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
-  import chart from "../assets/chart.png";
+  import { chart } from "$assets";
 
   let expanded = false;
 

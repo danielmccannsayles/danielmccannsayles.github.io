@@ -4,7 +4,7 @@
   import Section from "../../components/Section.svelte";
   import CodeCell from "../../components/CodeCell.svelte";
 
-  import diff from "../../assets/diff.png";
+  import { diff } from "$assets";
   import Teaser from "../../components/Teaser.svelte";
 </script>
 

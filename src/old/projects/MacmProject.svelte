@@ -4,7 +4,7 @@
   import MdCell from "../../components/MDCell.svelte";
   import Section from "../../components/Section.svelte";
   import Teaser from "../../components/Teaser.svelte";
-  import macm from "../../assets/macm.gif";
+  import { macm } from "$assets";
 </script>
 
 <Section

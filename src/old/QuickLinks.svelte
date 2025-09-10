@@ -1,5 +1,5 @@
 <script>
-  import resume from "../assets/Resume 2025.pdf";
+  import { resume } from "$assets";
 </script>
 
 <div class="container">

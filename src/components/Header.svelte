@@ -1,6 +1,6 @@
 <script>
-  import ThemeToggle from "./ThemeToggle.svelte";
-  import Links from "./Links.svelte";
+  import ThemeToggle from "./header/ThemeToggle.svelte";
+  import Links from "./header/Links.svelte";
 </script>
 
 <header class="site-header">

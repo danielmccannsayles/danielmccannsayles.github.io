@@ -1,7 +1,6 @@
 import { arenaAiSafety } from "./arena.js";
 import { matsApplication } from "./mats.js";
-import hackathonImg from "../assets/hackathon.png";
-import diffImg from "../assets/diff.png";
+import { hackathon as hackathonImg, diff as diffImg } from "$assets";
 
 export const featuredItems = [
   {

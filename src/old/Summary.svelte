@@ -1,7 +1,7 @@
 <script>
   import MdCell from "../components/MDCell.svelte";
   import Section from "../components/Section.svelte";
-  import chart from "../assets/chart.png";
+  import { chart } from "$assets";
 </script>
 
 <Section
