@@ -1,7 +1,7 @@
 export const kidFightGame = {
   id: "kid-fight-game",
   title: "Kid-Fight Game",
-  date: "Oct - Nov 2024",
+  date: ["10/2024", "11/2024"],
   format: "write-up",
   summary: "A game exploring using an LLM to arbitrate a fight with words. Sort of like when you were a kid, and would have an imaginary fight where you one-upped the other person",
   content: [

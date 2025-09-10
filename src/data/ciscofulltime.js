@@ -2,7 +2,7 @@ export const ciscoFullTime = {
   id: "cisco-fulltime",
   title: "Cisco Systems",
   subtitle: "Software Engineer",
-  date: "Jul 2023 - Jun 2025",
+  date: ["07/2023", "06/2025"],
   format: "write-up",
   summary: "Frontend and backend development, with a focus on AI/LLM applications. Developed Angular applications and worked on agentic AI projects.",
   content: [

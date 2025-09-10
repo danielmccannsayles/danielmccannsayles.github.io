@@ -3,6 +3,7 @@
   import ProjectCard from "./ProjectCard.svelte";
   import "../styles/project-card.css";
   import { expandedId, toggleExpand } from "../stores/project-store.js";
+  import { formatDateRange } from "../utils/dateFormatter.js";
 
   export let verboseMode = true;
 
@@ -46,7 +47,7 @@
                     class="project-subtitle">{project.subtitle}</span
                   >{/if}
               </h3>
-              <div class="project-date">{project.date}</div>
+              <div class="project-date">{formatDateRange(project.date)}</div>
             </div>
             <div class="chips">
               <span class="chip">wc: {calculateWordCount(project)}</span>

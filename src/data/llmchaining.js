@@ -1,7 +1,7 @@
 export const llmChainingExploration = {
   id: "llm-chaining-exploration",
   title: "LLM Chaining Exploration",
-  date: "October 2024",
+  date: ["10/2024"],
   format: "write-up",
   summary: "An exploration of a research paper into agentic AI workflows. Chaining LLM calling and testing out different patterns",
   content: [

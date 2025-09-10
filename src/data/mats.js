@@ -1,7 +1,7 @@
 export const matsApplication = {
   id: "mats-application",
   title: "AI Alignment Learning + MATS applications",
-  date: "April 2025",
+  date: ["04/2025"],
   format: "write-up",
   summary:
     "I took the application process to MATS 8.0 as an opportunity to get up to speed on the state of the field for AI alignment, and to learn what I could.",

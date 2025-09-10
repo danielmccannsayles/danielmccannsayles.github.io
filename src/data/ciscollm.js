@@ -1,7 +1,7 @@
 export const ciscoLlmGeneration = {
   id: "cisco-llm-generation",
   title: "Cisco LLM Generation Data Science",
-  date: "August 2024",
+  date: ["08/2024"],
   format: "write-up",
   summary: "A Cisco project where I do some data science to try and improve a LLM generation process",
   content: [

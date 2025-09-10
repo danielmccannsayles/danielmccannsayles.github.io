@@ -1,7 +1,7 @@
 export const portfolioWebsite = {
   id: "portfolio-website",
   title: "This website",
-  date: "Feb - Sep 2025",
+  date: ["02/2025", "09/2025"],
   format: "write-up",
   summary:
     "I thought it would be fun to style this like a Jupyter notebook, since I've been using those a lot the past year. I tried to replicate my VSCode theme, Default Dark Modern",
