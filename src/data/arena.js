@@ -2,7 +2,7 @@ export const arenaAiSafety = {
   id: "arena-ai-safety",
   title: "ARENA AI safety",
   date: "March 2025",
-  source: "local",
+  format: "write-up",
   summary: "To familiarize myself with AI safety & ML fundamentals, I self-learned Chapter 0 of the ARENA AI safety program",
   content: [
     {

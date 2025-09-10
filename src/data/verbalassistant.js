@@ -2,7 +2,7 @@ export const llmVerbalAssistant = {
   id: "llm-verbal-assistant",
   title: "LLM Verbal Assistant",
   date: "July 2024",
-  source: "local",
+  format: "write-up",
   summary: "A small project making an app to transcribe verbal notes with added AI assistant functionality",
   content: [
     {

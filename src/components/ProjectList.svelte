@@ -46,7 +46,7 @@
             </div>
             <div class="chips">
               <span class="chip">wc: {calculateWordCount(project)}</span>
-              <span class="chip">src: {project.source || "unknown"}</span>
+              <span class="chip">format: {project.format || "unknown"}</span>
             </div>
             <div class="expand-icon" class:rotated={$expandedId === project.id}>
               <i class="codicon codicon-chevron-down"></i>

@@ -2,7 +2,7 @@ export const ciscoHackathon = {
   id: "cisco-hackathon",
   title: "Cisco Hackathon",
   date: "May 2024",
-  source: "local",
+  format: "write-up",
   summary: "A Cisco Hackathon, exploring generative AI, that my team won!",
   content: [
     {
