@@ -6,7 +6,7 @@
   <a href="https://github.com/danielmccannsayles">Github</a>
   <a href={resume}>Resume</a>
   <a href="https://www.linkedin.com/in/daniel-mccann-sayles/">LinkedIn</a>
-  <a href="/personal-website-version-2-build">Old Website (2022)</a>
+  <!-- <a href="/personal-website-version-2-build">Old Website (2022)</a> -->
 </div>
 
 <style>
@@ -14,7 +14,6 @@
     display: flex;
     gap: 30px;
     justify-content: center;
-    width: 100%;
   }
   a {
     text-decoration: underline;

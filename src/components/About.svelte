@@ -45,7 +45,7 @@ Visually inclined? Here's a graphic condensing the past 5 years of my life into 
     role="button"
     tabindex="0"
   >
-    <h2 class="about-title">About Me</h2>
+    <h2 class="about-title">More About Me</h2>
     <div class="expand-icon" class:rotated={expanded}>
       <i class="codicon codicon-chevron-down"></i>
     </div>
