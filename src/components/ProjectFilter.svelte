@@ -55,7 +55,7 @@
     <div class="title-container">
       {#if showScrollButton}
         <button
-          class="scroll-button"
+          class="scroll-button desktop-scroll-button"
           on:click={scrollToProjects}
           title="Scroll to top of projects"
           aria-label="Scroll to top of projects"
@@ -107,6 +107,18 @@
   </div>
 </div>
 
+<!-- Mobile scroll button at bottom right -->
+{#if showScrollButton}
+  <button
+    class="scroll-button mobile-scroll-button"
+    on:click={scrollToProjects}
+    title="Scroll to top of projects"
+    aria-label="Scroll to top of projects"
+  >
+    <ArrowUpIcon />
+  </button>
+{/if}
+
 <style>
   .filter-bar {
     width: 100%;
@@ -133,8 +145,6 @@
   }
 
   .scroll-button {
-    position: absolute;
-    left: -44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,9 +158,43 @@
     transition: all 0.2s ease;
   }
 
+  .desktop-scroll-button {
+    position: absolute;
+    left: -44px;
+  }
+
+  .mobile-scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 101;
+    background: var(--bg-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 48px;
+    height: 48px;
+  }
+
+  .mobile-scroll-button :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
   .scroll-button:hover {
     background: var(--bg-tertiary);
     border-color: var(--text-primary);
+  }
+
+  /* Show/hide buttons based on screen size */
+  @media (max-width: 925px) {
+    .desktop-scroll-button {
+      display: none;
+    }
+  }
+
+  @media (min-width: 926px) {
+    .mobile-scroll-button {
+      display: none;
+    }
   }
 
   .projects-title {
