@@ -36,7 +36,11 @@
   <!-- <p>Featured:</p>
   <Featured {featuredItems} /> -->
 
-  <p>Projects, learning, experiences:</p>
+  <p>
+    On my portfolio you can find an unordered collection of work that I've done.
+    Some are writeups, some link to external projects. Along with this I proved
+    a filter bar so you can browse at your leisure.
+  </p>
 </main>
 
 <Projects />
@@ -48,7 +52,7 @@
     padding: 0px 30px;
     line-height: 1.2;
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .intro {
