@@ -1,12 +1,14 @@
 <script>
   import { onMount } from "svelte";
-  import MenuIcon from "../icons/MenuIcon.svelte";
-  import GridIcon from "../icons/GridIcon.svelte";
-  import VerboseIcon from "../icons/VerboseIcon.svelte";
-  import ConciseIcon from "../icons/ConciseIcon.svelte";
-  import ArrowUpIcon from "../icons/ArrowUpIcon.svelte";
-  import { expandedId, filteredProjects } from "../stores/project-store.js";
-  import FilterBar from "./FilterBar.svelte";
+  import {
+    MenuIcon,
+    GridIcon,
+    VerboseIcon,
+    ConciseIcon,
+    ArrowUpIcon
+  } from "../../icons";
+  import { expandedId, filteredProjects } from "../../stores";
+  import { FilterBar } from "./filter";
 
   export let viewMode = "list"; // 'list' or 'grid'
   export let verboseMode = true; // true for verbose, false for concise

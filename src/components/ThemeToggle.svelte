@@ -33,8 +33,4 @@
   .theme-toggle i {
     font-size: 16px;
   }
-
-  .theme-label {
-    font-weight: 500;
-  }
 </style>

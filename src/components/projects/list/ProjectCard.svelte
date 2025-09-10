@@ -1,6 +1,5 @@
 <script>
-  import ProjectContent from "./ProjectContent.svelte";
-  import ProjectCode from "./ProjectCode.svelte";
+  import { ProjectContent, ProjectCode } from "../atoms";
 
   export let project;
 
@@ -25,7 +24,7 @@
         // Always create new code group
         currentGroup = {
           type: "code",
-          codeBlocks: item.contents || []
+          codeBlocks: item.contents || [],
         };
         processed.push(currentGroup);
       }

@@ -1,7 +1,5 @@
 <script>
-  import ProjectFilter from "./ProjectFilter.svelte";
-  import ProjectList from "./ProjectList.svelte";
-  import ProjectGrid from "./ProjectGrid.svelte";
+  import { ProjectFilter, ProjectList, ProjectGrid } from "./projects";
 
   let viewMode = "list";
   let verboseMode = true;

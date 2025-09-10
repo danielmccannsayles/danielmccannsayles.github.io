@@ -4,7 +4,7 @@
     selectedSeries,
     setSeriesFilter,
     availableSeries,
-  } from "../stores/project-store.js";
+  } from "../../../stores";
 
   export let disabled = false;
   let showDropdown = false;

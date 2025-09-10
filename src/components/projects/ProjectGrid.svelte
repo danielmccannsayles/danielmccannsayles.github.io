@@ -2,9 +2,9 @@
 
 <script>
   import { slide } from "svelte/transition";
-  import { projects } from "../data/projects.js";
-  import ProjectCard from "./ProjectCard.svelte";
-  import "../styles/project-card.css";
+  import { projects } from "../../data/projects.js";
+  import ProjectCard from "./list/ProjectCard.svelte";
+  import "../../styles/project-card.css";
 
   let expandedId = null;
   let sidePanelVisible = false;

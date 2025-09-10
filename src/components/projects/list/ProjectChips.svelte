@@ -2,7 +2,7 @@
   import {
     toggleExperienceFilter,
     setSeriesFilter,
-  } from "../stores/project-store.js";
+  } from "../../../stores";
 
   export let project;
 
