@@ -86,14 +86,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     background: transparent;
     border: none;
     border-radius: 6px;
     color: var(--text-primary);
     cursor: pointer;
     transition: all 0.2s ease;
+    margin-left: -4px;
   }
 
   .clear-button:hover:not(:disabled) {
