@@ -2,13 +2,9 @@
   import { projects } from "../data/projects.js";
   import ProjectCard from "./ProjectCard.svelte";
   import "../styles/project-card.css";
+  import { expandedId, toggleExpand } from "../stores/project-store.js";
 
   export let verboseMode = true;
-  let expandedId = null;
-
-  function toggleExpand(projectId) {
-    expandedId = expandedId === projectId ? null : projectId;
-  }
 
   function handleKeydown(event, projectId) {
     if (event.key === "Enter" || event.key === " ") {
@@ -35,7 +31,7 @@
 <div class="projects-container">
   <div class="projects-list">
     {#each projects as project (project.id)}
-      <div class="project-card" class:expanded={expandedId === project.id}>
+      <div class="project-card" class:expanded={$expandedId === project.id}>
         <div
           class="project-blurb"
           on:click={() => toggleExpand(project.id)}
@@ -52,17 +48,17 @@
               <span class="chip">wc: {calculateWordCount(project)}</span>
               <span class="chip">src: {project.source || "unknown"}</span>
             </div>
-            <div class="expand-icon" class:rotated={expandedId === project.id}>
+            <div class="expand-icon" class:rotated={$expandedId === project.id}>
               <i class="codicon codicon-chevron-down"></i>
             </div>
           </div>
-          {#if verboseMode || expandedId === project.id}
+          {#if verboseMode || $expandedId === project.id}
             <p class="project-summary">{project.summary}</p>
           {/if}
         </div>
 
         <div class="project-description">
-          {#if expandedId === project.id}
+          {#if $expandedId === project.id}
             <ProjectCard {project} />
           {/if}
         </div>

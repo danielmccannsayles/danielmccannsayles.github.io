@@ -5,6 +5,7 @@
   import VerboseIcon from "../icons/VerboseIcon.svelte";
   import ConciseIcon from "../icons/ConciseIcon.svelte";
   import ArrowUpIcon from "../icons/ArrowUpIcon.svelte";
+  import { expandedId } from "../stores/project-store.js";
 
   export let viewMode = "list"; // 'list' or 'grid'
   export let verboseMode = true; // true for verbose, false for concise
@@ -21,6 +22,7 @@
 
   function toggleVerboseMode() {
     verboseMode = !verboseMode;
+    expandedId.set(null);
     onVerboseChange(verboseMode);
   }
 
