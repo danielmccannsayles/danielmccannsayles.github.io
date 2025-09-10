@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { theme } from "./stores/themeStore.js";
   import Header from "./components/Header.svelte";
+  import About from "./components/About.svelte";
   import Projects from "./components/Projects.svelte";
 
   onMount(() => {
@@ -29,6 +30,8 @@
     <p>Here are some things I've done:</p>
   </div>
 </main>
+
+<About />
 
 <Projects />
 
