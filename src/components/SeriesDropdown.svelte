@@ -5,10 +5,13 @@
     availableSeries,
   } from "../stores/project-store.js";
 
+  export let disabled = false;
   let showDropdown = false;
 
   function toggleDropdown() {
-    showDropdown = !showDropdown;
+    if (!disabled) {
+      showDropdown = !showDropdown;
+    }
   }
 
   function selectSeries(seriesName) {
@@ -21,7 +24,9 @@
   <div class="series-dropdown">
     <button
       class="dropdown-button"
+      class:disabled
       on:click={toggleDropdown}
+      {disabled}
       title="Filter by series"
       aria-label="Filter by series"
     >
@@ -75,9 +80,15 @@
     min-width: 120px;
   }
 
-  .dropdown-button:hover {
+  .dropdown-button:hover:not(:disabled) {
     background: var(--bg-tertiary);
     border-color: var(--text-primary);
+  }
+
+  .dropdown-button.disabled,
+  .dropdown-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 
   .dropdown-button .codicon {
@@ -132,7 +143,6 @@
   }
 
   .dropdown-item.active {
-    background: #3b82f6;
-    color: white;
+    color: var(--text-accent);
   }
 </style>

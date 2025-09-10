@@ -7,11 +7,9 @@
   import ArrowUpIcon from "../icons/ArrowUpIcon.svelte";
   import {
     expandedId,
-    showExperienceOnly,
-    toggleExperienceFilter,
     filteredProjects,
   } from "../stores/project-store.js";
-  import SeriesDropdown from "./SeriesDropdown.svelte";
+  import FilterBar from "./FilterBar.svelte";
 
   export let viewMode = "list"; // 'list' or 'grid'
   export let verboseMode = true; // true for verbose, false for concise
@@ -73,23 +71,7 @@
       <span class="project-count">{$filteredProjects.length}</span>
     </div>
     <div class="controls">
-      <div class="filter-chips">
-        <button
-          class="filter-chip"
-          class:active={$showExperienceOnly}
-          on:click={toggleExperienceFilter}
-          title={$showExperienceOnly
-            ? "Show all projects"
-            : "Show work experience only"}
-          aria-label={$showExperienceOnly
-            ? "Show all projects"
-            : "Show work experience only"}
-        >
-          work experience
-        </button>
-
-        <SeriesDropdown />
-      </div>
+      <FilterBar />
       {#if viewMode === "list"}
         <div class="verbose-toggle">
           <button
@@ -309,32 +291,4 @@
     visibility: hidden;
   }
 
-  .filter-chips {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .filter-chip {
-    padding: 6px 12px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--text-primary);
-    font-size: 12px;
-    font-family: "SF Mono", Consolas, monospace;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .filter-chip:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--text-primary);
-  }
-
-  .filter-chip.active {
-    background: #3b82f6;
-    color: white;
-    border-color: #3b82f6;
-  }
 </style>

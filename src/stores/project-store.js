@@ -34,6 +34,36 @@ export const availableSeries = derived([], () => {
   return Array.from(seriesSet).sort();
 });
 
+// Check if there are any projects with experience in the current filter
+export const hasExperienceProjects = derived(
+  [selectedSeries],
+  ([$selectedSeries]) => {
+    let projectsToCheck = projects;
+    
+    if ($selectedSeries) {
+      projectsToCheck = projectsToCheck.filter(
+        (project) => project.series?.name === $selectedSeries
+      );
+    }
+    
+    return projectsToCheck.some((project) => project.experience === true);
+  }
+);
+
+// Check if there are any projects with series in the current filter
+export const hasSeriesInFiltered = derived(
+  [showExperienceOnly],
+  ([$showExperienceOnly]) => {
+    let projectsToCheck = projects;
+    
+    if ($showExperienceOnly) {
+      projectsToCheck = projectsToCheck.filter((project) => project.experience === true);
+    }
+    
+    return projectsToCheck.some((project) => project.series?.name);
+  }
+);
+
 export function toggleExpand(projectId) {
   expandedId.update((current) => (current === projectId ? null : projectId));
 }
