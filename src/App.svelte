@@ -4,7 +4,7 @@
   import Header from "./components/Header.svelte";
   import About from "./components/About.svelte";
   import Projects from "./components/Projects.svelte";
-  import Featured from "./components/Featured.svelte";
+  import Links from "./components/Links.svelte";
 
   onMount(() => {
     document.documentElement.setAttribute("data-theme", $theme);
@@ -22,6 +22,7 @@
     <p class="availability">
       I'm working towards this now. Open to correspondence & collaboration.
     </p>
+    <Links />
   </div>
 
   <p>More:</p>
@@ -45,10 +46,6 @@
 
   .intro {
     margin-bottom: 40px;
-  }
-
-  .availability {
-    margin-bottom: 0;
   }
 
   em {

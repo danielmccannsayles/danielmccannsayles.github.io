@@ -1,10 +1,13 @@
 <script>
   import ThemeToggle from "./ThemeToggle.svelte";
+  import Links from "./Links.svelte";
 </script>
 
 <header class="site-header">
   <div class="header-content">
     <h1 class="site-title">Daniel's Portfolio</h1>
+    <Links />
+
     <ThemeToggle />
   </div>
 </header>
