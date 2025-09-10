@@ -4,8 +4,9 @@
   import Header from "./components/Header.svelte";
   import About from "./components/About.svelte";
   import Projects from "./components/Projects.svelte";
-  import Links from "./components/Links.svelte";
   import picture from "./assets/me/picture.jpg";
+  import Featured from "./components/Featured.svelte";
+  import { featuredItems } from "./data/featured.js";
 
   onMount(() => {
     document.documentElement.setAttribute("data-theme", $theme);
@@ -33,8 +34,8 @@
 
   <About />
 
-  <!-- <p>Featured:</p>
-  <Featured /> -->
+  <p>Featured:</p>
+  <Featured {featuredItems} />
 </main>
 
 <Projects />

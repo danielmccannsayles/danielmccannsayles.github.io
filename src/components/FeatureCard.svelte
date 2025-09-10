@@ -25,7 +25,7 @@
     background: var(--bg-secondary);
     transition: all 0.2s ease;
     cursor: pointer;
-    min-height: 300px;
+    aspect-ratio: 1;
     display: flex;
     flex-direction: column;
   }

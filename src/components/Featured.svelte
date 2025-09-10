@@ -30,9 +30,10 @@
     margin-bottom: 40px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .featured-grid {
       flex-direction: column;
+      align-items: center;
     }
   }
 </style>
