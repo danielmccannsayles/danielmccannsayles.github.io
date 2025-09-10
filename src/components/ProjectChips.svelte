@@ -35,7 +35,7 @@
   }
 
   function handleKeydown(event, handler) {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       event.stopPropagation();
       handler(event);
