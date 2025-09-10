@@ -1,5 +1,4 @@
 <script>
-  import { slide } from "svelte/transition";
   import { projects } from "../data/projects.js";
   import ProjectCard from "./ProjectCard.svelte";
   import "../styles/project-card.css";
@@ -44,11 +43,11 @@
           {/if}
         </div>
 
-        {#if expandedId === project.id}
-          <div class="project-description" transition:slide={{ duration: 300 }}>
+        <div class="project-description">
+          {#if expandedId === project.id}
             <ProjectCard {project} />
-          </div>
-        {/if}
+          {/if}
+        </div>
       </div>
     {/each}
   </div>
@@ -80,11 +79,16 @@
   }
 
   .project-description {
+    overflow: hidden;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+
+  .project-description :global(.project-card-content) {
     padding: 20px;
     padding-top: 10px;
-    font-size: 14px;
     border-top: 1px solid var(--border);
-    color: var(--text-primary);
+    margin: 0;
   }
 
   .project-description :global(p) {
