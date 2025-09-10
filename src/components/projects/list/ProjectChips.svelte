@@ -2,7 +2,7 @@
   import {
     toggleExperienceFilter,
     setSeriesFilter,
-  } from "../../../stores";
+  } from "$stores";
 
   export let project;
 

@@ -4,7 +4,7 @@
     selectedSeries,
     setSeriesFilter,
     availableSeries,
-  } from "../../../stores";
+  } from "$stores";
 
   export let disabled = false;
   let showDropdown = false;

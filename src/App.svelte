@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { theme } from "./stores/themeStore.js";
+  import { theme } from "$stores/themeStore.js";
   import Header from "./components/Header.svelte";
   import About from "./components/About.svelte";
   import Projects from "./components/Projects.svelte";

@@ -6,7 +6,7 @@
     hasSeriesInFiltered,
     hasActiveFilters,
     clearAllFilters,
-  } from "../../../stores";
+  } from "$stores";
   import SeriesDropdown from "./SeriesDropdown.svelte";
 </script>
 

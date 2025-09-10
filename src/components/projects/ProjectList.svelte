@@ -5,7 +5,7 @@
     expandedId,
     toggleExpand,
     filteredProjects,
-  } from "../../stores";
+  } from "$stores";
   import { formatDateRange } from "../../utils";
 
   export let verboseMode = true;

@@ -2,7 +2,7 @@
   import { slide } from "svelte/transition";
   import { tick } from "svelte";
   import hljs from "highlight.js";
-  import { theme } from "../../../stores";
+  import { theme } from "$stores";
 
   export let codeBlocks = []; // Array of {content: string, language: string}
   export let title = "Code";

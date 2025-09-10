@@ -7,7 +7,7 @@
     ConciseIcon,
     ArrowUpIcon
   } from "../../icons";
-  import { expandedId, filteredProjects } from "../../stores";
+  import { expandedId, filteredProjects } from "$stores";
   import { FilterBar } from "./filter";
 
   export let viewMode = "list"; // 'list' or 'grid'
