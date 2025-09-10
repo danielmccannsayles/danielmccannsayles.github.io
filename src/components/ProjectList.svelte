@@ -1,9 +1,8 @@
 <script>
-  import { projects } from "../data/projects.js";
   import ProjectCard from "./ProjectCard.svelte";
   import ProjectChips from "./ProjectChips.svelte";
   import "../styles/project-card.css";
-  import { expandedId, toggleExpand } from "../stores/project-store.js";
+  import { expandedId, toggleExpand, filteredProjects } from "../stores/project-store.js";
   import { formatDateRange } from "../utils/dateFormatter.js";
 
   export let verboseMode = true;
@@ -18,7 +17,7 @@
 
 <div class="projects-container">
   <div class="projects-list">
-    {#each projects as project (project.id)}
+    {#each $filteredProjects as project (project.id)}
       <div class="project-card" class:expanded={$expandedId === project.id}>
         <div
           class="project-blurb"
