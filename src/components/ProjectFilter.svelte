@@ -1,13 +1,19 @@
 <script>
+  import { onMount } from "svelte";
   import MenuIcon from "../icons/MenuIcon.svelte";
   import GridIcon from "../icons/GridIcon.svelte";
   import VerboseIcon from "../icons/VerboseIcon.svelte";
   import ConciseIcon from "../icons/ConciseIcon.svelte";
+  import ArrowUpIcon from "../icons/ArrowUpIcon.svelte";
 
   export let viewMode = "list"; // 'list' or 'grid'
   export let verboseMode = true; // true for verbose, false for concise
   export let onViewChange = () => {};
   export let onVerboseChange = () => {};
+
+  let showScrollButton = false;
+  let filterBarElement;
+  let initialOffsetTop = 0;
 
   function setViewMode(mode) {
     viewMode = mode;
@@ -18,11 +24,48 @@
     verboseMode = !verboseMode;
     onVerboseChange(verboseMode);
   }
+
+  function scrollToProjects() {
+    if (initialOffsetTop > 0) {
+      window.scrollTo({ top: initialOffsetTop, behavior: "smooth" });
+    }
+  }
+
+  function handleScroll() {
+    if (initialOffsetTop > 0) {
+      // Show button when we've scrolled past the original position of the filter bar
+      showScrollButton = window.scrollY > initialOffsetTop;
+    }
+  }
+
+  onMount(() => {
+    // Capture the initial position before any scrolling
+    if (filterBarElement) {
+      initialOffsetTop = filterBarElement.offsetTop;
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 </script>
 
-<div class="filter-bar">
+<div class="filter-bar" bind:this={filterBarElement}>
   <div class="filter-content">
-    <h2 class="projects-title">Projects</h2>
+    <div class="title-container">
+      {#if showScrollButton}
+        <button
+          class="scroll-button"
+          on:click={scrollToProjects}
+          title="Scroll to top of projects"
+          aria-label="Scroll to top of projects"
+        >
+          <ArrowUpIcon />
+        </button>
+      {/if}
+      <h2 class="projects-title">Projects</h2>
+    </div>
     <div class="controls">
       {#if viewMode === "list"}
         <div class="verbose-toggle">
@@ -82,6 +125,33 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border);
+  }
+
+  .title-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .scroll-button {
+    position: absolute;
+    left: -44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .scroll-button:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-primary);
   }
 
   .projects-title {
