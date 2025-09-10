@@ -2,11 +2,11 @@
   import { onMount } from "svelte";
   import { theme } from "$stores/themeStore.js";
   import Header from "./components/Header.svelte";
-  import About from "./components/About.svelte";
+  import About from "./components/summary/About.svelte";
   import Projects from "./components/Projects.svelte";
-  import Intro from "./components/Intro.svelte";
+  import Intro from "./components/summary/Intro.svelte";
 
-  import Featured from "./components/Featured.svelte";
+  import Featured from "./components/summary/Featured.svelte";
   import { featuredItems } from "./data/featured.js";
 
   onMount(() => {
