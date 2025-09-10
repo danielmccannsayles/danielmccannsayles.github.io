@@ -1,6 +1,7 @@
 <script>
   import { projects } from "../data/projects.js";
   import ProjectCard from "./ProjectCard.svelte";
+  import ProjectChips from "./ProjectChips.svelte";
   import "../styles/project-card.css";
   import { expandedId, toggleExpand } from "../stores/project-store.js";
   import { formatDateRange } from "../utils/dateFormatter.js";
@@ -12,20 +13,6 @@
       event.preventDefault();
       toggleExpand(projectId);
     }
-  }
-
-  function calculateWordCount(project) {
-    if (!project.content) return 0;
-
-    return project.content
-      .filter((item) => item.type === "md")
-      .reduce((total, item) => {
-        const words = item.content
-          .trim()
-          .split(/\s+/)
-          .filter((word) => word.length > 0);
-        return total + words.length;
-      }, 0);
   }
 </script>
 
@@ -49,10 +36,7 @@
               </h3>
               <div class="project-date">{formatDateRange(project.date)}</div>
             </div>
-            <div class="chips">
-              <span class="chip">wc: {calculateWordCount(project)}</span>
-              <span class="chip">format: {project.format || "unknown"}</span>
-            </div>
+            <ProjectChips {project} />
             <div class="expand-icon" class:rotated={$expandedId === project.id}>
               <i class="codicon codicon-chevron-down"></i>
             </div>
@@ -118,20 +102,6 @@
     margin-bottom: 0;
   }
 
-  .chips {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .chip {
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-family: "SF Mono", Consolas, monospace;
-  }
 
   .project-subtitle {
     color: var(--text-primary);

@@ -4,6 +4,7 @@ export const ciscoInternship = {
   subtitle: "Software Engineer Intern",
   date: ["06/2022", "09/2022"],
   format: "write-up",
+  experience: true,
   summary:
     "This internship gave me hands-on experience with machine learning, frontend best practices, and full-stack development",
   content: [
