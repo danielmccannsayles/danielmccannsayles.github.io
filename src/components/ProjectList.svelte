@@ -16,6 +16,20 @@
       toggleExpand(projectId);
     }
   }
+
+  function calculateWordCount(project) {
+    if (!project.content) return 0;
+
+    return project.content
+      .filter((item) => item.type === "md")
+      .reduce((total, item) => {
+        const words = item.content
+          .trim()
+          .split(/\s+/)
+          .filter((word) => word.length > 0);
+        return total + words.length;
+      }, 0);
+  }
 </script>
 
 <div class="projects-container">
@@ -33,6 +47,10 @@
             <div class="project-info">
               <h3 class="project-title">{project.title}</h3>
               <div class="project-date">{project.date}</div>
+            </div>
+            <div class="chips">
+              <span class="chip">wc: {calculateWordCount(project)}</span>
+              <span class="chip">src: {project.source || "unknown"}</span>
             </div>
             <div class="expand-icon" class:rotated={expandedId === project.id}>
               <i class="codicon codicon-chevron-down"></i>
@@ -97,5 +115,20 @@
 
   .project-description :global(p:last-child) {
     margin-bottom: 0;
+  }
+
+  .chips {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .chip {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: "SF Mono", Consolas, monospace;
   }
 </style>
