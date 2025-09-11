@@ -9,8 +9,18 @@ import { ciscoHackathon } from "./ciscohackathon.js";
 import { matsApplication } from "./mats.js";
 import { ciscoFullTime } from "./ciscofulltime.js";
 import { ciscoInternship } from "./ciscointernship.js";
+import { CruxSplitter } from "./cruxsplitter.js";
+import { echoes } from "./echoes.js";
+import { mars } from "./mars.js";
+import { spikeball } from "./spikeball.js";
+import { waterContraption } from "./watercontraption.js";
 
 export const projects = [
+  CruxSplitter,
+  echoes,
+  mars,
+  spikeball,
+  waterContraption,
   portfolioWebsite2,
   matsApplication,
   ciscoFullTime,

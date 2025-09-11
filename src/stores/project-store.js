@@ -5,6 +5,17 @@ export const expandedId = writable(null);
 export const showExperienceOnly = writable(false);
 export const selectedSeries = writable(null);
 
+// Helper function to parse MM/YYYY date format and get the last date
+function getLastDate(project) {
+  if (!project.date || !Array.isArray(project.date) || project.date.length === 0) {
+    return new Date(0); // Default to epoch if no date
+  }
+  
+  const lastDateString = project.date[project.date.length - 1];
+  const [month, year] = lastDateString.split('/');
+  return new Date(parseInt(year), parseInt(month) - 1); // month is 0-indexed in Date
+}
+
 export const filteredProjects = derived(
   [showExperienceOnly, selectedSeries],
   ([$showExperienceOnly, $selectedSeries]) => {
@@ -20,7 +31,12 @@ export const filteredProjects = derived(
       );
     }
 
-    return filtered;
+    // Sort by last date (most recent first)
+    return filtered.sort((a, b) => {
+      const dateA = getLastDate(a);
+      const dateB = getLastDate(b);
+      return dateB - dateA; // Descending order (newest first)
+    });
   }
 );
 
