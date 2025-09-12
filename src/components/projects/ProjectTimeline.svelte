@@ -5,6 +5,7 @@
     expandedId,
     toggleExpand,
     timelineProjects,
+    maxTimelineLevel,
   } from "$stores";
   import { formatDateRange } from "../../utils";
 
@@ -19,20 +20,25 @@
 </script>
 
 <div class="timeline-container">
-  <div class="timeline-list">
-    {#each $timelineProjects as { project, level, startDate, endDate } (project.id)}
+  <!-- Render continuous vertical lines first -->
+  <div class="continuous-lines">
+    {#each Array($maxTimelineLevel + 1) as _, levelIndex}
+      <div 
+        class="continuous-line" 
+        style="left: {levelIndex * 40}px;"
+        data-level={levelIndex}
+      ></div>
+    {/each}
+  </div>
+
+  <!-- Render project boxes separately with spacing -->
+  <div class="timeline-projects">
+    {#each $timelineProjects as { project, level } (project.id)}
       <div 
         class="timeline-project" 
         class:expanded={$expandedId === project.id}
         style="--level: {level}; --indent: {level * 40}px;"
       >
-        <div class="timeline-lines">
-          <!-- Create vertical lines for each level up to this project's level -->
-          {#each Array(level + 1) as _, i}
-            <div class="timeline-line" style="left: {i * 40}px;"></div>
-          {/each}
-        </div>
-        
         <div class="project-card" class:expanded={$expandedId === project.id}>
           <div
             class="project-blurb"
@@ -75,50 +81,54 @@
   .timeline-container {
     width: 100%;
     padding-left: 20px;
+    position: relative;
   }
 
-  .timeline-list {
+  /* Continuous vertical lines that span the entire timeline */
+  .continuous-lines {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .continuous-line {
+    position: absolute;
+    width: 16px;
+    height: 100%;
+    background: var(--hover-bar-active);
+    top: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .continuous-line:hover {
+    background: var(--text-primary);
+    width: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Project containers with proper spacing */
+  .timeline-projects {
     display: flex;
     flex-direction: column;
+    gap: 20px; /* Spacing between project boxes */
+    position: relative;
+    z-index: 2;
   }
 
   .timeline-project {
     position: relative;
-    margin-bottom: 40px;
-  }
-
-  .timeline-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    pointer-events: none;
-  }
-
-  .timeline-line {
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background: var(--border);
-    top: 0;
   }
 
   .project-card {
     margin-left: var(--indent);
-    padding-left: 20px;
+    padding-left: 24px; /* Space from the vertical lines */
     position: relative;
-  }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    left: -2px;
-    top: 20px;
-    width: 6px;
-    height: 6px;
-    background: var(--hover-bar-active);
-    border-radius: 50%;
-    transform: translateX(-50%);
   }
 
   .project-blurb:hover {
@@ -166,14 +176,26 @@
     .timeline-container {
       padding-left: 10px;
     }
+
+    .continuous-lines {
+      left: 10px;
+    }
     
-    .timeline-project {
-      margin-bottom: 20px;
+    .continuous-line {
+      width: 12px;
+    }
+    
+    .continuous-line:hover {
+      width: 14px;
+    }
+    
+    .timeline-projects {
+      gap: 16px; /* Smaller gap on mobile */
     }
     
     .project-card {
       margin-left: calc(var(--indent) * 0.5);
-      padding-left: 15px;
+      padding-left: 20px;
     }
   }
 </style>
