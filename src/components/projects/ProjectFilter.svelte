@@ -5,12 +5,12 @@
     GridIcon,
     VerboseIcon,
     ConciseIcon,
-    ArrowUpIcon
+    ArrowUpIcon,
   } from "../../icons";
   import { expandedId, filteredProjects } from "$stores";
   import { FilterBar } from "./filter";
 
-  export let viewMode = "list"; // 'list' or 'grid'
+  export let viewMode = "list"; // 'list', 'grid', or 'timeline'
   export let verboseMode = true; // true for verbose, false for concise
   export let onViewChange = () => {};
   export let onVerboseChange = () => {};
@@ -71,7 +71,28 @@
     </div>
     <div class="controls">
       <FilterBar />
-      {#if viewMode === "list"}
+      <!-- Currently we have this toggle between timeline & list. the previous view-toggle was list & grid -->
+      <div class="view-mode-toggle">
+        <button
+          class="btn"
+          class:active={viewMode === "list"}
+          on:click={() => setViewMode("list")}
+          title="List view"
+          aria-label="Switch to list view"
+        >
+          <MenuIcon />
+        </button>
+        <button
+          class="btn"
+          class:active={viewMode === "timeline"}
+          on:click={() => setViewMode("timeline")}
+          title="Timeline view"
+          aria-label="Switch to timeline view"
+        >
+          Timeline
+        </button>
+      </div>
+      {#if viewMode != "grid"}
         <div class="verbose-toggle">
           <button
             class="btn"
@@ -229,12 +250,38 @@
     height: 100%;
   }
 
-  .view-toggle {
+  .view-mode-toggle {
     display: flex;
     gap: 4px;
+    height: 100%;
+    align-items: center;
+  }
+
+  .view-mode-toggle .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0 8px;
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 6px;
-    overflow: hidden;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .view-mode-toggle .btn:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-primary);
+  }
+
+  .view-mode-toggle .btn.active {
+    background: var(--hover-bar-active);
+    color: white;
+    border-color: var(--hover-bar-active);
   }
 
   .verbose-toggle {
@@ -260,28 +307,6 @@
   .verbose-toggle .btn:hover {
     background: var(--bg-tertiary);
     border-color: var(--text-primary);
-  }
-
-  .toggle-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 32px;
-    background: var(--bg-primary);
-    border: none;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .toggle-btn:hover {
-    background: var(--bg-tertiary);
-  }
-
-  .toggle-btn.active {
-    background: var(--hover-bar-active);
-    color: white;
   }
 
   .projects-marker {

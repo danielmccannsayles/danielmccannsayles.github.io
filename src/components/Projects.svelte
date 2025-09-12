@@ -1,5 +1,5 @@
 <script>
-  import { ProjectFilter, ProjectList, ProjectGrid } from "./projects";
+  import { ProjectFilter, ProjectList, ProjectGrid, ProjectTimeline } from "./projects";
 
   let viewMode = "list";
   let verboseMode = true;
@@ -21,11 +21,13 @@
 />
 
 <div class="projects-content">
-  <!-- {#if viewMode === "list"} -->
-  <ProjectList {verboseMode} />
-  <!-- {:else}
+  {#if viewMode === "list"}
+    <ProjectList {verboseMode} />
+  {:else if viewMode === "timeline"}
+    <ProjectTimeline {verboseMode} />
+  {:else}
     <ProjectGrid />
-  {/if} -->
+  {/if}
 </div>
 
 <style>
