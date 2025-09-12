@@ -17,16 +17,84 @@
       toggleExpand(projectId);
     }
   }
+
+  let projectElements = {};
+  let timelineContainer;
+
+  // Calculate line spans for each level
+  $: lineSpans = (() => {
+    const spans = {};
+    
+    // For each project, determine where lines should start and end
+    $timelineProjects.forEach(({ project, level, endDate }, projectIndex) => {
+      if (!spans[level]) {
+        spans[level] = [];
+      }
+      
+      // Find where this line should end - when the next project at this level or left starts
+      let endIndex = projectIndex;
+      
+      // Look at subsequent projects
+      for (let i = projectIndex + 1; i < $timelineProjects.length; i++) {
+        const nextProject = $timelineProjects[i];
+        // If next project is at same level or further left, this line ends
+        if (nextProject.level <= level) {
+          endIndex = i - 1;
+          break;
+        }
+        // Otherwise line continues through this project
+        endIndex = i;
+      }
+      
+      spans[level].push({
+        startIndex: projectIndex,
+        endIndex: endIndex,
+        project: project
+      });
+    });
+    
+    return spans;
+  })();
+
+  // Calculate actual line positions based on DOM elements
+  $: linePositions = (() => {
+    if (!timelineContainer) return [];
+    
+    const positions = [];
+    
+    Object.entries(lineSpans).forEach(([level, segments]) => {
+      segments.forEach((segment, segmentIndex) => {
+        const startElement = projectElements[segment.project.id];
+        const endElement = projectElements[$timelineProjects[segment.endIndex]?.project.id];
+        
+        if (startElement && endElement) {
+          const containerRect = timelineContainer.getBoundingClientRect();
+          const startRect = startElement.getBoundingClientRect();
+          const endRect = endElement.getBoundingClientRect();
+          
+          positions.push({
+            level: parseInt(level),
+            top: startRect.top - containerRect.top,
+            height: (endRect.top - startRect.top) + (endRect.height * 0.8),
+            segmentIndex: `${level}-${segmentIndex}`
+          });
+        }
+      });
+    });
+    
+    return positions;
+  })();
 </script>
 
-<div class="timeline-container">
+<div class="timeline-container" bind:this={timelineContainer}>
   <!-- Render continuous vertical lines first -->
   <div class="continuous-lines">
-    {#each Array($maxTimelineLevel + 1) as _, levelIndex}
+    {#each linePositions as position}
       <div 
         class="continuous-line" 
-        style="left: {levelIndex * 40}px;"
-        data-level={levelIndex}
+        style="left: {position.level * 40}px; top: {position.top}px; height: {position.height}px;"
+        data-level={position.level}
+        data-segment={position.segmentIndex}
       ></div>
     {/each}
   </div>
@@ -38,6 +106,7 @@
         class="timeline-project" 
         class:expanded={$expandedId === project.id}
         style="--level: {level}; --indent: {level * 40}px;"
+        bind:this={projectElements[project.id]}
       >
         <div class="project-card" class:expanded={$expandedId === project.id}>
           <div
@@ -98,9 +167,7 @@
   .continuous-line {
     position: absolute;
     width: 16px;
-    height: 100%;
     background: var(--hover-bar-active);
-    top: 0;
     transition: all 0.2s ease;
     cursor: pointer;
     pointer-events: auto;
