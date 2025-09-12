@@ -72,7 +72,7 @@
     <div class="controls">
       <FilterBar />
       <!-- Currently we have this toggle between timeline & list. the previous view-toggle was list & grid -->
-      <div class="view-mode-toggle">
+      <!-- <div class="view-mode-toggle">
         <button
           class="btn"
           class:active={viewMode === "list"}
@@ -91,7 +91,7 @@
         >
           Timeline
         </button>
-      </div>
+      </div> -->
       {#if viewMode != "grid"}
         <div class="verbose-toggle">
           <button
