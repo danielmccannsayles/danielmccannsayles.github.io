@@ -19,13 +19,13 @@
     text-decoration: underline;
   }
   a:nth-child(1) {
-    color: var(--text-accent-2);
+    color: var(--text-accent-red);
   }
   a:nth-child(2) {
-    color: var(--text-accent-3);
+    color: var(--text-accent-green);
   }
   a:nth-child(3) {
-    color: var(--text-accent-4);
+    color: var(--text-accent-blue);
   }
   a:nth-child(4) {
     color: var(--text-accent);

@@ -1,8 +1,5 @@
 <script>
-  import {
-    toggleExperienceFilter,
-    setSeriesFilter,
-  } from "$stores";
+  import { toggleExperienceFilter, setSeriesFilter } from "$stores";
 
   export let project;
 
@@ -96,7 +93,7 @@
   }
 
   .experience-chip {
-    background: #3b82f6;
+    background: var(--text-accent-blue);
     color: white;
   }
 

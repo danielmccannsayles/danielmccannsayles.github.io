@@ -66,14 +66,13 @@
   }
 
   .filter-chip.active {
-    background: #3b82f6;
+    background: var(--text-accent-blue);
     color: white;
-    border-color: #3b82f6;
+    border-color: var(--text-accent-blue);
   }
 
   .filter-chip.active:hover:not(:disabled) {
-    background: #2563eb;
-    border-color: #2563eb;
+    opacity: 0.8;
   }
 
   .filter-chip.disabled,
