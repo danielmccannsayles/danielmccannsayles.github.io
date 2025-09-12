@@ -7,6 +7,9 @@
   --text-primary: #cccccc;
   --text-secondary: #eeeeee;
   --text-accent: #a182f8;
+  --text-accent-2: #f06a6a;
+  --text-accent-3: #93da68;
+  --text-accent-4: #6fc3e8;
   --border: #37373d;
   --hover-bar: #37373d;
   --hover-bar-active: #3077d2;
@@ -23,6 +26,9 @@
   --text-primary: #333333;
   --text-secondary: #111111;
   --text-accent: #6f42c1;
+  --text-accent-2: #f06a6a;
+  --text-accent-3: #4ec802;
+  --text-accent-4: #0dcaf0;
   --border: #dee2e6;
   --hover-bar: #dee2e6;
   --hover-bar-active: #0d6efd;

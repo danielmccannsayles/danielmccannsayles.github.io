@@ -19,15 +19,15 @@
     text-decoration: underline;
   }
   a:nth-child(1) {
-    color: #f06a6a;
+    color: var(--text-accent-2);
   }
   a:nth-child(2) {
-    color: #93da68;
+    color: var(--text-accent-3);
   }
   a:nth-child(3) {
-    color: #6fc3e8;
+    color: var(--text-accent-4);
   }
   a:nth-child(4) {
-    color: #a182f8;
+    color: var(--text-accent);
   }
 </style>
