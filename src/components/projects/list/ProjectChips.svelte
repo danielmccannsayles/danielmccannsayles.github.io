@@ -59,12 +59,11 @@
     </button>
   {/if}
 
-  <button class="chip" on:click={handleChipClick}
-    >wc: {calculateWordCount(project)}
-  </button>
-  <button class="chip" on:click={handleChipClick}
-    >format: {project.format || "unknown"}</button
-  >
+  {#if project.format === "write-up"}
+    <button class="chip" on:click={handleChipClick}
+      >wc: {calculateWordCount(project)}
+    </button>
+  {/if}
 
   {#if project.series}
     <button

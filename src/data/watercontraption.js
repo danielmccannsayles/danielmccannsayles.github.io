@@ -3,8 +3,8 @@ export const waterContraption = {
   title: "Water Contraption",
   date: ["07/2025"],
   format: "external",
-  summary:
-    "Fun little project [here](https://danielmccannsayles.github.io/water-contraption/)",
+  link: "/water-contraption",
+  summary: "A fun contraption for a hot summer day",
   content: [
     {
       type: "md",

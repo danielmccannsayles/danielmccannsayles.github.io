@@ -17,42 +17,78 @@
 <div class="projects-container">
   <div class="projects-list">
     {#each $filteredProjects as project (project.id)}
-      <div class="project-card" class:expanded={$expandedId === project.id}>
-        <!-- Blurb is presentational element -->
-        <div
-          class="project-blurb"
-          on:click={() => toggleExpand(project.id)}
-          on:keydown={(e) => handleKeydown(e, project.id)}
-          role="button"
-          tabindex="0"
-        >
-          <div class="project-header">
-            <div class="title-and-chips">
-              <div class="project-info">
-                <h3 class="title">
-                  {project.title}{#if project.subtitle}
-                    <span class="subtitle">{" " + project.subtitle}</span>{/if}
-                </h3>
-                <div class="date">{formatDateRange(project.date)}</div>
+      {#if project.format === "external"}
+        <!-- External project: show as link -->
+        <div class="project-card external">
+          <a
+            href={project.link || "https://google.com"}
+            class="project-blurb external-link"
+          >
+            <div class="project-header">
+              <div class="title-and-chips">
+                <div class="project-info">
+                  <h3 class="title">
+                    {project.title}{#if project.subtitle}
+                      <span class="subtitle">{" " + project.subtitle}</span
+                      >{/if}
+                  </h3>
+                  <div class="date">{formatDateRange(project.date)}</div>
+                </div>
+                <div class="link">[ {project.link} ]</div>
               </div>
-              <ProjectChips {project} />
-            </div>
 
-            <div class="expand-icon" class:rotated={$expandedId === project.id}>
-              <i class="codicon codicon-chevron-down"></i>
+              <div class="external-icon">
+                <i class="codicon codicon-link"></i>
+              </div>
             </div>
+            {#if verboseMode}
+              <p class="project-summary">{project.summary}</p>
+            {/if}
+          </a>
+        </div>
+      {:else}
+        <!-- Internal project: show with expand/collapse -->
+        <div class="project-card" class:expanded={$expandedId === project.id}>
+          <!-- Blurb is presentational element -->
+          <div
+            class="project-blurb"
+            on:click={() => toggleExpand(project.id)}
+            on:keydown={(e) => handleKeydown(e, project.id)}
+            role="button"
+            tabindex="0"
+          >
+            <div class="project-header">
+              <div class="title-and-chips">
+                <div class="project-info">
+                  <h3 class="title">
+                    {project.title}{#if project.subtitle}
+                      <span class="subtitle">{" " + project.subtitle}</span
+                      >{/if}
+                  </h3>
+                  <div class="date">{formatDateRange(project.date)}</div>
+                </div>
+                <ProjectChips {project} />
+              </div>
+
+              <div
+                class="expand-icon"
+                class:rotated={$expandedId === project.id}
+              >
+                <i class="codicon codicon-chevron-down"></i>
+              </div>
+            </div>
+            {#if verboseMode || $expandedId === project.id}
+              <p class="project-summary">{project.summary}</p>
+            {/if}
           </div>
-          {#if verboseMode || $expandedId === project.id}
-            <p class="project-summary">{project.summary}</p>
-          {/if}
-        </div>
 
-        <div class="content">
-          {#if $expandedId === project.id}
-            <ProjectCard {project} />
-          {/if}
+          <div class="content">
+            {#if $expandedId === project.id}
+              <ProjectCard {project} />
+            {/if}
+          </div>
         </div>
-      </div>
+      {/if}
     {/each}
   </div>
 </div>
@@ -83,12 +119,41 @@
     grid-template-rows: auto 1fr;
   }
 
+  .project-card.external {
+    display: block;
+  }
+
   .project-blurb {
     padding: 20px;
     cursor: pointer;
   }
   .project-blurb:hover {
     background: var(--bg-tertiary);
+  }
+
+  /* Link, for non write-ups */
+
+  .external-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .external-link:hover {
+    background: var(--bg-tertiary);
+  }
+
+  .external-icon {
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .link {
+    font-size: 12px;
+    font-family: "SF Mono", Consolas, monospace;
+    color: var(--text-faded);
   }
 
   /* Header, (info & icon) */
