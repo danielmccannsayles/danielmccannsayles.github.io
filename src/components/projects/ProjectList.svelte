@@ -27,14 +27,17 @@
           tabindex="0"
         >
           <div class="project-header">
-            <div class="project-info">
-              <h3 class="project-title">
-                {project.title}{#if project.subtitle}
-                  <span class="subtitle">{" " + project.subtitle}</span>{/if}
-              </h3>
-              <div class="project-date">{formatDateRange(project.date)}</div>
+            <div class="title-and-chips">
+              <div class="project-info">
+                <h3 class="title">
+                  {project.title}{#if project.subtitle}
+                    <span class="subtitle">{" " + project.subtitle}</span>{/if}
+                </h3>
+                <div class="date">{formatDateRange(project.date)}</div>
+              </div>
+              <ProjectChips {project} />
             </div>
-            <ProjectChips {project} />
+
             <div class="expand-icon" class:rotated={$expandedId === project.id}>
               <i class="codicon codicon-chevron-down"></i>
             </div>
@@ -88,38 +91,13 @@
     background: var(--bg-tertiary);
   }
 
-  /* Header */
+  /* Header, (info & icon) */
 
   .project-header {
     display: flex;
     justify-content: space-between;
     gap: 6px;
     align-items: flex-start;
-  }
-
-  .project-info {
-    flex: 1 0 auto;
-  }
-
-  .project-title {
-    margin: 0 0 4px 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-secondary);
-  }
-
-  .project-date {
-    font-size: 12px;
-    color: var(--text-accent);
-    font-weight: 500;
-  }
-
-  .project-summary {
-    font-size: 14px;
-    padding-top: 12px;
-    margin: 0;
-    line-height: 1.5;
-    color: var(--text-primary);
   }
 
   .expand-icon {
@@ -129,6 +107,50 @@
 
   .expand-icon.rotated {
     transform: rotate(180deg);
+  }
+
+  /* Title & chips, nested flexbox to drop chips*/
+  .title-and-chips {
+    flex: 1;
+    gap: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 700px) {
+    .title-and-chips {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+
+  .project-info {
+    flex: 1 0 auto;
+  }
+
+  .title {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .date {
+    font-size: 12px;
+    color: var(--text-accent);
+    font-weight: 500;
+  }
+
+  /* Summary */
+
+  .project-summary {
+    font-size: 14px;
+    padding-top: 12px;
+    margin: 0;
+    line-height: 1.5;
+    color: var(--text-primary);
   }
 
   /* The actual content, writeup, etc. */
