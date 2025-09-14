@@ -79,24 +79,26 @@
   }
 
   .chip {
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 12px;
     font-family: "SF Mono", Consolas, monospace;
-    border: none;
+    border: 1px solid var(--border);
     display: inline-block;
   }
 
   .series-chip {
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
   }
 
   .experience-chip {
     background: var(--text-accent-blue);
     color: white;
+    border: 1px solid var(--text-accent-blue);
   }
 
   .clickable {
