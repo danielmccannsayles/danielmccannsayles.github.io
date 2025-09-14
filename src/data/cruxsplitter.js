@@ -3,6 +3,7 @@ export const CruxSplitter = {
   title: "Crux-Splitter",
   date: ["07/2025", "08/2025"],
   format: "write-up",
+  starred: true,
   summary:
     "I built a tool to split up thinking into cruxes, to visualize arguments ",
   content: [

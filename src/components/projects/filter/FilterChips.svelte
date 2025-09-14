@@ -1,7 +1,9 @@
 <script>
   import {
     showExperienceOnly,
+    showStarredOnly,
     toggleExperienceFilter,
+    toggleStarredFilter,
     hasExperienceProjects,
     hasSeriesInFiltered,
     hasActiveFilters,
@@ -12,19 +14,27 @@
 
 <div class="filter-chips">
   <button
+    class="filter-chip starred-chip"
+    class:active={$showStarredOnly}
+    on:click={toggleStarredFilter}
+    title={"Filter by Starred"}
+    aria-label={$showStarredOnly ? "Show all projects" : "Show starred only"}
+  >
+    <i class="codicon codicon-star-full"></i>
+  </button>
+
+  <button
     class="filter-chip"
     class:active={$showExperienceOnly}
     class:disabled={!$hasExperienceProjects}
     on:click={toggleExperienceFilter}
     disabled={!$hasExperienceProjects}
-    title={$showExperienceOnly
-      ? "Show all projects"
-      : "Show work experience only"}
+    title={"Filter by Work Experience"}
     aria-label={$showExperienceOnly
       ? "Show all projects"
       : "Show work experience only"}
   >
-    work experience
+    Work Experience
   </button>
 
   <SeriesDropdown disabled={!$hasSeriesInFiltered} />
@@ -81,6 +91,16 @@
   .filter-chip:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+  }
+
+  .starred-chip.active {
+    background: gold;
+    color: black;
+    border-color: gold;
+  }
+
+  .starred-chip.active:hover:not(:disabled) {
+    opacity: 0.8;
   }
 
   .clear-button {

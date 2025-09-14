@@ -3,6 +3,7 @@ export const mars = {
   title: "MARS 3.0",
   date: ["07/2025", "09/2025"],
   format: "write-up",
+  starred: true,
   summary:
     "AI safety program. Worked with CivAI, a nonprofit aiming to spread awareness of AI capabilities & risks",
   content: [

@@ -3,23 +3,32 @@ import { projects } from "../data/projects.js";
 
 export const expandedId = writable(null);
 export const showExperienceOnly = writable(false);
+export const showStarredOnly = writable(true);
 export const selectedSeries = writable(null);
 
 // Helper function to parse MM/YYYY date format and get the last date
 function getLastDate(project) {
-  if (!project.date || !Array.isArray(project.date) || project.date.length === 0) {
+  if (
+    !project.date ||
+    !Array.isArray(project.date) ||
+    project.date.length === 0
+  ) {
     return new Date(0); // Default to epoch if no date
   }
-  
+
   const lastDateString = project.date[project.date.length - 1];
-  const [month, year] = lastDateString.split('/');
+  const [month, year] = lastDateString.split("/");
   return new Date(parseInt(year), parseInt(month) - 1); // month is 0-indexed in Date
 }
 
 export const filteredProjects = derived(
-  [showExperienceOnly, selectedSeries],
-  ([$showExperienceOnly, $selectedSeries]) => {
+  [showExperienceOnly, showStarredOnly, selectedSeries],
+  ([$showExperienceOnly, $showStarredOnly, $selectedSeries]) => {
     let filtered = projects;
+
+    if ($showStarredOnly) {
+      filtered = filtered.filter((project) => project.starred === true);
+    }
 
     if ($showExperienceOnly) {
       filtered = filtered.filter((project) => project.experience === true);
@@ -84,9 +93,9 @@ export const hasSeriesInFiltered = derived(
 
 // Check if any filters are currently active
 export const hasActiveFilters = derived(
-  [showExperienceOnly, selectedSeries],
-  ([$showExperienceOnly, $selectedSeries]) => {
-    return $showExperienceOnly || $selectedSeries !== null;
+  [showExperienceOnly, showStarredOnly, selectedSeries],
+  ([$showExperienceOnly, $showStarredOnly, $selectedSeries]) => {
+    return $showExperienceOnly || $showStarredOnly || $selectedSeries !== null;
   }
 );
 
@@ -102,7 +111,12 @@ export function setSeriesFilter(seriesName) {
   selectedSeries.set(seriesName);
 }
 
+export function toggleStarredFilter() {
+  showStarredOnly.update((current) => !current);
+}
+
 export function clearAllFilters() {
   showExperienceOnly.set(false);
+  showStarredOnly.set(false);
   selectedSeries.set(null);
 }

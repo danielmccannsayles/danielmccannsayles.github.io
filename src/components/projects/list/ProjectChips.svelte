@@ -45,6 +45,16 @@
 </script>
 
 <div class="chips">
+  {#if project.starred}
+    <button
+      class="chip starred-chip"
+      on:click={handleChipClick}
+      aria-label="Star"
+    >
+      <i class="codicon codicon-star-full"></i>
+    </button>
+  {/if}
+
   {#if project.experience}
     <button
       type="button"
@@ -56,12 +66,6 @@
       aria-label="Filter by work experience projects"
     >
       work experience
-    </button>
-  {/if}
-
-  {#if project.format === "write-up"}
-    <button class="chip" on:click={handleChipClick}
-      >wc: {calculateWordCount(project)}
     </button>
   {/if}
 
@@ -77,6 +81,12 @@
       aria-label="Filter by {project.series.name} series"
     >
       {project.series.name}, v{project.series.number}
+    </button>
+  {/if}
+
+  {#if project.format === "write-up"}
+    <button class="chip" on:click={handleChipClick}
+      >wc: {calculateWordCount(project)}
     </button>
   {/if}
 </div>
@@ -116,16 +126,20 @@
 
   .clickable {
     cursor: pointer;
-    transition: all 0.2s ease;
   }
 
   .clickable:hover {
-    outline: 2px solid var(--text-primary);
-    outline-offset: 1px;
+    outline: 1px solid var(--text-primary);
   }
 
   .experience-chip.clickable:hover {
     opacity: 0.8;
     outline: none;
+  }
+
+  .starred-chip {
+    background: gold;
+    color: black;
+    border: 1px solid gold;
   }
 </style>

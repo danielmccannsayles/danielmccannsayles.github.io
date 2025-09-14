@@ -38,7 +38,7 @@
     class:active={$selectedSeries}
     on:click={toggleDropdown}
     {disabled}
-    title="Filter by series"
+    title="Filter by Series"
     aria-label="Filter by series"
   >
     Series: {$selectedSeries || "any"}
