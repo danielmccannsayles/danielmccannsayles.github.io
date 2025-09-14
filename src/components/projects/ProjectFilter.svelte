@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { VerboseIcon, ConciseIcon, ArrowUpIcon } from "../../icons";
+  import { VerboseIcon, ConciseIcon, ArrowUpIcon } from "$icons";
   import { expandedId, filteredProjects } from "$stores";
   import { FilterChips } from "./filter";
 

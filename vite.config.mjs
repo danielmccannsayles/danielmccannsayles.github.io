@@ -11,6 +11,7 @@ export default defineConfig({
     alias: {
       $assets: resolve("src/assets"),
       $stores: resolve("src/stores"),
+      $icons: resolve("src/icons"),
     },
   },
 });

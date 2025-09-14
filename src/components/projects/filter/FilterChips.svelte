@@ -20,7 +20,11 @@
     title={"Filter by Starred"}
     aria-label={$showStarredOnly ? "Show all projects" : "Show starred only"}
   >
-    <i class="codicon codicon-star-full"></i>
+    <i
+      class="codicon"
+      class:codicon-star-full={$showStarredOnly}
+      class:codicon-star-empty={!$showStarredOnly}
+    ></i>
   </button>
 
   <button
@@ -93,10 +97,18 @@
     cursor: not-allowed;
   }
 
+  .starred-chip {
+    padding: 5px 6px;
+  }
+
+  .starred-chip .codicon {
+    font-size: 14px;
+  }
+
   .starred-chip.active {
     background: gold;
-    color: black;
-    border-color: gold;
+    color: var(--bg-primary);
+    border: 1px solid var(--border);
   }
 
   .starred-chip.active:hover:not(:disabled) {

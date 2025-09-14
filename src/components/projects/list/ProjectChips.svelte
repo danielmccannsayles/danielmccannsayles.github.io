@@ -138,8 +138,16 @@
   }
 
   .starred-chip {
-    background: gold;
-    color: black;
-    border: 1px solid gold;
+    background: var(--bg-primary);
+    color: gold;
+    border: 1px solid var(--border);
+  }
+
+  .starred-chip {
+    padding: 3px 5px;
+  }
+
+  .starred-chip .codicon {
+    font-size: 14px;
   }
 </style>
