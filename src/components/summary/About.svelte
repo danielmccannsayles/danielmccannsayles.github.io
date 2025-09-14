@@ -100,7 +100,7 @@ Visually inclined? Here's a graphic condensing the past 5 years of my life into 
     border: 1px solid var(--border);
     border-top: none;
     border-radius: 0 0 4px 4px;
-    padding: 16px;
+    padding: 2px 16px;
   }
 
   .img-container {
