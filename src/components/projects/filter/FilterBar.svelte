@@ -46,6 +46,8 @@
     display: flex;
     gap: 8px;
     align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
   }
 
   .filter-chip {

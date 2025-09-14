@@ -55,24 +55,27 @@
 
 <div class="filter-bar">
   <div class="filter-content">
-    <div class="title-container">
-      {#if showScrollButton}
-        <button
-          class="scroll-button desktop-scroll-button"
-          on:click={scrollToProjects}
-          title="Scroll to top of projects"
-          aria-label="Scroll to top of projects"
-        >
-          <ArrowUpIcon />
-        </button>
-      {/if}
-      <h2 class="projects-title">Projects</h2>
-      <span class="project-count">{$filteredProjects.length}</span>
-    </div>
-    <div class="controls">
-      <FilterBar />
-      <!-- Currently we have this toggle between timeline & list. the previous view-toggle was list & grid -->
-      <!-- <div class="view-mode-toggle">
+    <div class="top-row">
+      <div class="title-and-filter">
+        <div class="title-container">
+          {#if showScrollButton}
+            <button
+              class="scroll-button desktop-scroll-button"
+              on:click={scrollToProjects}
+              title="Scroll to top of projects"
+              aria-label="Scroll to top of projects"
+            >
+              <ArrowUpIcon />
+            </button>
+          {/if}
+          <h2 class="projects-title">Projects</h2>
+          <span class="project-count">{$filteredProjects.length}</span>
+        </div>
+        <FilterBar />
+      </div>
+      <div class="controls">
+        <!-- Currently we have this toggle between timeline & list. the previous view-toggle was list & grid -->
+        <!-- <div class="view-mode-toggle">
         <button
           class="btn"
           class:active={viewMode === "list"}
@@ -92,26 +95,26 @@
           Timeline
         </button>
       </div> -->
-      {#if viewMode != "grid"}
-        <div class="verbose-toggle">
-          <button
-            class="btn"
-            class:active={verboseMode}
-            on:click={toggleVerboseMode}
-            title={verboseMode ? "Hide summaries" : "Show summaries"}
-            aria-label={verboseMode
-              ? "Switch to concise mode"
-              : "Switch to verbose mode"}
-          >
-            {#if verboseMode}
-              <VerboseIcon />
-            {:else}
-              <ConciseIcon />
-            {/if}
-          </button>
-        </div>
-      {/if}
-      <!-- <div class="view-toggle">
+        {#if viewMode != "grid"}
+          <div class="verbose-toggle">
+            <button
+              class="btn"
+              class:active={verboseMode}
+              on:click={toggleVerboseMode}
+              title={verboseMode ? "Hide summaries" : "Show summaries"}
+              aria-label={verboseMode
+                ? "Switch to concise mode"
+                : "Switch to verbose mode"}
+            >
+              {#if verboseMode}
+                <VerboseIcon />
+              {:else}
+                <ConciseIcon />
+              {/if}
+            </button>
+          </div>
+        {/if}
+        <!-- <div class="view-toggle">
         <button
           class="toggle-btn"
           class:active={viewMode === "list"}
@@ -129,6 +132,7 @@
           <GridIcon />
         </button>
       </div> -->
+      </div>
     </div>
   </div>
 </div>
@@ -158,10 +162,20 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: 1px solid var(--border);
+  }
+
+  .top-row {
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .title-and-filter {
+    display: flex;
+    gap: 20px;
+    align-items: center;
   }
 
   .title-container {
@@ -248,6 +262,14 @@
     gap: 20px;
     align-items: center;
     height: 100%;
+  }
+
+  @media (max-width: 563px) {
+    .title-and-filter {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
   }
 
   .view-mode-toggle {
