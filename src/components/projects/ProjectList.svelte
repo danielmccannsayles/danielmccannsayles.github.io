@@ -18,6 +18,7 @@
   <div class="projects-list">
     {#each $filteredProjects as project (project.id)}
       <div class="project-card" class:expanded={$expandedId === project.id}>
+        <!-- Blurb is presentational element -->
         <div
           class="project-blurb"
           on:click={() => toggleExpand(project.id)}
@@ -29,8 +30,7 @@
             <div class="project-info">
               <h3 class="project-title">
                 {project.title}{#if project.subtitle}
-                  <span class="project-subtitle">{" " + project.subtitle}</span
-                  >{/if}
+                  <span class="subtitle">{" " + project.subtitle}</span>{/if}
               </h3>
               <div class="project-date">{formatDateRange(project.date)}</div>
             </div>
@@ -44,7 +44,7 @@
           {/if}
         </div>
 
-        <div class="project-description">
+        <div class="content">
           {#if $expandedId === project.id}
             <ProjectCard {project} />
           {/if}
@@ -55,6 +55,7 @@
 </div>
 
 <style>
+  /* List, card, blurb */
   .projects-container {
     width: 100%;
   }
@@ -65,8 +66,60 @@
     gap: 16px;
   }
 
+  .project-card {
+    display: grid;
+    grid-template-rows: auto 0fr;
+    transition: grid-template-rows 300ms ease-out;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .project-card.expanded {
+    grid-template-rows: auto 1fr;
+  }
+
+  .project-blurb {
+    padding: 20px;
+    cursor: pointer;
+  }
   .project-blurb:hover {
     background: var(--bg-tertiary);
+  }
+
+  /* Header */
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .project-info {
+    flex: 1 0 auto;
+  }
+
+  .project-title {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .project-date {
+    font-size: 12px;
+    color: var(--text-accent);
+    font-weight: 500;
+  }
+
+  .project-summary {
+    font-size: 14px;
+    padding-top: 12px;
+    margin: 0;
+    line-height: 1.5;
+    color: var(--text-primary);
   }
 
   .expand-icon {
@@ -78,31 +131,32 @@
     transform: rotate(180deg);
   }
 
-  .project-description {
+  /* The actual content, writeup, etc. */
+
+  .content {
     overflow: hidden;
     font-size: 14px;
     color: var(--text-primary);
   }
 
-  .project-description :global(.project-card-content) {
+  .content :global(.project-card-content) {
     padding: 20px;
     padding-top: 10px;
     border-top: 1px solid var(--border);
     margin: 0;
   }
 
-  .project-description :global(p) {
+  .content :global(p) {
     margin: 0 0 16px 0;
   }
 
-  .project-description :global(p:last-child) {
+  .content :global(p:last-child) {
     margin-bottom: 0;
   }
 
-  .project-subtitle {
+  .subtitle {
     color: var(--text-primary);
     font-weight: 400;
     font-style: italic;
-    /* font-size: 14px; */
   }
 </style>
