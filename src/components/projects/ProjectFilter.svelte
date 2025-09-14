@@ -8,7 +8,7 @@
     ArrowUpIcon,
   } from "../../icons";
   import { expandedId, filteredProjects } from "$stores";
-  import { FilterBar } from "./filter";
+  import { FilterChips } from "./filter";
 
   export let viewMode = "list"; // 'list', 'grid', or 'timeline'
   export let verboseMode = true; // true for verbose, false for concise
@@ -56,7 +56,7 @@
 <div class="filter-bar">
   <div class="filter-content">
     <div class="top-row">
-      <div class="title-and-filter">
+      <div class="title-and-chips">
         <div class="title-container">
           {#if showScrollButton}
             <button
@@ -71,7 +71,7 @@
           <h2 class="projects-title">Projects</h2>
           <span class="project-count">{$filteredProjects.length}</span>
         </div>
-        <FilterBar />
+        <FilterChips />
       </div>
       <div class="controls">
         <!-- Currently we have this toggle between timeline & list. the previous view-toggle was list & grid -->
@@ -172,10 +172,10 @@
     align-items: flex-start;
   }
 
-  .title-and-filter {
+  .title-and-chips {
+    flex: 1;
     display: flex;
-    gap: 20px;
-    align-items: center;
+    justify-content: space-between;
   }
 
   .title-container {
@@ -265,7 +265,7 @@
   }
 
   @media (max-width: 563px) {
-    .title-and-filter {
+    .title-and-chips {
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
