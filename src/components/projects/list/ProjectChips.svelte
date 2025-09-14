@@ -38,6 +38,10 @@
       handler(event);
     }
   }
+
+  function handleChipClick(event) {
+    event.stopPropagation();
+  }
 </script>
 
 <div class="chips">
@@ -45,22 +49,31 @@
     <button
       type="button"
       class="chip experience-chip clickable"
-      on:click={handleExperienceClick}
-      on:keydown={(event) => handleKeydown(event, handleExperienceClick)}
+      on:click={(event) => {
+        handleChipClick(event);
+        handleExperienceClick(event);
+      }}
       aria-label="Filter by work experience projects"
     >
       work experience
     </button>
   {/if}
 
-  <span class="chip">wc: {calculateWordCount(project)}</span>
-  <span class="chip">format: {project.format || "unknown"}</span>
+  <button class="chip" on:click={handleChipClick}
+    >wc: {calculateWordCount(project)}
+  </button>
+  <button class="chip" on:click={handleChipClick}
+    >format: {project.format || "unknown"}</button
+  >
 
   {#if project.series}
     <button
       type="button"
       class="chip series-chip clickable"
-      on:click={handleSeriesClick}
+      on:click={(event) => {
+        handleChipClick(event);
+        handleSeriesClick(event);
+      }}
       on:keydown={(event) => handleKeydown(event, handleSeriesClick)}
       aria-label="Filter by {project.series.name} series"
     >
@@ -87,6 +100,7 @@
     font-family: "SF Mono", Consolas, monospace;
     border: 1px solid var(--border);
     display: inline-block;
+    cursor: default;
   }
 
   .series-chip {
@@ -109,5 +123,10 @@
   .clickable:hover {
     outline: 2px solid var(--text-primary);
     outline-offset: 1px;
+  }
+
+  .experience-chip.clickable:hover {
+    opacity: 0.8;
+    outline: none;
   }
 </style>
