@@ -1,27 +1,15 @@
 <script>
   import { onMount } from "svelte";
-  import {
-    MenuIcon,
-    GridIcon,
-    VerboseIcon,
-    ConciseIcon,
-    ArrowUpIcon,
-  } from "../../icons";
+  import { VerboseIcon, ConciseIcon, ArrowUpIcon } from "../../icons";
   import { expandedId, filteredProjects } from "$stores";
   import { FilterChips } from "./filter";
 
   export let viewMode = "list"; // 'list', 'grid', or 'timeline'
   export let verboseMode = true; // true for verbose, false for concise
-  export let onViewChange = () => {};
   export let onVerboseChange = () => {};
 
   let showScrollButton = false;
   let markerElement;
-
-  function setViewMode(mode) {
-    viewMode = mode;
-    onViewChange(mode);
-  }
 
   function toggleVerboseMode() {
     verboseMode = !verboseMode;
@@ -53,8 +41,8 @@
 <!-- Invisible marker div for scroll reference -->
 <div class="projects-marker" bind:this={markerElement}></div>
 
-<div class="filter-bar">
-  <div class="filter-content">
+<div class="container">
+  <div class="content">
     <div class="top-row">
       <div class="title-and-chips">
         <div class="title-container">
@@ -74,27 +62,6 @@
         <FilterChips />
       </div>
       <div class="controls">
-        <!-- Currently we have this toggle between timeline & list. the previous view-toggle was list & grid -->
-        <!-- <div class="view-mode-toggle">
-        <button
-          class="btn"
-          class:active={viewMode === "list"}
-          on:click={() => setViewMode("list")}
-          title="List view"
-          aria-label="Switch to list view"
-        >
-          <MenuIcon />
-        </button>
-        <button
-          class="btn"
-          class:active={viewMode === "timeline"}
-          on:click={() => setViewMode("timeline")}
-          title="Timeline view"
-          aria-label="Switch to timeline view"
-        >
-          Timeline
-        </button>
-      </div> -->
         {#if viewMode != "grid"}
           <div class="verbose-toggle">
             <button
@@ -114,24 +81,6 @@
             </button>
           </div>
         {/if}
-        <!-- <div class="view-toggle">
-        <button
-          class="toggle-btn"
-          class:active={viewMode === "list"}
-          on:click={() => setViewMode("list")}
-          aria-label="List view"
-        >
-          <MenuIcon />
-        </button>
-        <button
-          class="toggle-btn"
-          class:active={viewMode === "grid"}
-          on:click={() => setViewMode("grid")}
-          aria-label="Grid view"
-        >
-          <GridIcon />
-        </button>
-      </div> -->
       </div>
     </div>
   </div>
@@ -150,7 +99,8 @@
 {/if}
 
 <style>
-  .filter-bar {
+  /* Keeping container & content seperately is important for the grid-view side-panel. Possible they can be consolidated */
+  .container {
     width: 100%;
     background: var(--bg-primary);
     position: sticky;
@@ -158,13 +108,14 @@
     z-index: 100;
   }
 
-  .filter-content {
+  .content {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px 30px;
     border-bottom: 1px solid var(--border);
   }
 
+  /* Holds (title&chips) & controls section*/
   .top-row {
     display: flex;
     gap: 6px;
@@ -178,12 +129,83 @@
     justify-content: space-between;
   }
 
+  @media (max-width: 563px) {
+    .title-and-chips {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+
   .title-container {
     position: relative;
     display: flex;
     align-items: center;
     gap: 12px;
   }
+
+  .projects-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .project-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 5px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 12px;
+  }
+
+  /* Controls section */
+
+  .controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+  }
+
+  .verbose-toggle {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .verbose-toggle .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .verbose-toggle .btn:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-primary);
+  }
+
+  /* Used for scroll */
+  .projects-marker {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  /* Scroll (up to top) Button */
+  /* Moves to bottom right on smaller screens */
 
   .scroll-button {
     display: flex;
@@ -213,127 +235,21 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     width: 48px;
     height: 48px;
+    --icon-size: 24px; /* Make icon bigger*/
   }
-
-  .mobile-scroll-button :global(svg) {
-    width: 24px;
-    height: 24px;
-  }
-
-  .scroll-button:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--text-primary);
-  }
-
-  /* Show/hide buttons based on screen size */
   @media (max-width: 925px) {
     .desktop-scroll-button {
       display: none;
     }
   }
 
-  @media (min-width: 926px) {
+  @media (min-width: 925px) {
     .mobile-scroll-button {
       display: none;
     }
   }
-
-  .projects-title {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--text-secondary);
-  }
-
-  .project-count {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3px 5px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text-primary);
-    font-size: 12px;
-  }
-
-  .controls {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    height: 100%;
-  }
-
-  @media (max-width: 563px) {
-    .title-and-chips {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-    }
-  }
-
-  .view-mode-toggle {
-    display: flex;
-    gap: 4px;
-    height: 100%;
-    align-items: center;
-  }
-
-  .view-mode-toggle .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 32px;
-    padding: 0 8px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-
-  .view-mode-toggle .btn:hover {
+  .scroll-button:hover {
     background: var(--bg-tertiary);
     border-color: var(--text-primary);
-  }
-
-  .view-mode-toggle .btn.active {
-    background: var(--hover-bar-active);
-    color: white;
-    border-color: var(--hover-bar-active);
-  }
-
-  .verbose-toggle {
-    display: flex;
-    height: 100%;
-    align-items: center;
-  }
-
-  .verbose-toggle .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .verbose-toggle .btn:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--text-primary);
-  }
-
-  .projects-marker {
-    height: 0;
-    width: 0;
-    visibility: hidden;
   }
 </style>
