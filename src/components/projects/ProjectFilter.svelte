@@ -133,7 +133,7 @@
     .title-and-chips {
       flex-direction: column;
       align-items: flex-start;
-      gap: 16px;
+      gap: 8px;
     }
   }
 

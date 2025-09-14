@@ -1,7 +1,7 @@
 export const ciscoInternship = {
   id: "cisco-internship",
   title: "Cisco Systems,",
-  subtitle: "Software Engineer Intern",
+  subtitle: "Technical Intern",
   date: ["06/2022", "09/2022"],
   format: "write-up",
   experience: true,

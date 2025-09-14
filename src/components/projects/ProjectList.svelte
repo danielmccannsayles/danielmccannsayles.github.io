@@ -118,11 +118,11 @@
     align-items: flex-start;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 728px) {
     .title-and-chips {
       flex-direction: column;
       align-items: flex-start;
-      gap: 16px;
+      gap: 8px;
     }
   }
 
