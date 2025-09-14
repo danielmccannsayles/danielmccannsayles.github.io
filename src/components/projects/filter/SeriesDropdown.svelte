@@ -52,7 +52,7 @@
         class:active={!$selectedSeries}
         on:click={() => selectSeries(null)}
       >
-        none
+        any
       </button>
       {#each $availableSeries as series}
         <button

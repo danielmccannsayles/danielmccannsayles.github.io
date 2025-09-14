@@ -6,6 +6,7 @@
     toggleStarredFilter,
     hasExperienceProjects,
     hasSeriesInFiltered,
+    hasStarredProjects,
     hasActiveFilters,
     clearAllFilters,
   } from "$stores";
@@ -16,7 +17,9 @@
   <button
     class="filter-chip starred-chip"
     class:active={$showStarredOnly}
+    class:disabled={!$hasStarredProjects}
     on:click={toggleStarredFilter}
+    disabled={!$hasStarredProjects}
     title={"Filter by Starred"}
     aria-label={$showStarredOnly ? "Show all projects" : "Show starred only"}
   >

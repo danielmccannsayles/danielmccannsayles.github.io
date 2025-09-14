@@ -59,35 +59,27 @@ export const availableSeries = derived([], () => {
   return Array.from(seriesSet).sort();
 });
 
-// Check if there are any projects with experience in the current filter
+// Check if there are any projects with experience in the current filtered state
 export const hasExperienceProjects = derived(
-  [selectedSeries],
-  ([$selectedSeries]) => {
-    let projectsToCheck = projects;
-
-    if ($selectedSeries) {
-      projectsToCheck = projectsToCheck.filter(
-        (project) => project.series?.name === $selectedSeries
-      );
-    }
-
-    return projectsToCheck.some((project) => project.experience === true);
+  filteredProjects,
+  ($filteredProjects) => {
+    return $filteredProjects.some((project) => project.experience === true);
   }
 );
 
-// Check if there are any projects with series in the current filter
+// Check if there are any projects with series in the current filtered state
 export const hasSeriesInFiltered = derived(
-  [showExperienceOnly],
-  ([$showExperienceOnly]) => {
-    let projectsToCheck = projects;
+  filteredProjects,
+  ($filteredProjects) => {
+    return $filteredProjects.some((project) => project.series?.name);
+  }
+);
 
-    if ($showExperienceOnly) {
-      projectsToCheck = projectsToCheck.filter(
-        (project) => project.experience === true
-      );
-    }
-
-    return projectsToCheck.some((project) => project.series?.name);
+// Check if there are any projects with starred in the current filtered state
+export const hasStarredProjects = derived(
+  filteredProjects,
+  ($filteredProjects) => {
+    return $filteredProjects.some((project) => project.starred === true);
   }
 );
 
