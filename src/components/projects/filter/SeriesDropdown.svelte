@@ -1,10 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import {
-    selectedSeries,
-    setSeriesFilter,
-    availableSeries,
-  } from "$stores";
+  import { selectedSeries, setSeriesFilter, availableSeries } from "$stores";
 
   export let disabled = false;
   let showDropdown = false;
@@ -45,7 +41,7 @@
     title="Filter by series"
     aria-label="Filter by series"
   >
-    Series: {$selectedSeries || "none"}
+    Series: {$selectedSeries || "any"}
     <i class="codicon codicon-chevron-down" class:rotated={showDropdown}></i>
   </button>
 

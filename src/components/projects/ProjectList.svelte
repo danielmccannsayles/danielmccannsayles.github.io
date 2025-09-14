@@ -96,7 +96,7 @@
   .project-header {
     display: flex;
     justify-content: space-between;
-    gap: 6px;
+    gap: 8px;
     align-items: flex-start;
   }
 
