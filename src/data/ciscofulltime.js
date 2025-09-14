@@ -7,7 +7,7 @@ export const ciscoFullTime = {
   experience: true,
   starred: true,
   summary:
-    "Frontend and backend development, with a focus on AI/LLM applications. Developed Angular applications and worked on agentic AI projects.",
+    "Frontend and backend development, with a focus on AI/LLM applications.",
   content: [
     {
       type: "md",

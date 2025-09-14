@@ -3,6 +3,7 @@ export const arenaAiSafety = {
   title: "ARENA AI safety",
   date: ["03/2025"],
   format: "write-up",
+  starred: true,
   summary:
     "To familiarize myself with AI safety & ML fundamentals, I self-learned Chapter 0 of the ARENA AI safety program",
   content: [
