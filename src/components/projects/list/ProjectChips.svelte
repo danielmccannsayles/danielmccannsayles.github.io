@@ -71,8 +71,8 @@
 
 <style>
   .chips {
-    flex: 1;
     display: flex;
+    flex: 0 1 auto;
     gap: 8px;
     align-items: center;
     flex-wrap: wrap;

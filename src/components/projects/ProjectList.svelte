@@ -1,11 +1,7 @@
 <script>
   import { ProjectCard, ProjectChips } from "./list";
   import "../../styles/project-card.css";
-  import {
-    expandedId,
-    toggleExpand,
-    filteredProjects,
-  } from "$stores";
+  import { expandedId, toggleExpand, filteredProjects } from "$stores";
   import { formatDateRange } from "../../utils";
 
   export let verboseMode = true;
@@ -74,7 +70,6 @@
   }
 
   .expand-icon {
-    margin-left: 12px;
     color: var(--text-primary);
     transition: transform 0.2s ease;
   }
