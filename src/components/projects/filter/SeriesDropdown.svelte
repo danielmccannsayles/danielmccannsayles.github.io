@@ -35,43 +35,41 @@
   });
 </script>
 
-{#if $availableSeries.length > 0}
-  <div class="series-dropdown" bind:this={dropdownElement}>
-    <button
-      class="dropdown-button"
-      class:disabled
-      class:active={$selectedSeries}
-      on:click={toggleDropdown}
-      {disabled}
-      title="Filter by series"
-      aria-label="Filter by series"
-    >
-      {$selectedSeries || "all series"}
-      <i class="codicon codicon-chevron-down" class:rotated={showDropdown}></i>
-    </button>
+<div class="series-dropdown" bind:this={dropdownElement}>
+  <button
+    class="dropdown-button"
+    class:disabled
+    class:active={$selectedSeries}
+    on:click={toggleDropdown}
+    {disabled}
+    title="Filter by series"
+    aria-label="Filter by series"
+  >
+    Series: {$selectedSeries || "none"}
+    <i class="codicon codicon-chevron-down" class:rotated={showDropdown}></i>
+  </button>
 
-    {#if showDropdown}
-      <div class="dropdown-menu">
+  {#if showDropdown}
+    <div class="dropdown-menu">
+      <button
+        class="dropdown-item"
+        class:active={!$selectedSeries}
+        on:click={() => selectSeries(null)}
+      >
+        none
+      </button>
+      {#each $availableSeries as series}
         <button
           class="dropdown-item"
-          class:active={!$selectedSeries}
-          on:click={() => selectSeries(null)}
+          class:active={$selectedSeries === series}
+          on:click={() => selectSeries(series)}
         >
-          all series
+          {series}
         </button>
-        {#each $availableSeries as series}
-          <button
-            class="dropdown-item"
-            class:active={$selectedSeries === series}
-            on:click={() => selectSeries(series)}
-          >
-            {series}
-          </button>
-        {/each}
-      </div>
-    {/if}
-  </div>
-{/if}
+      {/each}
+    </div>
+  {/if}
+</div>
 
 <style>
   .series-dropdown {
