@@ -1,5 +1,6 @@
 <script>
-  import { toggleExperienceFilter, setSeriesFilter } from "$stores";
+  import { toggleExperienceFilter, setSeriesFilter, toggleStarredFilter } from "$stores";
+  import { seriesColorMap, getSeriesColor } from "$stores/series-colors.js";
 
   export let project;
 
@@ -31,6 +32,12 @@
     }
   }
 
+  function handleStarredClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleStarredFilter();
+  }
+
   function handleKeydown(event, handler) {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -47,9 +54,13 @@
 <div class="chips">
   {#if project.starred}
     <button
-      class="chip starred-chip"
-      on:click={handleChipClick}
-      aria-label="Star"
+      type="button"
+      class="chip starred-chip clickable"
+      on:click={(event) => {
+        handleChipClick(event);
+        handleStarredClick(event);
+      }}
+      aria-label="Filter by starred projects"
     >
       <i class="codicon codicon-star-full"></i>
     </button>
@@ -73,6 +84,7 @@
     <button
       type="button"
       class="chip series-chip clickable"
+      style="background-color: {getSeriesColor(project.series.name, $seriesColorMap)}; color: white; border-color: {getSeriesColor(project.series.name, $seriesColorMap)};"
       on:click={(event) => {
         handleChipClick(event);
         handleSeriesClick(event);
@@ -137,17 +149,24 @@
     outline: none;
   }
 
+  .series-chip.clickable:hover {
+    opacity: 0.8;
+    outline: none;
+  }
+
   .starred-chip {
     background: var(--bg-primary);
     color: gold;
     border: 1px solid var(--border);
-  }
-
-  .starred-chip {
     padding: 3px 5px;
   }
 
   .starred-chip .codicon {
     font-size: 14px;
+  }
+
+  .starred-chip.clickable:hover {
+    border: 1px solid gold;
+    outline: none;
   }
 </style>

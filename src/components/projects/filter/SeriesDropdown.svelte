@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { selectedSeries, setSeriesFilter, availableSeries } from "$stores";
+  import { seriesColorMap, getSeriesColor } from "$stores/series-colors.js";
 
   export let disabled = false;
   let showDropdown = false;
@@ -36,6 +37,7 @@
     class="dropdown-button"
     class:disabled
     class:active={$selectedSeries}
+    style={$selectedSeries ? `background-color: ${getSeriesColor($selectedSeries, $seriesColorMap)}; color: white; border-color: ${getSeriesColor($selectedSeries, $seriesColorMap)};` : ''}
     on:click={toggleDropdown}
     {disabled}
     title="Filter by Series"
@@ -58,6 +60,7 @@
         <button
           class="dropdown-item"
           class:active={$selectedSeries === series}
+          style="color: {getSeriesColor(series, $seriesColorMap)};"
           on:click={() => selectSeries(series)}
         >
           {series}
