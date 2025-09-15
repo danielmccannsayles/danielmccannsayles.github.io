@@ -18,7 +18,9 @@ I mostly stuck with the colors from my VSCode theme (Default Dark Modern), but I
 
 Here are the [figma](https://www.figma.com/design/KNDGLOnLBGOMOtokZkl8wO/Showcase-November-2024?node-id=319-2&t=qUygRzLqeLDNKF3R-1) and [github](https://github.com/danielmccannsayles/portfolio-notebook) for this website.
 
-I hope its readable and helpful in getting to know me!`,
+I hope its readable and helpful in getting to know me!
+
+TODO: add some code here & show some pictures, now that I've deprecated this site :)`,
     },
   ],
 };
