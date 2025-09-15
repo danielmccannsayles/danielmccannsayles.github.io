@@ -6,11 +6,13 @@ export const portfolioWebsite3 = {
   date: ["09/2025"],
   format: "write-up",
   summary:
-    "I remade my website, AGAIN. I tried to make it modern but not too 'out there', so that I could avoid coming back & redoing it, but still add stuff to it. ",
+    "Once again I remade my website. I tried to make it modern & simplistic, so I could avoid redoing it for a while .. ",
   content: [
     {
       type: "md",
-      content: `Hopefuly I never have to make another one of these ..`,
+      content: `Not too much to it. Here's the [github](https://github.com/danielmccannsayles/danielmccannsayles.github.io). 
+
+*Note that it's the same repo as v2.0. You can see v2.0 on the \`notebook-website\` branch*`,
     },
   ],
 };
