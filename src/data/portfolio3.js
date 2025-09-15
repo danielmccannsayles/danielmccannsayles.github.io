@@ -12,7 +12,7 @@ export const portfolioWebsite3 = {
       type: "md",
       content: `Not too much to it. Here's the [github](https://github.com/danielmccannsayles/danielmccannsayles.github.io). 
 
-*Note that it's the same repo as v2.0. You can see v2.0 on the \`notebook-website\` branch*`,
+*Note that it's the same repo as v2.0. You can see v2.0 on the \`notebook-old\` branch*`,
     },
   ],
 };
