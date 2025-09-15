@@ -14,9 +14,11 @@ export const CruxSplitter = {
 2. I also would like to explore other ways of thinking by playing around with things. 
 3. Finally, I tend do be a visual thinker, so I wanted to explore making something visual like this. 
 
-View the project!
+The project is up and running! Check it out here:
 
-Available [here](https://crux-splitter-production.up.railway.app/home) (you will need a bluesky account)`,
+Available [here](https://crux-splitter-production.up.railway.app/home) (you will need a bluesky account)
+
+TODO: bring some code here, show some fun images, talk more about this. `,
     },
   ],
 };

@@ -3,7 +3,8 @@ export const llmVerbalAssistant = {
   title: "LLM Verbal Assistant",
   date: ["07/2024"],
   format: "write-up",
-  summary: "A small project making an app to transcribe verbal notes with added AI assistant functionality",
+  summary:
+    "A small project making an app to transcribe verbal notes with added AI assistant functionality",
   content: [
     {
       type: "md",
