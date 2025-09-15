@@ -1,16 +1,24 @@
 export const portfolioWebsite2 = {
   id: "portfolio-website2",
   title: "Portfolio Website",
-  subtitle: "(this site)",
+  subtitle: "(notebook)",
   series: { name: "portfolio", number: "2.0" },
-  date: ["09/2025"],
+  date: ["02/2025"],
   format: "write-up",
   summary:
-    "I remade my website, AGAIN. I tried to make it modern but not too 'out there', so that I could avoid coming back & redoing it, but still add stuff to it. ",
+    "I thought it would be fun to style this like a Jupyter notebook, since I've been using those a lot the past year. I tried to replicate my VSCode theme, Default Dark Modern",
   content: [
     {
       type: "md",
-      content: `Hopefuly I never have to make another one of these ..`,
+      content: `I started off with raw HTML & CSS to avoid bloat. A few days later I switched to Svelte since I was handling so much state in raw JS. 
+
+I use a library called \`highlight.js\` to make syntax-highlighted code blocks, stylized like Jupyter
+
+I mostly stuck with the colors from the VSCode theme, but I added a few highlight colors that I enjoy (I use them in my old websites!). 
+
+Here are the [figma](https://www.figma.com/design/KNDGLOnLBGOMOtokZkl8wO/Showcase-November-2024?node-id=319-2&t=qUygRzLqeLDNKF3R-1) and [github](https://github.com/danielmccannsayles/portfolio-notebook) for this website. 
+
+I hope its readable and helpful in getting to know me!`,
     },
   ],
 };

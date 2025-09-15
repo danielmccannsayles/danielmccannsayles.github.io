@@ -1,5 +1,6 @@
 import { portfolioWebsite1 } from "./portfolio1.js";
 import { portfolioWebsite2 } from "./portfolio2.js";
+import { portfolioWebsite3 } from "./portfolio3.js";
 import { arenaAiSafety } from "./arena.js";
 import { kidFightGame } from "./kidfight.js";
 import { llmChainingExploration } from "./llmchaining.js";
@@ -21,15 +22,16 @@ export const projects = [
   mars,
   spikeball,
   waterContraption,
-  portfolioWebsite2,
+  portfolioWebsite3,
   matsApplication,
   ciscoFullTime,
   arenaAiSafety,
-  portfolioWebsite1,
+  portfolioWebsite2,
   kidFightGame,
   llmChainingExploration,
   ciscoLlmGeneration,
   llmVerbalAssistant,
   ciscoHackathon,
   ciscoInternship,
+  portfolioWebsite1,
 ];
