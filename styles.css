@@ -11,6 +11,8 @@
   --text-accent-red: #f06a6a;
   --text-accent-green: #93da68;
   --text-accent-blue: #3baef6;
+  --text-accent-gold-light: #ffd700; /* Two golds - on light mode, they need to be slightly different*/
+  --text-accent-gold-dark: #ffd700;
   --border: #37373d;
   --hover-bar: #37373d;
   --hover-bar-active: #3077d2;
@@ -31,6 +33,8 @@
   --text-accent-red: #f06a6a;
   --text-accent-green: #4ec802;
   --text-accent-blue: #3b9cf6;
+  --text-accent-gold-light: #ffd700;
+  --text-accent-gold-dark: #edbe00;
   --border: #dee2e6;
   --hover-bar: #dee2e6;
   --hover-bar-active: #0d6efd;

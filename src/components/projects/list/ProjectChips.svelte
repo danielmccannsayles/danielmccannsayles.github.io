@@ -1,5 +1,9 @@
 <script>
-  import { toggleExperienceFilter, setSeriesFilter, toggleStarredFilter } from "$stores";
+  import {
+    toggleExperienceFilter,
+    setSeriesFilter,
+    toggleStarredFilter,
+  } from "$stores";
   import { seriesColorMap, getSeriesColor } from "$stores/series-colors.js";
 
   export let project;
@@ -84,7 +88,13 @@
     <button
       type="button"
       class="chip series-chip clickable"
-      style="background-color: {getSeriesColor(project.series.name, $seriesColorMap)}; color: white; border-color: {getSeriesColor(project.series.name, $seriesColorMap)};"
+      style="background-color: {getSeriesColor(
+        project.series.name,
+        $seriesColorMap
+      )}; color: white; border-color: {getSeriesColor(
+        project.series.name,
+        $seriesColorMap
+      )};"
       on:click={(event) => {
         handleChipClick(event);
         handleSeriesClick(event);
@@ -156,7 +166,7 @@
 
   .starred-chip {
     background: var(--bg-primary);
-    color: gold;
+    color: var(--text-accent-gold-dark);
     border: 1px solid var(--border);
     padding: 3px 5px;
   }
@@ -166,7 +176,7 @@
   }
 
   .starred-chip.clickable:hover {
-    border: 1px solid gold;
+    border: 1px solid var(--text-accent-gold-dark);
     outline: none;
   }
 </style>

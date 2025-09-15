@@ -5,10 +5,6 @@
   import About from "./components/summary/About.svelte";
   import Projects from "./components/Projects.svelte";
   import Intro from "./components/summary/Intro.svelte";
-
-  import Featured from "./components/summary/Featured.svelte";
-  import { featuredItems } from "./data/featured.js";
-
   onMount(() => {
     document.documentElement.setAttribute("data-theme", $theme);
   });
@@ -32,6 +28,8 @@
 
 <Projects />
 
+<div class="footnote"></div>
+
 <style>
   main {
     max-width: 800px;
@@ -40,5 +38,9 @@
     line-height: 1.2;
     font-size: 16px;
     margin-bottom: 10px;
+  }
+
+  .footnote {
+    margin-bottom: 20px;
   }
 </style>

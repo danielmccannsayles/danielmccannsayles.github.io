@@ -109,8 +109,8 @@
   }
 
   .starred-chip.active {
-    background: gold;
-    color: var(--bg-primary);
+    background: var(--text-accent-gold-light);
+    color: black;
     border: 1px solid var(--border);
   }
 
