@@ -17,6 +17,12 @@ function getLastDate(project) {
   }
 
   const lastDateString = project.date[project.date.length - 1];
+
+  // Handle "current" as the most recent possible date
+  if (lastDateString.toLowerCase() === "current") {
+    return new Date(); // Current date/time
+  }
+
   const [month, year] = lastDateString.split("/");
   return new Date(parseInt(year), parseInt(month) - 1); // month is 0-indexed in Date
 }

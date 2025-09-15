@@ -19,10 +19,10 @@
   <!-- <p>Featured:</p>
   <Featured {featuredItems} /> -->
 
-  <p>
-    On my portfolio you can find an unordered collection of work that I've done.
-    Some are writeups, some link to external projects. Along with this I proved
-    a filter bar so you can browse at your leisure.
+  <p style="margin-top:24px">
+    Below is a chronological collection of work that I've done. Some are
+    write-ups, some link to external projects. Filter bar available for your
+    convenience.
   </p>
 </main>
 
