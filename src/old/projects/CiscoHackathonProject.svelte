@@ -6,7 +6,7 @@
   import Chips from "../../components/Chips.svelte";
   import Teaser from "../../components/Teaser.svelte";
 
-  import hackathon from "../../assets/hackathon.png";
+  import { hackathon } from "$assets";
 </script>
 
 <Section title="### Cisco Hackathon" subtitle="*May 2024*" hideToStart={true}>

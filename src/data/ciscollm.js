@@ -1,51 +1,32 @@
-<script>
-  import HalfMdHalfImageCell from "../../components/HalfMdHalfImageCell.svelte";
-  import MdCell from "../../components/MDCell.svelte";
-  import Section from "../../components/Section.svelte";
-  import CodeCell from "../../components/CodeCell.svelte";
+export const ciscoLlmGeneration = {
+  id: "cisco-llm-generation",
+  title: "Cisco LLM Generation Data Science",
+  date: ["08/2024"],
+  format: "write-up",
+  summary: "A Cisco project where I do some data science to try and improve a LLM generation process",
+  content: [
+    {
+      type: "md",
+      content: `I had the opportunity to work on a Cisco project exploring how well an LLM-email-generation process was doing. A system generated emails which were then looked over by users, optionally changed, and sent. As a metric of how well the process was doing, the stakeholders were currently calculating a diff between the sent and generated email. 
 
-  import diff from "../../assets/diff.png";
-  import Teaser from "../../components/Teaser.svelte";
-</script>
+I was tasked with exploring this diff, and seeing how it could be improved.
 
-<Section
-  title="### Cisco LLM Generation Data Science"
-  subtitle="*August 2024*"
-  hideToStart={true}
->
-  <div slot="hiddenBlurb">
-    <Teaser
-      imgSrc={diff}
-      imgAlt="A plot of regex vs. semantic vs. GPT vs. normal diff"
-      text="A Cisco project where I do some data science to try and improve a
-    LLM generation process"
-    />
-  </div>
-
-  <HalfMdHalfImageCell
-    md="I had the opportunity to work on a Cisco project exploring how well an LLM-email-generation process was doing. A system generated emails which were then looked over by users, optionally changed, and sent. As a metric of how well the process was doing, the stakeholders were currently calculating a diff between the sent and generated email. 
-
-I was tasked with exploring this diff, and seeing how it could be improved."
-    imageSrc={diff}
-  />
-
-  <MdCell
-    md={`Metrics are hard. There are so many ways of calculating metrics, and so many different metrics. 
+Metrics are hard. There are so many ways of calculating metrics, and so many different metrics. 
 
 Crucially, these metrics also depend on the audience and your intentions - the metrics you would show to an executive are completely different than those you might show to a technical stakeholder, and again different than those a customer might care about.
 
 I find data analysis fascinating. Trying to create a visualization out of your data to tell your audience a story. 
 
-Practically, I created multiple Jupyter notebooks and spent a few weeks immersing myself in the data =>`}
-  />
+Practically, I created multiple Jupyter notebooks and spent a few weeks immersing myself in the data =>
 
-  <MdCell
-    md={`1. I poured over hundreds of examples, explored different ways of both sorting & filtering, and visualizing the differences to get impactful metrics.`}
-  />
-
-  <Section title="Code:" inset={true} hideToStart={true}>
-    <CodeCell
-      code={`# Display a toggleable output
+1. I poured over hundreds of examples, explored different ways of both sorting & filtering, and visualizing the differences to get impactful metrics.`,
+    },
+    {
+      type: "code",
+      contents: [
+        {
+          language: "python",
+          content: `# Display a toggleable output
 from IPython.display import display, HTML
 
 def toggleable_output(text, identifier):
@@ -58,11 +39,11 @@ def toggleable_output(text, identifier):
     </div>
     """
 
-    display(HTML(html))`}
-    />
-
-    <CodeCell
-      code={`# Create html object to show diff visually
+    display(HTML(html))`,
+        },
+        {
+          language: "python",
+          content: `# Create html object to show diff visually
 def show_visual_diff_difflib(
     old_string: str, new_string: str, wrap_column=60
 ):
@@ -70,13 +51,13 @@ def show_visual_diff_difflib(
 
     # Remove legend & links
     diff_html = re.sub(r'<table class="diff" summary="Legends".*?</table>', "", diff_html, flags=re.DOTALL)
-    diff_html = re.sub(r'</td>\s*<td>\s*<table border="" summary="Links".*?</table>\s*</td>\s*</tr>', "", diff_html, flags=re.DOTALL)
+    diff_html = re.sub(r'</td>\\s*<td>\\s*<table border="" summary="Links".*?</table>\\s*</td>\\s*</tr>', "", diff_html, flags=re.DOTALL)
 
-    return '<style>.diff_add, .diff_chg, .diff_sub {color: black;}</style>' + diff_html`}
-    />
-
-    <CodeCell
-      code={`# Narrow down to useful data to check out. When checking how a process affected a diff I couldn't just plot everything. It becomes a mess, as shown by the plot above
+    return '<style>.diff_add, .diff_chg, .diff_sub {color: black;}</style>' + diff_html`,
+        },
+        {
+          language: "python",
+          content: `# Narrow down to useful data to check out. When checking how a process affected a diff I couldn't just plot everything. It becomes a mess, as shown by the plot above
 improved_diffs = []
 for row in items: # Items is a df of calculated diff scores and text
     new_diff = row["New_diff"]
@@ -88,21 +69,24 @@ print(f"rows with improvements > .2: {len(improved_diffs)}, out of {len(items)}"
 
 # For item in improved_diffs
 # Using the difflib html object + toggling to make the visualization process easier
-original_diff_text = f"Original diff:\n{item['Diff']}\n" + show_visual_diff_difflib(item["Generated"], item["Sent"])
+original_diff_text = f"Original diff:\\n{item['Diff']}\\n" + show_visual_diff_difflib(item["Generated"], item["Sent"])
 toggleable_output(original_diff_text, "original_diff")
 
-new_diff_text = f" diff:\n{item['new_diff']}\n" + show_visual_diff_difflib(item["new_diff_generated"], item["new_diff_sent"])
-toggleable_output(new_diff_text, "new_diff")`}
-    />
-  </Section>
-
-  <MdCell
-    md={`2. I tried multiple methods for cleaning the data before taking the diff, including using ChatGPT and semantic similarity matching, to get a score that reflected *more accurately* how good the generation was. `}
-  />
-
-  <Section title="Code:" inset={true} hideToStart={true}>
-    <CodeCell
-      code={`# Returns the original text split into main part and trailing addition
+new_diff_text = f" diff:\\n{item['new_diff']}\\n" + show_visual_diff_difflib(item["new_diff_generated"], item["new_diff_sent"])
+toggleable_output(new_diff_text, "new_diff")`,
+        },
+      ],
+    },
+    {
+      type: "md",
+      content: `2. I tried multiple methods for cleaning the data before taking the diff, including using ChatGPT and semantic similarity matching, to get a score that reflected *more accurately* how good the generation was.`,
+    },
+    {
+      type: "code",
+      contents: [
+        {
+          language: "python",
+          content: `# Returns the original text split into main part and trailing addition
 def check_if_trailing_addition(sent: str, generated: str):
     testing_diff = list(
         difflib.ndiff(
@@ -124,15 +108,15 @@ def check_if_trailing_addition(sent: str, generated: str):
     if last_section_length > 0:
         # Split into main & trailing addition
         sent_lines = sent.strip().splitlines()
-        main_part = "\n".join(sent_lines[:-last_section_length])
-        trailing_addition = "\n".join(sent_lines[-last_section_length:])
+        main_part = "\\n".join(sent_lines[:-last_section_length])
+        trailing_addition = "\\n".join(sent_lines[-last_section_length:])
         return trailing_addition, main_part
 
-    return False, sent`}
-    />
-
-    <CodeCell
-      code={`# Code to detect common signature chunks ----------
+    return False, sent`,
+        },
+        {
+          language: "python",
+          content: `# Code to detect common signature chunks ----------
 from sentence_transformers import SentenceTransformer, util
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -161,15 +145,16 @@ def remove_signature_chunks(trailing_addition: str, signature_embeddings, model:
             if max_score > threshold:
                 print(f"Match: {max_score:.4f}")
                 # Remove all lines after the match
-                remaining_text = "\n".join(lines[:start])
+                remaining_text = "\\n".join(lines[:start])
                 return remaining_text
     # No match found
-    return False`}
-    />
-  </Section>
-
-  <MdCell
-    md={`Reflection: 
+    return False`,
+        },
+      ],
+    },
+    {
+      type: "md",
+      content: `Reflection: 
 
 1. I made *some* progress on improving the diff, and exploring alternative methods. 
 
@@ -181,6 +166,7 @@ def remove_signature_chunks(trailing_addition: str, signature_embeddings, model:
 
 
 The lead of the project remarked:
-"Your curiosity, ability to learn new concepts, and come up with out-of-the-box ideas are impressive.”`}
-  />
-</Section>
+"Your curiosity, ability to learn new concepts, and come up with out-of-the-box ideas are impressive."`,
+    },
+  ],
+};

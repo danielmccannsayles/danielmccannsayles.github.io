@@ -1,39 +1,46 @@
 <script>
-  import MdCell from "./components/MDCell.svelte";
-  import Summary from "./pages/Summary.svelte";
-  import WorkExperience from "./pages/WorkExperience.svelte";
-  import Section from "./components/Section.svelte";
-  import MacmProject from "./pages/projects/MacmProject.svelte";
-  import AiGenerationProject from "./pages/projects/AIGenerationProject.svelte";
-  import SpeechToLlmProject from "./pages/projects/SpeechToLLMProject.svelte";
-  import CiscoHackathonProject from "./pages/projects/CiscoHackathonProject.svelte";
-  import KidFightGameProject from "./pages/projects/KidFightGameProject.svelte";
-  import QuickLinks from "./pages/QuickLinks.svelte";
-  import Current from "./pages/Current.svelte";
-  import ArenaProject from "./pages/projects/ArenaProject.svelte";
-  import PortfolioWebsite from "./pages/projects/PortfolioWebsite.svelte";
-  import MATSApplication from "./pages/projects/MATSApplication.svelte";
+  import { onMount } from "svelte";
+  import { theme } from "$stores/themeStore.js";
+  import Header from "./components/Header.svelte";
+  import About from "./components/summary/About.svelte";
+  import Projects from "./components/Projects.svelte";
+  import Intro from "./components/summary/Intro.svelte";
+  onMount(() => {
+    document.documentElement.setAttribute("data-theme", $theme);
+  });
 </script>
 
-<main>
-  <MdCell md="# Daniel McCann-Sayles' Portfolio" />
-  <QuickLinks />
-  <Summary />
-  <Current />
-  <WorkExperience />
+<Header />
 
-  <Section
-    title="## Projects, Learning, Explorations"
-    subtitle="A collection of self-contained snippets of work from 2024 onwards that I've done at work, on my own, and with others."
-    hideToStart="true"
-  >
-    <MATSApplication />
-    <ArenaProject />
-    <PortfolioWebsite />
-    <KidFightGameProject />
-    <MacmProject />
-    <AiGenerationProject />
-    <SpeechToLlmProject />
-    <CiscoHackathonProject />
-  </Section>
+<main>
+  <Intro />
+  <About />
+
+  <!-- <p>Featured:</p>
+  <Featured {featuredItems} /> -->
+
+  <p style="margin-top:24px">
+    Below is a chronological collection of work that I've done. Some are
+    write-ups, some link to external projects. Filter bar available for your
+    convenience.
+  </p>
 </main>
+
+<Projects />
+
+<div class="footnote"></div>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px 30px;
+    line-height: 1.2;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .footnote {
+    margin-bottom: 20px;
+  }
+</style>

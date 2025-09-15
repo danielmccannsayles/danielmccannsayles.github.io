@@ -1,0 +1,182 @@
+<script>
+  import {
+    toggleExperienceFilter,
+    setSeriesFilter,
+    toggleStarredFilter,
+  } from "$stores";
+  import { seriesColorMap, getSeriesColor } from "$stores/series-colors.js";
+
+  export let project;
+
+  function calculateWordCount(project) {
+    if (!project.content) return 0;
+
+    return project.content
+      .filter((item) => item.type === "md")
+      .reduce((total, item) => {
+        const words = item.content
+          .trim()
+          .split(/\s+/)
+          .filter((word) => word.length > 0);
+        return total + words.length;
+      }, 0);
+  }
+
+  function handleExperienceClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleExperienceFilter();
+  }
+
+  function handleSeriesClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (project.series) {
+      setSeriesFilter(project.series.name);
+    }
+  }
+
+  function handleStarredClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleStarredFilter();
+  }
+
+  function handleKeydown(event, handler) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      event.stopPropagation();
+      handler(event);
+    }
+  }
+
+  function handleChipClick(event) {
+    event.stopPropagation();
+  }
+</script>
+
+<div class="chips">
+  {#if project.starred}
+    <button
+      type="button"
+      class="chip starred-chip clickable"
+      on:click={(event) => {
+        handleChipClick(event);
+        handleStarredClick(event);
+      }}
+      aria-label="Filter by starred projects"
+    >
+      <i class="codicon codicon-star-full"></i>
+    </button>
+  {/if}
+
+  {#if project.experience}
+    <button
+      type="button"
+      class="chip experience-chip clickable"
+      on:click={(event) => {
+        handleChipClick(event);
+        handleExperienceClick(event);
+      }}
+      aria-label="Filter by work experience projects"
+    >
+      work experience
+    </button>
+  {/if}
+
+  {#if project.series}
+    <button
+      type="button"
+      class="chip series-chip clickable"
+      style="background-color: {getSeriesColor(
+        project.series.name,
+        $seriesColorMap
+      )}; color: white; border-color: {getSeriesColor(
+        project.series.name,
+        $seriesColorMap
+      )};"
+      on:click={(event) => {
+        handleChipClick(event);
+        handleSeriesClick(event);
+      }}
+      on:keydown={(event) => handleKeydown(event, handleSeriesClick)}
+      aria-label="Filter by {project.series.name} series"
+    >
+      {project.series.name}, v{project.series.number}
+    </button>
+  {/if}
+
+  {#if project.format === "write-up"}
+    <button class="chip" on:click={handleChipClick}
+      >wc: {calculateWordCount(project)}
+    </button>
+  {/if}
+</div>
+
+<style>
+  .chips {
+    display: flex;
+    flex: 0 1 auto;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: "SF Mono", Consolas, monospace;
+    border: 1px solid var(--border);
+    display: inline-block;
+    cursor: default;
+  }
+
+  .series-chip {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+
+  .experience-chip {
+    background: var(--text-accent-blue);
+    color: white;
+    border: 1px solid var(--text-accent-blue);
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
+
+  .clickable:hover {
+    outline: 1px solid var(--text-primary);
+  }
+
+  .experience-chip.clickable:hover {
+    opacity: 0.8;
+    outline: none;
+  }
+
+  .series-chip.clickable:hover {
+    opacity: 0.8;
+    outline: none;
+  }
+
+  .starred-chip {
+    background: var(--bg-primary);
+    color: var(--text-accent-gold-dark);
+    border: 1px solid var(--border);
+    padding: 3px 5px;
+  }
+
+  .starred-chip .codicon {
+    font-size: 14px;
+  }
+
+  .starred-chip.clickable:hover {
+    border: 1px solid var(--text-accent-gold-dark);
+    outline: none;
+  }
+</style>
