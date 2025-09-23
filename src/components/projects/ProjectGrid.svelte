@@ -42,7 +42,7 @@
 <div class="projects-container" class:has-side-panel={sidePanelVisible}>
   <div class="projects-grid">
     {#each projects as project (project.id)}
-      <div class="project-card" class:selected={expandedId === project.id}>
+      <div class="project-card" class:selected={expandedId === project.id} id={project.id}>
         <div
           class="project-blurb"
           on:click={() => toggleExpand(project.id)}

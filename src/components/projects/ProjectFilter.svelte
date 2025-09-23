@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { VerboseIcon, ConciseIcon, ArrowUpIcon } from "$icons";
-  import { expandedId, filteredProjects } from "$stores";
+  import { filteredProjects, closeExpanded } from "$stores";
   import { FilterChips } from "./filter";
 
   export let viewMode = "list"; // 'list', 'grid', or 'timeline'
@@ -13,7 +13,7 @@
 
   function toggleVerboseMode() {
     verboseMode = !verboseMode;
-    expandedId.set(null);
+    closeExpanded();
     onVerboseChange(verboseMode);
   }
 

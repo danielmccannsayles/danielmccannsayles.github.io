@@ -19,7 +19,7 @@
     {#each $filteredProjects as project (project.id)}
       {#if project.format === "external"}
         <!-- External project: show as link -->
-        <div class="project-card external">
+        <div class="project-card external" id={project.id}>
           <a
             href={project.link || "https://google.com"}
             class="project-blurb external-link"
@@ -48,7 +48,7 @@
         </div>
       {:else}
         <!-- Internal project: show with expand/collapse -->
-        <div class="project-card" class:expanded={$expandedId === project.id}>
+        <div class="project-card" class:expanded={$expandedId === project.id} id={project.id}>
           <!-- Blurb is presentational element -->
           <div
             class="project-blurb"
