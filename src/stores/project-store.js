@@ -97,8 +97,67 @@ export const hasActiveFilters = derived(
   }
 );
 
+export function closeExpanded() {
+  expandedId.update((current) => {
+    if (current !== null) {
+      // Clear URL hash
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, null, window.location.pathname);
+      }
+    }
+    return null;
+  });
+}
+
 export function toggleExpand(projectId) {
-  expandedId.update((current) => (current === projectId ? null : projectId));
+  expandedId.update((current) => {
+    if (current === projectId) {
+      closeExpanded();
+    } else {
+      // Opening new project
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, null, `#${projectId}`);
+      }
+      return projectId;
+    }
+  });
+}
+
+// Function to handle URL hash changes
+export function handleHashChange() {
+  const hash = window.location.hash.slice(1); // Remove the #
+  if (hash && projects.some((p) => p.id === hash)) {
+    // Clear starred filter so the linked project is visible
+    showStarredOnly.set(false);
+    expandedId.set(hash);
+  }
+}
+
+// Auto-clear expanded state when project gets filtered out
+const filterWatcher = derived(
+  [expandedId, filteredProjects],
+  ([$expandedId, $filteredProjects]) => {
+    if ($expandedId && !$filteredProjects.some((p) => p.id === $expandedId)) {
+      // Clear both the store and the URL hash
+      expandedId.set(null);
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, null, window.location.pathname);
+      }
+    }
+  }
+);
+
+// Subscribe to the watcher to activate it
+if (typeof window !== "undefined") {
+  filterWatcher.subscribe(() => {});
+}
+
+// Initialize hash handling
+if (typeof window !== "undefined") {
+  // Handle initial hash on page load
+  handleHashChange();
+  // Listen for hash changes
+  window.addEventListener("hashchange", handleHashChange);
 }
 
 export function toggleExperienceFilter() {
