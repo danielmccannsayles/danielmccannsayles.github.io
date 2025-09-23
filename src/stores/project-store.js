@@ -127,14 +127,9 @@ export function toggleExpand(projectId) {
 export function handleHashChange() {
   const hash = window.location.hash.slice(1); // Remove the #
   if (hash && projects.some((p) => p.id === hash)) {
+    // Clear starred filter so the linked project is visible
+    showStarredOnly.set(false);
     expandedId.set(hash);
-    // Scroll to the project after a short delay to ensure DOM is updated
-    setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }, 100);
   }
 }
 

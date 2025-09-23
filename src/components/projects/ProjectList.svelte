@@ -48,7 +48,11 @@
         </div>
       {:else}
         <!-- Internal project: show with expand/collapse -->
-        <div class="project-card" class:expanded={$expandedId === project.id} id={project.id}>
+        <div
+          class="project-card"
+          class:expanded={$expandedId === project.id}
+          id={project.id}
+        >
           <!-- Blurb is presentational element -->
           <div
             class="project-blurb"
@@ -113,6 +117,7 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
+    scroll-margin-top: 80px; /* Counter offset from sticky menu!*/
   }
 
   .project-card.expanded {
