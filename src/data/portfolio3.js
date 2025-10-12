@@ -10,7 +10,9 @@ export const portfolioWebsite3 = {
   content: [
     {
       type: "md",
-      content: `Not too much to it. Here's the [github](https://github.com/danielmccannsayles/danielmccannsayles.github.io). 
+      content: `Not too much to it. Wanted a nice clean website where I can share what I've done. Let me know what you think!
+      
+Here's the [github](https://github.com/danielmccannsayles/danielmccannsayles.github.io). 
 
 *Note that it's the same repo as v2.0. You can see v2.0 on the \`notebook-old\` branch*`,
     },

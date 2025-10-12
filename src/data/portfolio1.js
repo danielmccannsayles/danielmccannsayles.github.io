@@ -9,7 +9,11 @@ export const portfolioWebsite1 = {
   content: [
     {
       type: "md",
-      content: `Check it out [here](/personal-website-version-2-build/)`,
+      content: `Makes me feel nostalgic! 
+      
+Good to know I've always been wasting time building portfolio sites. 
+
+Check it out [here](/personal-website-version-2-build/)`,
     },
   ],
 };
