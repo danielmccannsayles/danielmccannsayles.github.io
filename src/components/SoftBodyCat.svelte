@@ -113,12 +113,14 @@
     anchorY /= n;
 
     // Physics constants
-    const REPEL_R = 60;
-    const REPEL_F = 2;
-    const REST_K = 0.06;
-    const ANCHOR_K = 0.04;
-    const SPRING_K = [0.3, 0.15, 0.075]; // offsets 1, 2, 3
-    const DAMP = 0.85;
+    const REPEL_R = 50;
+    const REPEL_F = 1.2;
+    const REST_K = 0.08;
+    const ANCHOR_K = 0.05;
+    const SPRING_K = [0.2, 0.1, 0.05]; // offsets 1, 2, 3
+    const DAMP = 0.78;
+    const MAX_DISP = 25; // max pixels from rest
+    const MAX_VEL = 2;   // max pixels per frame
 
     function update() {
       // Compute current center of mass
@@ -169,8 +171,31 @@
 
         p.vx = (p.vx + fx) * DAMP;
         p.vy = (p.vy + fy) * DAMP;
+
+        // Clamp velocity
+        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (speed > MAX_VEL) {
+          p.vx = (p.vx / speed) * MAX_VEL;
+          p.vy = (p.vy / speed) * MAX_VEL;
+        }
+
         p.x += p.vx;
         p.y += p.vy;
+
+        // Clamp displacement from rest position
+        const ddx = p.x - p.rx;
+        const ddy = p.y - p.ry;
+        const disp = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (disp > MAX_DISP) {
+          p.x = p.rx + (ddx / disp) * MAX_DISP;
+          p.y = p.ry + (ddy / disp) * MAX_DISP;
+          // Kill velocity component pointing away from rest
+          const dot = (p.vx * ddx + p.vy * ddy) / disp;
+          if (dot > 0) {
+            p.vx -= (ddx / disp) * dot;
+            p.vy -= (ddy / disp) * dot;
+          }
+        }
       }
     }
 
