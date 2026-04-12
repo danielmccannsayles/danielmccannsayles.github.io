@@ -93,6 +93,7 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .thing-row {
@@ -140,7 +141,7 @@ main {
 @media (max-width: 600px) {
   main {
     justify-content: flex-start;
-    padding-top: 15vh;
+    padding-top: 8vh;
     gap: 1.2rem;
   }
 

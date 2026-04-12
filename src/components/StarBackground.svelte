@@ -4,12 +4,13 @@
   let container;
 
   onMount(() => {
-    const count = 200;
+    const area = window.innerWidth * window.innerHeight;
+    const count = Math.round(area / 5000);
     const frag = document.createDocumentFragment();
     for (let i = 0; i < count; i++) {
       const star = document.createElement("div");
       star.className = "star";
-      const size = Math.random() * 2.5 + 0.5;
+      const size = Math.random() * 3 + 1;
       const x = Math.random() * 100;
       const y = Math.random() * 100;
       const delay = Math.random() * 4;
