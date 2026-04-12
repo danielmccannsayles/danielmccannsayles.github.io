@@ -65,6 +65,24 @@
     [50, 186],
   ];
 
+  // Compute center of local shape
+  let lcx = 0,
+    lcy = 0;
+  for (const [x, y] of SHAPE) {
+    lcx += x;
+    lcy += y;
+  }
+  lcx /= SHAPE.length;
+  lcy /= SHAPE.length;
+
+  // Precompute inward unit vector for each point (toward center)
+  const inward = SHAPE.map(([x, y]) => {
+    const dx = lcx - x;
+    const dy = lcy - y;
+    const d = Math.sqrt(dx * dx + dy * dy);
+    return { x: dx / d, y: dy / d };
+  });
+
   onMount(() => {
     const ctx = canvas.getContext("2d");
     let w, h;
@@ -72,8 +90,15 @@
       mouseY = -9999;
 
     const n = SHAPE.length;
+
+    // Each point: rest position + 1D dent along inward axis
     const pts = SHAPE.map(([x, y]) => ({
-      x: 0, y: 0, rx: 0, ry: 0, vx: 0, vy: 0, lx: x, ly: y,
+      lx: x,
+      ly: y,
+      rx: 0,
+      ry: 0,
+      dent: 0,
+      dentVel: 0,
     }));
 
     function reposition() {
@@ -84,121 +109,62 @@
       const ox = w - 280;
       const oy = h - 240;
       for (const p of pts) {
-        const newRx = p.lx + ox;
-        const newRy = p.ly + oy;
-        // Shift current position by the same delta so shape doesn't jump
-        p.x += newRx - p.rx;
-        p.y += newRy - p.ry;
-        p.rx = newRx;
-        p.ry = newRy;
+        p.rx = p.lx + ox;
+        p.ry = p.ly + oy;
       }
     }
     reposition();
 
-    // Precompute rest distances for neighbor springs (offsets 1-3)
-    const restD = [];
-    for (let off = 1; off <= 3; off++) {
-      const dists = [];
-      for (let i = 0; i < n; i++) {
-        const j = (i + off) % n;
-        const dx = pts[i].rx - pts[j].rx;
-        const dy = pts[i].ry - pts[j].ry;
-        dists.push(Math.sqrt(dx * dx + dy * dy));
-      }
-      restD.push(dists);
-    }
-
-    // Compute center of mass (rest) for anchor spring
-    function computeAnchor() {
-      let ax = 0, ay = 0;
-      for (const p of pts) { ax += p.rx; ay += p.ry; }
-      return { x: ax / n, y: ay / n };
-    }
-    let anchor = computeAnchor();
-
     // Physics constants
-    const REPEL_R = 50;
-    const REPEL_F = 1.2;
-    const REST_K = 0.08;
-    const ANCHOR_K = 0.05;
-    const SPRING_K = [0.2, 0.1, 0.05]; // offsets 1, 2, 3
-    const DAMP = 0.78;
-    const MAX_DISP = 25; // max pixels from rest
-    const MAX_VEL = 2;   // max pixels per frame
+    const REPEL_R = 100;
+    const REPEL_F = 2.5;
+    const SPRING_K = 0.1;
+    const DAMP = 0.8;
+    const MAX_DENT = 45;
 
     function update() {
-      // Compute current center of mass
-      let cx = 0, cy = 0;
-      for (const p of pts) { cx += p.x; cy += p.y; }
-      cx /= n;
-      cy /= n;
-
-      // Anchor force: pull entire body back to rest center
-      const afx = (anchor.x - cx) * ANCHOR_K;
-      const afy = (anchor.y - cy) * ANCHOR_K;
-
       for (let i = 0; i < n; i++) {
         const p = pts[i];
+        const inv = inward[i];
 
-        // Spring back to rest position + anchor pull
-        let fx = (p.rx - p.x) * REST_K + afx;
-        let fy = (p.ry - p.y) * REST_K + afy;
+        // Current world position of this point
+        const wx = p.rx + inv.x * p.dent;
+        const wy = p.ry + inv.y * p.dent;
 
-        // Mouse repulsion
-        const mdx = p.x - mouseX;
-        const mdy = p.y - mouseY;
+        // Mouse distance to this point's current position
+        const mdx = wx - mouseX;
+        const mdy = wy - mouseY;
         const md = Math.sqrt(mdx * mdx + mdy * mdy);
+
+        let force = 0;
+
         if (md < REPEL_R && md > 0.5) {
-          const f = ((REPEL_R - md) / REPEL_R) * REPEL_F;
-          fx += (mdx / md) * f;
-          fy += (mdy / md) * f;
-        }
-
-        // Multi-distance neighbor springs
-        for (let off = 0; off < 3; off++) {
-          const k = SPRING_K[off];
-          for (const dir of [-1, 1]) {
-            const j = (i + dir * (off + 1) + n) % n;
-            const nb = pts[j];
-            const rd = dir === 1 ? restD[off][i] : restD[off][j];
-            const dx = p.x - nb.x;
-            const dy = p.y - nb.y;
-            const d = Math.sqrt(dx * dx + dy * dy);
-            if (d > rd) {
-              // Tension only — pull together when stretched, never push apart
-              const diff = (d - rd) * k;
-              fx -= (dx / d) * diff;
-              fy -= (dy / d) * diff;
-            }
+          // Project mouse repulsion onto inward direction
+          // Only keep the inward component (positive = push inward)
+          const repelMag = ((REPEL_R - md) / REPEL_R) * REPEL_F;
+          const repelX = (mdx / md) * repelMag;
+          const repelY = (mdy / md) * repelMag;
+          const inwardComponent = repelX * inv.x + repelY * inv.y;
+          // Only apply if it pushes inward (positive)
+          if (inwardComponent > 0) {
+            force += inwardComponent;
           }
         }
 
-        p.vx = (p.vx + fx) * DAMP;
-        p.vy = (p.vy + fy) * DAMP;
+        // Spring back to rest (dent = 0)
+        force -= p.dent * SPRING_K;
 
-        // Clamp velocity
-        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-        if (speed > MAX_VEL) {
-          p.vx = (p.vx / speed) * MAX_VEL;
-          p.vy = (p.vy / speed) * MAX_VEL;
+        p.dentVel = (p.dentVel + force) * DAMP;
+        p.dent += p.dentVel;
+
+        // Never go outward past rest, clamp max inward
+        if (p.dent < 0) {
+          p.dent = 0;
+          p.dentVel = 0;
         }
-
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Clamp displacement from rest position
-        const ddx = p.x - p.rx;
-        const ddy = p.y - p.ry;
-        const disp = Math.sqrt(ddx * ddx + ddy * ddy);
-        if (disp > MAX_DISP) {
-          p.x = p.rx + (ddx / disp) * MAX_DISP;
-          p.y = p.ry + (ddy / disp) * MAX_DISP;
-          // Kill velocity component pointing away from rest
-          const dot = (p.vx * ddx + p.vy * ddy) / disp;
-          if (dot > 0) {
-            p.vx -= (ddx / disp) * dot;
-            p.vy -= (ddy / disp) * dot;
-          }
+        if (p.dent > MAX_DENT) {
+          p.dent = MAX_DENT;
+          p.dentVel = 0;
         }
       }
     }
@@ -210,19 +176,24 @@
       ctx.fillStyle = "white";
       ctx.beginPath();
 
+      // Get current world positions
+      const wx = [],
+        wy = [];
+      for (let i = 0; i < n; i++) {
+        wx.push(pts[i].rx + inward[i].x * pts[i].dent);
+        wy.push(pts[i].ry + inward[i].y * pts[i].dent);
+      }
+
       // Smooth closed path using quadratic bezier midpoint technique
-      const last = pts[n - 1];
-      const first = pts[0];
-      ctx.moveTo((last.x + first.x) / 2, (last.y + first.y) / 2);
+      ctx.moveTo((wx[n - 1] + wx[0]) / 2, (wy[n - 1] + wy[0]) / 2);
 
       for (let i = 0; i < n; i++) {
-        const curr = pts[i];
-        const next = pts[(i + 1) % n];
+        const ni = (i + 1) % n;
         ctx.quadraticCurveTo(
-          curr.x,
-          curr.y,
-          (curr.x + next.x) / 2,
-          (curr.y + next.y) / 2,
+          wx[i],
+          wy[i],
+          (wx[i] + wx[ni]) / 2,
+          (wy[i] + wy[ni]) / 2,
         );
       }
 
@@ -258,7 +229,9 @@
 
     window.addEventListener("mousemove", onMouse);
     window.addEventListener("mouseleave", onLeave);
-    const onResize = () => { reposition(); anchor = computeAnchor(); };
+    const onResize = () => {
+      reposition();
+    };
     window.addEventListener("resize", onResize);
     window.addEventListener("touchmove", onTouch);
     window.addEventListener("touchend", onTouchEnd);
