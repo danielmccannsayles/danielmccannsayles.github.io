@@ -21,9 +21,12 @@
     </div>
   </div>
   <div class="things">
-    <a href="/blog">[ Blog ]</a>
-    <a href="/projects">[ Projects ]</a>
-    <a href="/notes">[ Notes ]</a>
+    <div class="thing-row">
+      <span class="thing-date">2026</span>
+      <a href="https://www.workshoplabs.ai/blog/private-post-training"
+        >[ Private Post Training ]</a
+      >
+    </div>
   </div>
   <div class="links">
     <a
