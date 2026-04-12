@@ -106,8 +106,16 @@
       h = window.innerHeight;
       canvas.width = w;
       canvas.height = h;
-      const ox = w - 280;
-      const oy = h - 240;
+      let ox, oy;
+      if (w <= 600) {
+        // Mobile: center horizontally, sit at bottom
+        ox = (w - 180) / 2 - 10;
+        oy = h - 230;
+      } else {
+        // Desktop: lower-right
+        ox = w - 280;
+        oy = h - 240;
+      }
       for (const p of pts) {
         p.rx = p.lx + ox;
         p.ry = p.ly + oy;

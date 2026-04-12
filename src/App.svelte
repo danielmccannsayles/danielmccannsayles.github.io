@@ -119,7 +119,9 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    max-height: 100vh;
     padding: 0 20px;
+    box-sizing: border-box;
   }
 
   .card {
@@ -169,12 +171,35 @@
   }
 
   @media (max-width: 600px) {
+    main {
+      justify-content: flex-start;
+      padding-top: 15vh;
+      gap: 1.2rem;
+    }
+
     .card {
       flex-direction: column;
     }
 
+    .photo {
+      width: 80px;
+      height: 80px;
+    }
+
     .info {
       text-align: center;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+    }
+
+    .links {
+      margin-top: 0.8rem;
     }
   }
 </style>
