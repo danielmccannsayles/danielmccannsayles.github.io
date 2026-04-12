@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { resume, photo26 } from "$assets";
+  import SoftBodyCat from "./components/SoftBodyCat.svelte";
 
   let starsContainer;
 
@@ -32,6 +33,7 @@
 </script>
 
 <div class="stars" bind:this={starsContainer}></div>
+<SoftBodyCat />
 
 <main>
   <div class="card">
