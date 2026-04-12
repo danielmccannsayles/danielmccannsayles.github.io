@@ -1,6 +1,37 @@
 <script>
+  import { onMount } from "svelte";
   import { resume, photo26 } from "$assets";
+
+  let starsContainer;
+
+  onMount(() => {
+    const count = 200;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      const size = Math.random() * 2.5 + 0.5;
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const delay = Math.random() * 4;
+      const duration = Math.random() * 3 + 2;
+      const brightness = Math.random() * 0.6 + 0.4;
+      star.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}vw;
+        top: ${y}vh;
+        animation-delay: ${delay}s;
+        animation-duration: ${duration}s;
+        opacity: ${brightness};
+      `;
+      frag.appendChild(star);
+    }
+    starsContainer.appendChild(frag);
+  });
 </script>
+
+<div class="stars" bind:this={starsContainer}></div>
 
 <main>
   <div class="card">
@@ -48,7 +79,37 @@
 </main>
 
 <style>
+  .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .stars :global(.star) {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from {
+      opacity: var(--star-opacity, 0.4);
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+
   main {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +139,7 @@
     font-size: 1.8rem;
     color: var(--text-secondary);
     margin: 0 0 0.3rem;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .tagline {
