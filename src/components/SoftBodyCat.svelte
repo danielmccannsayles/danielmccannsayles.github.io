@@ -118,9 +118,11 @@
     // Physics constants
     const REPEL_R = 100;
     const REPEL_F = 2.5;
-    const SPRING_K = 0.1;
-    const DAMP = 0.8;
+    const SPRING_K = 0.08;
+    const DAMP = 0.82;
     const MAX_DENT = 45;
+    const NEIGHBOR_K = 0.12;  // dent propagation to neighbors
+    const NEIGHBOR2_K = 0.04; // weaker propagation to 2nd neighbors
 
     function update() {
       for (let i = 0; i < n; i++) {
@@ -151,6 +153,15 @@
           }
         }
 
+        // Neighbor dent propagation — pull toward neighbors' dent (creates ripple/jiggle)
+        const prev1 = pts[(i - 1 + n) % n].dent;
+        const next1 = pts[(i + 1) % n].dent;
+        force += ((prev1 + next1) / 2 - p.dent) * NEIGHBOR_K;
+
+        const prev2 = pts[(i - 2 + n) % n].dent;
+        const next2 = pts[(i + 2) % n].dent;
+        force += ((prev2 + next2) / 2 - p.dent) * NEIGHBOR2_K;
+
         // Spring back to rest (dent = 0)
         force -= p.dent * SPRING_K;
 
@@ -160,7 +171,7 @@
         // Never go outward past rest, clamp max inward
         if (p.dent < 0) {
           p.dent = 0;
-          p.dentVel = 0;
+          if (p.dentVel < 0) p.dentVel = 0;
         }
         if (p.dent > MAX_DENT) {
           p.dent = MAX_DENT;
