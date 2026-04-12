@@ -71,27 +71,29 @@
     let mouseX = -9999,
       mouseY = -9999;
 
-    function resize() {
+    const n = SHAPE.length;
+    const pts = SHAPE.map(([x, y]) => ({
+      x: 0, y: 0, rx: 0, ry: 0, vx: 0, vy: 0, lx: x, ly: y,
+    }));
+
+    function reposition() {
       w = window.innerWidth;
       h = window.innerHeight;
       canvas.width = w;
       canvas.height = h;
+      const ox = w - 280;
+      const oy = h - 240;
+      for (const p of pts) {
+        const newRx = p.lx + ox;
+        const newRy = p.ly + oy;
+        // Shift current position by the same delta so shape doesn't jump
+        p.x += newRx - p.rx;
+        p.y += newRy - p.ry;
+        p.rx = newRx;
+        p.ry = newRy;
+      }
     }
-    resize();
-
-    // Position cat in lower-right area
-    const ox = w - 280;
-    const oy = h - 240;
-    const n = SHAPE.length;
-
-    const pts = SHAPE.map(([x, y]) => ({
-      x: x + ox,
-      y: y + oy,
-      rx: x + ox,
-      ry: y + oy,
-      vx: 0,
-      vy: 0,
-    }));
+    reposition();
 
     // Precompute rest distances for neighbor springs (offsets 1-3)
     const restD = [];
@@ -107,10 +109,12 @@
     }
 
     // Compute center of mass (rest) for anchor spring
-    let anchorX = 0, anchorY = 0;
-    for (const p of pts) { anchorX += p.rx; anchorY += p.ry; }
-    anchorX /= n;
-    anchorY /= n;
+    function computeAnchor() {
+      let ax = 0, ay = 0;
+      for (const p of pts) { ax += p.rx; ay += p.ry; }
+      return { x: ax / n, y: ay / n };
+    }
+    let anchor = computeAnchor();
 
     // Physics constants
     const REPEL_R = 50;
@@ -130,8 +134,8 @@
       cy /= n;
 
       // Anchor force: pull entire body back to rest center
-      const afx = (anchorX - cx) * ANCHOR_K;
-      const afy = (anchorY - cy) * ANCHOR_K;
+      const afx = (anchor.x - cx) * ANCHOR_K;
+      const afy = (anchor.y - cy) * ANCHOR_K;
 
       for (let i = 0; i < n; i++) {
         const p = pts[i];
@@ -254,7 +258,8 @@
 
     window.addEventListener("mousemove", onMouse);
     window.addEventListener("mouseleave", onLeave);
-    window.addEventListener("resize", resize);
+    const onResize = () => { reposition(); anchor = computeAnchor(); };
+    window.addEventListener("resize", onResize);
     window.addEventListener("touchmove", onTouch);
     window.addEventListener("touchend", onTouchEnd);
 
@@ -262,7 +267,7 @@
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMouse);
       window.removeEventListener("mouseleave", onLeave);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", onResize);
       window.removeEventListener("touchmove", onTouch);
       window.removeEventListener("touchend", onTouchEnd);
     };
