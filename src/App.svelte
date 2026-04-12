@@ -20,14 +20,29 @@
       </p>
     </div>
   </div>
+  <div class="things">
+    <a href="/blog">[ Blog ]</a>
+    <a href="/projects">[ Projects ]</a>
+    <a href="/notes">[ Notes ]</a>
+  </div>
   <div class="links">
-    <a href="https://github.com/danielmccannsayles" target="_blank" rel="noopener" aria-label="GitHub">
+    <a
+      href="https://github.com/danielmccannsayles"
+      target="_blank"
+      rel="noopener"
+      aria-label="GitHub"
+    >
       <GithubIcon />
     </a>
     <a href={resume} target="_blank" rel="noopener" aria-label="Resume">
       <ResumeIcon />
     </a>
-    <a href="https://www.linkedin.com/in/daniel-mccann-sayles/" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <a
+      href="https://www.linkedin.com/in/daniel-mccann-sayles/"
+      target="_blank"
+      rel="noopener"
+      aria-label="LinkedIn"
+    >
       <LinkedInIcon />
     </a>
   </div>

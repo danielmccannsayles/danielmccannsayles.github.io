@@ -106,19 +106,21 @@
       h = window.innerHeight;
       canvas.width = w;
       canvas.height = h;
-      let ox, oy;
+      let ox, oy, scale;
       if (w <= 600) {
-        // Mobile: center horizontally, sit at bottom of viewport
-        ox = (w - 196) / 2;
+        // Mobile: 85% size, center horizontally, sit at bottom
+        scale = 0.85;
+        ox = (w - 196 * scale) / 2;
         oy = h - 210;
       } else {
-        // Desktop: lower-right
+        // Desktop: full size, lower-right
+        scale = 1;
         ox = w - 280;
         oy = h - 240;
       }
       for (const p of pts) {
-        p.rx = p.lx + ox;
-        p.ry = p.ly + oy;
+        p.rx = p.lx * scale + ox;
+        p.ry = p.ly * scale + oy;
       }
     }
     reposition();

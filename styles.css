@@ -87,8 +87,28 @@ main {
   margin: 0;
 }
 
-.links {
+.things {
   margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.things a {
+  color: var(--text-faded);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: "Courier New", Courier, monospace;
+  transition: color 0.2s;
+}
+
+.things a:hover {
+  color: var(--text-secondary);
+}
+
+.links {
+  margin-top: 1rem;
   display: flex;
   gap: 1.5rem;
 }
