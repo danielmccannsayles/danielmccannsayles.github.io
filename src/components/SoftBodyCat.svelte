@@ -106,20 +106,37 @@
       restD.push(dists);
     }
 
+    // Compute center of mass (rest) for anchor spring
+    let anchorX = 0, anchorY = 0;
+    for (const p of pts) { anchorX += p.rx; anchorY += p.ry; }
+    anchorX /= n;
+    anchorY /= n;
+
     // Physics constants
-    const REPEL_R = 80;
-    const REPEL_F = 5;
-    const REST_K = 0.03;
+    const REPEL_R = 60;
+    const REPEL_F = 2;
+    const REST_K = 0.06;
+    const ANCHOR_K = 0.04;
     const SPRING_K = [0.3, 0.15, 0.075]; // offsets 1, 2, 3
-    const DAMP = 0.93;
+    const DAMP = 0.85;
 
     function update() {
+      // Compute current center of mass
+      let cx = 0, cy = 0;
+      for (const p of pts) { cx += p.x; cy += p.y; }
+      cx /= n;
+      cy /= n;
+
+      // Anchor force: pull entire body back to rest center
+      const afx = (anchorX - cx) * ANCHOR_K;
+      const afy = (anchorY - cy) * ANCHOR_K;
+
       for (let i = 0; i < n; i++) {
         const p = pts[i];
 
-        // Spring back to rest position
-        let fx = (p.rx - p.x) * REST_K;
-        let fy = (p.ry - p.y) * REST_K;
+        // Spring back to rest position + anchor pull
+        let fx = (p.rx - p.x) * REST_K + afx;
+        let fy = (p.ry - p.y) * REST_K + afy;
 
         // Mouse repulsion
         const mdx = p.x - mouseX;
@@ -141,7 +158,8 @@
             const dx = p.x - nb.x;
             const dy = p.y - nb.y;
             const d = Math.sqrt(dx * dx + dy * dy);
-            if (d > 0.5) {
+            if (d > rd) {
+              // Tension only — pull together when stretched, never push apart
               const diff = (d - rd) * k;
               fx -= (dx / d) * diff;
               fy -= (dy / d) * diff;

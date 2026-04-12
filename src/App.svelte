@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { resume, photo26 } from "$assets";
   import SoftBodyCat from "./components/SoftBodyCat.svelte";
+  import WatercolorTest from "./components/WatercolorTest.svelte";
 
   let starsContainer;
 
@@ -32,6 +33,7 @@
   });
 </script>
 
+<WatercolorTest />
 <div class="stars" bind:this={starsContainer}></div>
 <SoftBodyCat />
 
