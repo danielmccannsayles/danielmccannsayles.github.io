@@ -22,8 +22,11 @@
   --shadow-medium: rgba(0, 0, 0, 0.4);
 }
 
+html,
 body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family:

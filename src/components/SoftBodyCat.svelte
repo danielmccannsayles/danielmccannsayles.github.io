@@ -108,9 +108,9 @@
       canvas.height = h;
       let ox, oy;
       if (w <= 600) {
-        // Mobile: center horizontally, sit at bottom
-        ox = (w - 180) / 2 - 10;
-        oy = h - 230;
+        // Mobile: center horizontally, sit at bottom of viewport
+        ox = (w - 196) / 2;
+        oy = h - 210;
       } else {
         // Desktop: lower-right
         ox = w - 280;
@@ -129,7 +129,7 @@
     const SPRING_K = 0.08;
     const DAMP = 0.82;
     const MAX_DENT = 45;
-    const NEIGHBOR_K = 0.12;  // dent propagation to neighbors
+    const NEIGHBOR_K = 0.12; // dent propagation to neighbors
     const NEIGHBOR2_K = 0.04; // weaker propagation to 2nd neighbors
 
     function update() {
