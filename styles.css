@@ -93,6 +93,17 @@ main {
   color: var(--text-faded);
   font-size: 1.1rem;
   margin: 0;
+  margin-bottom: 4px;
+}
+
+.tagline-link {
+  color: var(--text-faded);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.tagline-link:hover {
+  color: var(--text-secondary);
 }
 
 .things {
