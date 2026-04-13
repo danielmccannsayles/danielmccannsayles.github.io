@@ -111,7 +111,7 @@
         // Mobile: 85% size, center horizontally, sit at bottom
         scale = 0.85;
         ox = (w - 196 * scale) / 2;
-        oy = h - 210;
+        oy = h - 170;
       } else {
         // Desktop: full size, lower-right
         scale = 1;
