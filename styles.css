@@ -65,6 +65,14 @@ main {
   padding: 2rem 3rem;
 }
 
+.card-section {
+  background-color: var(--bg-primary);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   display: flex;
   align-items: center;
