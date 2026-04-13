@@ -16,10 +16,10 @@
       <div class="info">
         <h1>Daniel McCann-Sayles</h1>
         <p class="tagline">
-          Working to make AI go well & be broadly good for humanity.
+          Working to make AI go well & be broadly good for humanity
         </p>
         <p class="tagline">
-          Currently making humans irreplaceable at <a
+          Currently irreplacing humans at <a
             href="https://www.workshoplabs.ai"
             target="_blank"
             rel="noopener"
