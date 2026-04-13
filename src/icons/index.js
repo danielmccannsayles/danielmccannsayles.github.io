@@ -7,3 +7,4 @@ export { default as VerboseIcon } from "./VerboseIcon.svelte";
 export { default as GithubIcon } from "./GithubIcon.svelte";
 export { default as ResumeIcon } from "./ResumeIcon.svelte";
 export { default as LinkedInIcon } from "./LinkedInIcon.svelte";
+export { default as TwitterIcon } from "./TwitterIcon.svelte";

@@ -1,6 +1,6 @@
 <script>
-  import { resume, photo26 } from "$assets";
-  import { GithubIcon, ResumeIcon, LinkedInIcon } from "$icons";
+  import { photo26 } from "$assets";
+  import { GithubIcon, LinkedInIcon, TwitterIcon } from "$icons";
   import StarBackground from "./components/StarBackground.svelte";
   import SoftBodyCat from "./components/SoftBodyCat.svelte";
   import WatercolorTest from "./components/WatercolorTest.svelte";
@@ -18,7 +18,12 @@
         Working to make AI go well & be broadly good for humanity.
       </p>
       <p class="tagline">
-        Currently making humans irreplaceable at <a href="https://www.workshoplabs.ai" target="_blank" rel="noopener" class="tagline-link">Workshop Labs</a>
+        Currently making humans irreplaceable at <a
+          href="https://www.workshoplabs.ai"
+          target="_blank"
+          rel="noopener"
+          class="tagline-link">Workshop Labs</a
+        >
       </p>
     </div>
   </div>
@@ -39,9 +44,6 @@
     >
       <GithubIcon />
     </a>
-    <a href={resume} target="_blank" rel="noopener" aria-label="Resume">
-      <ResumeIcon />
-    </a>
     <a
       href="https://www.linkedin.com/in/daniel-mccann-sayles/"
       target="_blank"
@@ -49,6 +51,14 @@
       aria-label="LinkedIn"
     >
       <LinkedInIcon />
+    </a>
+    <a
+      href="https://x.com/DanielMcCannSay"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <TwitterIcon />
     </a>
   </div>
 </main>
