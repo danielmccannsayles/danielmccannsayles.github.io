@@ -5,3 +5,4 @@ export { default as hackathon } from "./hackathon.png";
 export { default as macm } from "./macm.gif";
 export { default as resume } from "./Resume 2025.pdf";
 export { default as picture } from "./me/picture.jpg";
+export { default as photo26 } from "./me/26.jpg";

@@ -1,46 +1,64 @@
 <script>
-  import { onMount } from "svelte";
-  import { theme } from "$stores/themeStore.js";
-  import Header from "./components/Header.svelte";
-  import About from "./components/summary/About.svelte";
-  import Projects from "./components/Projects.svelte";
-  import Intro from "./components/summary/Intro.svelte";
-  onMount(() => {
-    document.documentElement.setAttribute("data-theme", $theme);
-  });
+  import { photo26 } from "$assets";
+  import { GithubIcon, LinkedInIcon, TwitterIcon } from "$icons";
+  import StarBackground from "./components/StarBackground.svelte";
+  import SoftBodyCat from "./components/SoftBodyCat.svelte";
+  import WatercolorTest from "./components/WatercolorTest.svelte";
 </script>
 
-<Header />
+<StarBackground />
+<SoftBodyCat />
 
 <main>
-  <Intro />
-  <About />
-
-  <!-- <p>Featured:</p>
-  <Featured {featuredItems} /> -->
-
-  <p style="margin-top:24px">
-    Below is a chronological collection of work that I've done. Some are
-    write-ups, some link to external projects. Filter bar available for your
-    convenience.
-  </p>
+  <div class="card">
+    <img src={photo26} alt="Daniel McCann-Sayles" class="photo" />
+    <div class="info">
+      <h1>Daniel McCann-Sayles</h1>
+      <p class="tagline">
+        Working to make AI go well & be broadly good for humanity.
+      </p>
+      <p class="tagline">
+        Currently making humans irreplaceable at <a
+          href="https://www.workshoplabs.ai"
+          target="_blank"
+          rel="noopener"
+          class="tagline-link">Workshop Labs</a
+        >
+      </p>
+    </div>
+  </div>
+  <div class="things">
+    <div class="thing-row">
+      <span class="thing-date">2026</span>
+      <a href="https://www.workshoplabs.ai/blog/private-post-training"
+        >[ Private Post Training ]</a
+      >
+    </div>
+  </div>
+  <div class="links">
+    <a
+      href="https://github.com/danielmccannsayles"
+      target="_blank"
+      rel="noopener"
+      aria-label="GitHub"
+    >
+      <GithubIcon />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/daniel-mccann-sayles/"
+      target="_blank"
+      rel="noopener"
+      aria-label="LinkedIn"
+    >
+      <LinkedInIcon />
+    </a>
+    <a
+      href="https://x.com/DanielMcCannSay"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <TwitterIcon />
+    </a>
+  </div>
 </main>
-
-<Projects />
-
-<div class="footnote"></div>
-
-<style>
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0px 30px;
-    line-height: 1.2;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  .footnote {
-    margin-bottom: 20px;
-  }
-</style>

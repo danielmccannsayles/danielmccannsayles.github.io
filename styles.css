@@ -1,6 +1,6 @@
 /* Theme Variables */
 :root {
-  /* Dark theme (default) */
+  /* Dark theme */
   --bg-primary: #252525;
   --bg-secondary: #1f1f1f;
   --bg-tertiary: #2b2b2b;
@@ -11,7 +11,7 @@
   --text-accent-red: #f06a6a;
   --text-accent-green: #93da68;
   --text-accent-blue: #3baef6;
-  --text-accent-gold-light: #ffd700; /* Two golds - on light mode, they need to be slightly different*/
+  --text-accent-gold-light: #ffd700;
   --text-accent-gold-dark: #ffd700;
   --border: #37373d;
   --hover-bar: #37373d;
@@ -22,54 +22,17 @@
   --shadow-medium: rgba(0, 0, 0, 0.4);
 }
 
-[data-theme="light"] {
-  --bg-primary: #f5f5f5;
-  --bg-secondary: #eaeaea;
-  --bg-tertiary: #dcdde0;
-  --text-primary: #333333;
-  --text-secondary: #111111;
-  --text-faded: #666666;
-  --text-accent: #6f42c1;
-  --text-accent-red: #f06a6a;
-  --text-accent-green: #4ec802;
-  --text-accent-blue: #3b9cf6;
-  --text-accent-gold-light: #ffd700;
-  --text-accent-gold-dark: #edbe00;
-  --border: #dee2e6;
-  --hover-bar: #dee2e6;
-  --hover-bar-active: #0d6efd;
-  --link: #0d6efd;
-  --blockquote-border: #6f42c1;
-  --shadow-light: rgba(0, 0, 0, 0.08);
-  --shadow-medium: rgba(0, 0, 0, 0.15);
-}
-
-/* Override hljs */
-pre {
-  margin: 0;
-}
-
-code.hljs {
-  background: transparent;
-}
-
+html,
 body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-blockquote {
-  /* background: var(--bg-primary); */
-  padding: 1px;
-  padding-left: 10px;
-  border-left: 4px solid var(--blockquote-border);
-  font-style: italic;
-}
-
-/* generic */
 .hidden {
   display: none;
 }
@@ -80,23 +43,149 @@ a {
   text-decoration: underline;
 }
 
-/* emphasize */
-h1,
-h2,
-h4,
-h5,
-h6 {
+/* Main layout */
+main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 3rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.info {
+  text-align: left;
+}
+
+.info h1 {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.3rem;
+  font-weight: 500;
+}
+
+.tagline {
+  color: var(--text-faded);
+  font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.tagline-link {
+  color: var(--text-faded);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.tagline-link:hover {
   color: var(--text-secondary);
 }
 
-em {
+.things {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.thing-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.thing-date {
+  color: var(--text-faded);
+  font-size: 0.85rem;
+  font-family: "Courier New", Courier, monospace;
+  min-width: 3rem;
+}
+
+.things a {
+  color: var(--text-faded);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: "Courier New", Courier, monospace;
+  transition: color 0.2s;
+}
+
+.things a:hover {
   color: var(--text-secondary);
 }
 
-h3 {
-  color: var(--text-accent);
+.links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
-h3 > em {
-  color: var(--text-accent);
+.links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: var(--text-secondary);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  main {
+    justify-content: flex-start;
+    padding-top: 8vh;
+    gap: 1.2rem;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .photo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .info h1 {
+    font-size: 1.4rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+  }
+
+  .links {
+    margin-top: 0.3rem;
+  }
 }
