@@ -19,21 +19,32 @@
           Working to make AI go well & be broadly good for humanity
         </p>
         <p class="tagline">
-          Currently irreplacing humans at <a
-            href="https://www.workshoplabs.ai"
+          Building private gardens for thought at <a
+            href="https://tinfoil.sh"
             target="_blank"
             rel="noopener"
-            class="tagline-link">Workshop Labs</a
+            class="tagline-link">Tinfoil</a
           >
         </p>
       </div>
     </div>
     <div class="things">
       <div class="thing-row">
-        <span class="thing-date">2026</span>
+        <span class="thing-date">06/2026</span>
+        <a
+          href="https://tinfoil.sh/blog/2026-06-09-auditing-frontier-model-without-weights"
+          >[ Auditing closed source models ]</a
+        >
+      </div>
+      <div class="thing-row">
+        <span class="thing-date">03/2026</span>
         <a href="https://www.workshoplabs.ai/blog/private-post-training"
           >[ Private Post-Training ]</a
         >
+      </div>
+      <div class="thing-row">
+        <span class="thing-date">10/2025</span>
+        <a href="https://www.workshoplabs.ai">[ Workshop Labs ]</a>
       </div>
     </div>
     <div class="links">
