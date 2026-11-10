@@ -30,10 +30,32 @@
     </div>
     <div class="things">
       <div class="thing-row">
+        <span class="thing-date">09/2026</span>
+        <a
+          href="https://tinfoil.sh/blog/2026-09-14-safety-without-compromising-privacy"
+          >[ Safety With Privacy ]</a
+        >
+      </div>
+      <div class="thing-row">
+        <span class="thing-date">08/2026</span>
+        <a
+          href="https://www.lesswrong.com/posts/ddgA87uvXSsWDfu2a/my-private-personal-agent"
+          >[ My Private Personal Agent ]</a
+        >
+      </div>
+      <div class="thing-row">
         <span class="thing-date">06/2026</span>
         <a
           href="https://tinfoil.sh/blog/2026-06-09-auditing-frontier-model-without-weights"
-          >[ Auditing closed source models ]</a
+          >[ Auditing Closed Source Models ]</a
+        >
+      </div>
+      <div class="thing-row joined">
+        <span class="thing-date">04/2026</span>
+        <span class="joined-text"
+          >joined <a href="https://tinfoil.sh" target="_blank" rel="noopener"
+            >Tinfoil</a
+          ></span
         >
       </div>
       <div class="thing-row">
@@ -42,9 +64,13 @@
           >[ Private Post-Training ]</a
         >
       </div>
-      <div class="thing-row">
+      <div class="thing-row joined">
         <span class="thing-date">10/2025</span>
-        <a href="https://www.workshoplabs.ai">[ Workshop Labs ]</a>
+        <span class="joined-text"
+          >joined <a href="https://www.workshoplabs.ai" target="_blank" rel="noopener"
+            >Workshop Labs</a
+          ></span
+        >
       </div>
     </div>
     <div class="links">

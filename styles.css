@@ -115,7 +115,7 @@ main {
 }
 
 .things {
-  margin-top: 0.5rem;
+  margin-top: calc(0.5rem + 10px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -146,6 +146,18 @@ main {
 
 .things a:hover {
   color: var(--text-secondary);
+}
+
+.joined-text {
+  color: var(--text-faded);
+  font-size: 0.95rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.joined-text a {
+  color: inherit;
+  text-decoration: underline;
+  font-family: inherit;
 }
 
 .links {
